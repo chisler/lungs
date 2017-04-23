@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="df2bc385-f543-4b06-8348-6371d6e0fd06" name="Default" comment="" />
+    <list default="true" id="df2bc385-f543-4b06-8348-6371d6e0fd06" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ast/ast.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ast/doc-model.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/editor/editor-plugins/completers/completers-helpers/construct-ace-completion.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/editor/editor-plugins/completers/keywords.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/editor/editor-plugins/completers/references.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/helpers/path-to-array.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/helpers/recover-editor-value.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/parser/yaml.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/validators/semantic/references.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/validators/structure/schema.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/validators/structure/validator.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/editor/editor-plugins/completers/core.js" afterPath="$PROJECT_DIR$/src/editor/editor-plugins/completers/completers-helpers/core.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/editor/editor-plugins/completers/hook.js" afterPath="$PROJECT_DIR$/src/editor/editor-plugins/completers/completers-helpers/hook.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/editor/components/editor.jsx" afterPath="$PROJECT_DIR$/src/editor/components/editor.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/editor/editor-plugins/completers/autosuggest-apis.js" afterPath="$PROJECT_DIR$/src/editor/editor-plugins/completers/autosuggest-apis.js" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -15,67 +33,45 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SECOND">
-              <first_editor relative-caret-position="0">
-                <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                <folding>
-                  <marker date="1492946482000" expanded="true" signature="13361:13691" ph="{&quot;version&quot;: &quot;0.2.0&quot;...}" />
-                  <marker date="1492946482000" expanded="true" signature="13405:13689" ph="[...]" />
-                  <marker date="1492946482000" expanded="true" signature="13406:13688" ph="{&quot;name&quot;: &quot;Chrome&quot;...}" />
-                  <marker date="1492946482000" expanded="true" signature="13636:13684" ph="{&quot;webpack:///src/*&quot;: &quot;${webRoot}/*&quot;...}" />
-                  <marker date="1492946482000" expanded="true" signature="15717:15748" ph="{...}" />
-                  <marker date="1492946482000" expanded="true" signature="15730:15746" ph="{...}" />
-                  <marker date="1492946482000" expanded="true" signature="15854:15919" ph="..." />
-                  <marker date="1492946482000" expanded="true" signature="15998:16053" ph="{...}" />
-                  <marker date="1492946482000" expanded="true" signature="16011:16051" ph="{...}" />
-                  <marker date="1492946482000" expanded="true" signature="17425:17445" ph="{...}" />
-                  <marker date="1492946482000" expanded="true" signature="17481:17538" ph="..." />
-                  <marker date="1492946482000" expanded="true" signature="17620:17725" ph="{...}" />
-                  <marker date="1492946482000" expanded="true" signature="17633:17723" ph="{...}" />
-                  <marker date="1492946482000" expanded="true" signature="18804:18870" ph="{...}" />
-                  <marker date="1492946482000" expanded="true" signature="18903:19190" ph="{...}" />
-                  <marker date="1492946482000" expanded="true" signature="23119:23169" ph="..." />
-                  <marker date="1492946482000" expanded="true" signature="23276:23363" ph="{...}" />
-                  <marker date="1492946482000" expanded="true" signature="23573:23613" ph="{...}" />
-                  <marker date="1492946482000" expanded="true" signature="26439:26704" ph="{...}" />
-                  <marker date="1492946482000" expanded="true" signature="26443:26637" ph="//..." />
-                  <marker date="1492946482000" expanded="true" signature="29067:29151" ph="..." />
-                  <marker date="1492946482000" expanded="true" signature="29152:29256" ph="//..." />
-                  <marker date="1492946482000" expanded="true" signature="34439:34586" ph="..." />
-                  <marker date="1492946482000" expanded="true" signature="34526:34579" ph="..." />
-                  <marker date="1492946482000" expanded="true" signature="35036:35062" ph="{...}" />
-                  <marker date="1492946482000" expanded="true" signature="42196:42325" ph="..." />
-                  <marker date="1492946482000" expanded="true" signature="42205:42325" ph="..." />
-                  <marker date="1492946482000" expanded="true" signature="43960:44056" ph="&lt;html/&gt;" />
-                  <marker date="1492946482000" expanded="true" signature="43979:44056" ph="&lt;head/&gt;" />
-                  <marker date="1492946482000" expanded="true" signature="43990:44056" ph="&lt;script/&gt;" />
-                  <marker date="1492946482000" expanded="true" signature="47937:48004" ph="{...}" />
-                  <marker date="1492946482000" expanded="true" signature="48868:48946" ph="..." />
-                  <marker date="1492946482000" expanded="true" signature="48985:49066" ph="{...}" />
-                  <marker date="1492946482000" expanded="true" signature="49911:49989" ph="..." />
-                  <marker date="1492946482000" expanded="true" signature="50028:50051" ph="{...}" />
-                  <marker date="1492946482000" expanded="true" signature="50962:51040" ph="..." />
-                  <marker date="1492946482000" expanded="true" signature="51078:51268" ph="{...}" />
-                  <marker date="1492946482000" expanded="true" signature="52695:52745" ph="..." />
-                  <marker date="1492946482000" expanded="true" signature="53218:53284" ph="{...}" />
-                  <marker date="1492946482000" expanded="true" signature="55993:56054" ph="{...}" />
-                  <marker date="1492946482000" expanded="true" signature="61238:61304" ph="{...}" />
-                  <marker date="1492946482000" expanded="true" signature="68149:68233" ph="{...}" />
-                </folding>
-              </first_editor>
-              <second_editor />
+      <file leaf-file-name="references.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/editor/editor-plugins/completers/references.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="26" column="22" lean-forward="false" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
+              <folding>
+                <element signature="e#0#71#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/App.js">
+      <file leaf-file-name="autosuggest-apis.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/editor/editor-plugins/completers/autosuggest-apis.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="46" lean-forward="false" selection-start-line="1" selection-start-column="46" selection-end-line="1" selection-end-column="46" />
+            <state relative-caret-position="189">
+              <caret line="31" column="32" lean-forward="true" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#59#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="core.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/editor/editor-plugins/completers/completers-helpers/core.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hook.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/editor/editor-plugins/completers/completers-helpers/hook.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-6">
+              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -84,33 +80,11 @@
       <file leaf-file-name="editor.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/editor/components/editor.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+            <state relative-caret-position="208">
+              <caret line="62" column="30" lean-forward="false" selection-start-line="62" selection-start-column="30" selection-end-line="62" selection-end-column="30" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/index.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -136,9 +110,16 @@
       <find>fetch doma</find>
       <find>fetch domai</find>
       <find>fetch domain</find>
-      <find>fetchdomain</find>
       <find>&lt;</find>
+      <find>fetchdomain</find>
+      <find>ID_REGEX</find>
     </findStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/node_modules/brace</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -148,12 +129,22 @@
         <option value="$PROJECT_DIR$/src/editor/button.jsx" />
         <option value="$PROJECT_DIR$/node_modules/brace/mode/yaml.js" />
         <option value="$PROJECT_DIR$/src/editor/editor-plugins/completers/hook.js" />
-        <option value="$PROJECT_DIR$/src/editor/editor-plugins/completers/autosuggest-apis.js" />
         <option value="$PROJECT_DIR$/src/editor/editor-plugins/completers/core.js" />
         <option value="$PROJECT_DIR$/src/editor/index.jsx" />
         <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/src/editor/components/editor.jsx" />
         <option value="$PROJECT_DIR$/src/editor/components/editor.css" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/src/parser/yaml.js" />
+        <option value="$PROJECT_DIR$/src/validators/semantic/references.js" />
+        <option value="$PROJECT_DIR$/src/validators/structure/validator.js" />
+        <option value="$PROJECT_DIR$/src/editor/editor-plugins/completers/completers-helpers/construct-ace-completion.js" />
+        <option value="$PROJECT_DIR$/src/editor/editor-plugins/completers/completers-helpers/hook.js" />
+        <option value="$PROJECT_DIR$/src/editor/editor-plugins/completers/keywords.js" />
+        <option value="$PROJECT_DIR$/src/ast/doc-model.js" />
+        <option value="$PROJECT_DIR$/src/editor/editor-plugins/completers/autosuggest-apis.js" />
+        <option value="$PROJECT_DIR$/node_modules/brace/ext/language_tools.js" />
+        <option value="$PROJECT_DIR$/src/editor/editor-plugins/completers/references.js" />
+        <option value="$PROJECT_DIR$/src/editor/components/editor.jsx" />
       </list>
     </option>
   </component>
@@ -173,6 +164,7 @@
     <option name="width" value="1280" />
     <option name="height" value="773" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -262,6 +254,38 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="react-editor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="react-editor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ast" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="react-editor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="react-editor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -277,11 +301,15 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/editor/editor-plugins/new" />
       <recent name="$PROJECT_DIR$/src/editor/components" />
       <recent name="$PROJECT_DIR$/src/editor" />
       <recent name="$PROJECT_DIR$/src/editor/editor-plugins/completers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/editor/editor-plugins/completers/completers-helpers" />
+      <recent name="$PROJECT_DIR$/src/editor/editor-plugins/completers" />
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/editor/components" />
       <recent name="$PROJECT_DIR$/src/editor/editor-plugins" />
     </key>
@@ -375,12 +403,12 @@
       <updated>1492946053322</updated>
       <workItem from="1492946054492" duration="1386000" />
       <workItem from="1492947586494" duration="144000" />
-      <workItem from="1492947763782" duration="8282000" />
+      <workItem from="1492947763782" duration="11260000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9812000" />
+    <option name="totallyTimeSpent" value="12790000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="0" />
@@ -391,7 +419,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892805" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892805" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32892805" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -474,7 +502,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="17" column="3" lean-forward="true" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
-          <folding />
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -490,7 +520,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -499,7 +529,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="12" lean-forward="true" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
-          <folding />
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -522,14 +554,6 @@
           <folding>
             <element signature="e#0#26#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -572,7 +596,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/editor/editor-plugins/completers/core.js">
+    <entry file="file://$PROJECT_DIR$/src/index.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
@@ -580,10 +604,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/editor/editor-plugins/completers/autosuggest-apis.js">
+    <entry file="file://$PROJECT_DIR$/src/editor/components/editor.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="17" lean-forward="true" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/editor/components/editor.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="13" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -691,33 +731,111 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ast/ast.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-27">
+          <caret line="19" column="43" lean-forward="true" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#27#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="180">
+          <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/helpers/path-to-array.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-126">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/helpers/recover-editor-value.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-489">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parser/yaml.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="25" lean-forward="false" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/validators/structure/validator.js">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
-          <caret line="1" column="46" lean-forward="false" selection-start-line="1" selection-start-column="46" selection-end-line="1" selection-end-column="46" />
+          <caret line="1" column="36" lean-forward="true" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/validators/semantic/references.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="45" lean-forward="false" selection-start-line="0" selection-start-column="45" selection-end-line="0" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/editor/editor-plugins/completers/completers-helpers/construct-ace-completion.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="24" lean-forward="false" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
+        <state relative-caret-position="45">
           <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/editor/editor-plugins/completers/keywords.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-152">
+          <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#73#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.css">
+    <entry file="file://$PROJECT_DIR$/src/ast/doc-model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-32">
+          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/editor/editor-plugins/completers/completers-helpers/core.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
@@ -725,34 +843,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/editor/components/editor.less">
+    <entry file="file://$PROJECT_DIR$/node_modules/brace/ext/language_tools.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state relative-caret-position="-20">
+          <caret line="1233" column="38" lean-forward="true" selection-start-line="1233" selection-start-column="38" selection-end-line="1233" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/editor/components/editor.css">
+    <entry file="file://$PROJECT_DIR$/src/editor/editor-plugins/completers/completers-helpers/hook.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="13" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+        <state relative-caret-position="-6">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/editor/editor-plugins/completers/hook.js">
+    <entry file="file://$PROJECT_DIR$/src/editor/editor-plugins/completers/autosuggest-apis.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="189">
+          <caret line="31" column="32" lean-forward="true" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/editor/editor-plugins/completers/references.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="26" column="22" lean-forward="false" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#71#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/editor/components/editor.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+        <state relative-caret-position="208">
+          <caret line="62" column="30" lean-forward="false" selection-start-line="62" selection-start-column="30" selection-end-line="62" selection-end-column="30" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>

@@ -9,11 +9,14 @@
   "devDependencies": {
     "brace": "^0.10.0",
     "css-loader": "^0.28.0",
+    "jsonschema": "^1.1.1",
     "jsx-loader": "^0.13.2",
     "less-loader": "^4.0.3",
+    "lodash": "^4.17.4",
     "react-ace": "^4.2.1",
     "react-scripts": "0.9.5",
-    "style-loader": "^0.16.1"
+    "style-loader": "^0.16.1",
+    "yaml-js": "^0.1.4"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -1,4 +1,4 @@
-let request = require.context("./", true, /\.js$/)
+let request = require.context("..", true, /\.js$/)
 let plugins = []
 
 request.keys().forEach( function( key ){
