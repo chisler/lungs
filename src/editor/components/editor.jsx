@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import AceEditor from 'react-ace';
 import editorPluginsHook from "../editor-plugins/completers/completers-helpers/hook"
 
+import eq from "lodash/eq"
+import isEmpty from "lodash/isEmpty"
+
 import "brace/mode/yaml"
 import "brace/theme/tomorrow_night_eighties"
 import "brace/ext/language_tools"
@@ -9,8 +12,7 @@ import "brace/ext/searchbox"
 
 import "./editor.css"
 
-const mockYAML = `
-kotlin:
+const mockYAML = `kotlin:
   name: Kotlin
   description: This is a great thing!
   creator: 12
@@ -32,11 +34,13 @@ class Editor extends Component {
     constructor(props, context) {
         super(props, context)
         if(props.value) {
+            this.yaml = mockYAML || props.value
+        } else {
             this.yaml = mockYAML
         }
         this.state = {
             editor: null,
-            value:  mockYAML,
+            value:  this.yaml,
         }
 
     }
@@ -50,10 +54,9 @@ class Editor extends Component {
 
     onLoad = (editor) => {
         let { props, state } = this;
-
         state.editor = editor // TODO: get editor out of state
         editor.getSession().setUseWrapMode(true)
-
+        window.editor = editor;
         let session = editor.getSession()
 
         session.on("changeScrollLeft", xPos => { // eslint-disable-line no-unused-vars
@@ -71,30 +74,96 @@ class Editor extends Component {
 
         editor.setHighlightActiveLine(false)
         editor.setHighlightActiveLine(true)
+
+    }
+
+
+    updateErrorAnnotations = (nextProps) => {
+        if(this.state.editor && nextProps.errors) {
+            let editorAnnotations = nextProps.errors.toJS().map(err => {
+                // Create annotation objects that ACE can use
+                return {
+                    row: err.line - 1,
+                    column: 0,
+                    type: err.level,
+                    text: err.message
+                }
+            })
+
+            this.state.editor.getSession().setAnnotations(editorAnnotations)
+        }
+    }
+
+    setReadOnlyOptions = (nextProps) => {
+        let { state } = this
+
+        if(nextProps.readOnly === true && state.editor) {
+            state.editor.setOptions({
+                readOnly: true,
+                highlightActiveLine: false,
+                highlightGutterLine: false
+            })
+        } else if(state.editor) {
+            state.editor.setOptions({
+                readOnly: false,
+                highlightActiveLine: true,
+                highlightGutterLine: true
+            })
+        }
+    }
+
+    updateMarkerAnnotations = (nextProps, { force } = {}) => {
+        // let { state } = this
+        // let { onMarkerLineUpdate } = nextProps
+        //
+        // let size = obj => Object.keys(obj).length
+    }
+
+    componentWillMount() {
+        // add user agent info to document
+        // allows our custom Editor styling for IE10 to take effect
+        var doc = document.documentElement
+        doc.setAttribute("data-useragent", navigator.userAgent)
+    }
+
+    componentDidMount() {
+        // eslint-disable-next-line react/no-did-mount-set-state
+        // this.setState({ width: this.getWidth() })
+        document.addEventListener("click", this.onClick)
+
+        if(this.props.markers) {
+            this.updateMarkerAnnotations({ markers: this.props.markers }, { force: true })
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        let { state } = this
+        let hasChanged = (k) => !eq(nextProps[k], this.props[k])
+        let wasEmptyBefore = (k) => nextProps[k] && (!this.props[k] || isEmpty(this.props[k]))
+
+        this.updateErrorAnnotations(nextProps)
+        this.setReadOnlyOptions(nextProps)
+        this.updateMarkerAnnotations(nextProps)
+
+        if(state.editor && nextProps.goToLine && hasChanged("goToLine")) {
+            state.editor.gotoLine(nextProps.goToLine.line)
+        }
+
+        this.setState({
+            shouldClearUndoStack: hasChanged("specId") || wasEmptyBefore("value"),
+        })
+
     }
 
     yaml = this.yaml || "";
 
+
     shouldComponentUpdate(nextProps) {
-        const oriYaml = this.yaml
-        this.yaml = nextProps.value
-
-        return oriYaml !== nextProps.value
-    }
-
-    componentDidUpdate() {
-        let { shouldClearUndoStack, editor } = this.state
-
-        if(shouldClearUndoStack) {
-            setTimeout(function () {
-                editor.getSession().getUndoManager().reset()
-            }, 100)
-        }
-
-    }
-
-    componentWillUnmount() {
-        document.removeEventListener("click", this.onClick)
+        return false
+        // const oriYaml = this.yaml
+        // this.yaml = nextProps.value
+        //
+        // return oriYaml !== nextProps.value
     }
 
     render() {
