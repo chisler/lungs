@@ -53,7 +53,7 @@ class Editor extends Component {
     }
 
     onLoad = (editor) => {
-        let { props, state } = this;
+        let { state } = this;
         state.editor = editor // TODO: get editor out of state
         editor.getSession().setUseWrapMode(true)
         window.editor = editor;
@@ -65,7 +65,7 @@ class Editor extends Component {
 
         //After dot completion
         editor.commands.on("afterExec", function(e, t) {
-            if (e.command.name == "insertstring" && e.args == "." ) {
+            if (e.command.name === "insertstring" && e.args === "." ) {
                 e.editor.execCommand("startAutocomplete");
             }
         })

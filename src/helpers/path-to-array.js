@@ -17,7 +17,7 @@ export function pathToArray(pathString) {
         // array[index] -> ['array', 'index']
         if(item.includes("[")) {
             //TODO: index type -> int
-           return (/^(\w+)\s*((?:\[\s*\d+\s*\]\s*)*)$/.exec(item) || [,null]).slice(1).reduce(
+           return (/^(\w+)\s*((?:\[\s*\d+\s*\]\s*)*)$/.exec(item) || [null]).slice(1).reduce(
                     (fun, args) => [fun].concat(args.match(/\d+/g)));
         } else {
             return item

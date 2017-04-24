@@ -13,7 +13,7 @@ export function getReferenceCompletions(docModel, referenceString) {
     }
 
     let node = getDmNodeByPath(docModel, referenceArray)
-    if (!node || !node.value || typeof node.value == "string") {
+    if (!node || !node.value || typeof node.value === "string") {
         return []
     }
 

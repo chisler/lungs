@@ -11,8 +11,6 @@ export default function(editor) {
 
       let editorValue = session.getValue()
 
-      let currentLine = editorValue.split("\n")[pos.row]
-
       let array = getKeywordsForPosition(pos, prefix, editorValue)
 
       let completions = array.map(key => { return constructAceCompletion("Keyword", key)})
