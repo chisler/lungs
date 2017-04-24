@@ -13,7 +13,7 @@ export default function(editor) {
 
       let currentLine = editorValue.split("\n")[pos.row]
 
-      let array = getKeywordsForPosition(pos, prefix, editorValue) //["SCALA", "KOTLIN"]
+      let array = getKeywordsForPosition(pos, prefix, editorValue)
 
       let completions = array.map(key => { return constructAceCompletion("Keyword", key)})
 
@@ -26,8 +26,6 @@ export default function(editor) {
       editor.completer.autoSelect = true
 
       let editorValue = session.getValue()
-
-      let currentLine = editorValue.split("\n")[pos.row]
 
       let array = getReferenceCompletionsForPosition(pos, prefix, editorValue) //["SCALA", "KOTLIN"]
 
