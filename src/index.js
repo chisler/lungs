@@ -2,9 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { createStore } from 'redux'
 import Editor from './editor/components/Editor'
-import editorApp from './editor/reducers'
+import build from './editor/reducers/build'
 
-const store = createStore(editorApp);
+const store = createStore(build);
 const rootEl = document.getElementById('root')
 
 const render = () => ReactDOM.render(

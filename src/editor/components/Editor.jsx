@@ -35,7 +35,6 @@ class Editor extends Component {
             editor: null,
             value:  this.yaml,
         }
-
     }
 
     onChange = (value) => {
@@ -71,6 +70,23 @@ class Editor extends Component {
         editor.setHighlightActiveLine(false)
         editor.setHighlightActiveLine(true)
 
+        this.updateErrorAnnotations(this.props)
+    }
+
+    updateErrorAnnotations = (nextProps) => {
+        if(this.state.editor && nextProps.errors) {
+            let editorAnnotations = nextProps.errors.map(err => {
+                // Create annotation objects that ACE can use
+                return {
+                    row: err.line,
+                    column: 0,
+                    type: 'error',
+                    text: err.message
+                }
+            })
+
+            this.state.editor.getSession().setAnnotations(editorAnnotations)
+        }
     }
 
     shouldComponentUpdate(nextProps) {
@@ -80,9 +96,13 @@ class Editor extends Component {
         return oriYaml !== nextProps.yamlString
     }
 
+    componentWillReceiveProps(nextProps) {
+        this.updateErrorAnnotations(nextProps)
+    }
+
     render() {
-        const { yamlString, errors } = this.props
-        console.log(errors)
+        const { yamlString } = this.props
+
         return (
             <AceEditor
                 value={yamlString}
