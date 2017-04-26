@@ -59,7 +59,7 @@ export function getPathForPosition(originalPos, editorValue) {
     }
 
     let path = pathForPosition(editorValue, {
-        line: pos.row,
+        line: pos.row + 1,
         column: pos.column
     })
 

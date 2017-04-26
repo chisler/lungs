@@ -16,7 +16,8 @@ export function getKeywordsForPosition(originalPos, prefix, editorValue) {
     let jsonObj = parsedYaml.jsonObj
 
     let path = getPathForPosition(originalPos, editorValue)
-
+    console.log(editorValue)
+    console.log(path)
     let validated = validateSchema(jsonObj, editorValue)
 
     return getKeywordsForPath(validated.docModel, path)

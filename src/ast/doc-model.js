@@ -30,6 +30,9 @@ export function isPathValid(docModel, pathArray) {
 
     for (let i = 0; i < pathArray.length; i++) {
         key = pathArray[i]
+        if (!node.value || !key) {
+            return false
+        }
 
         node = node.value[key]
         if (!node) {
