@@ -4,6 +4,9 @@ import PropTypes from 'prop-types'
 import AceEditor from 'react-ace';
 import editorPluginsHook from "../editor-plugins/completers/completers-helpers/hook"
 
+import eq from "lodash/eq"
+import isEmpty from "lodash/isEmpty"
+
 import "brace/mode/yaml"
 import "brace/theme/tomorrow_night_eighties"
 import "brace/ext/language_tools"
@@ -46,14 +49,11 @@ class Editor extends Component {
 
     onLoad = (editor) => {
         let { state } = this;
-        state.editor = editor // TODO: get editor out of state
-        editor.getSession().setUseWrapMode(true)
-        window.editor = editor;
-
-        this.props.setValue(editor.getValue())
-
         let session = editor.getSession()
+        window.editor = editor;
+        state.editor = editor // TODO: get editor out of state
 
+        session.setUseWrapMode(true)
         session.on("changeScrollLeft", xPos => { // eslint-disable-line no-unused-vars
             session.setScrollLeft(0)
         })
@@ -67,13 +67,13 @@ class Editor extends Component {
 
         editorPluginsHook(editor, null, null || ['autosuggestApis'])
 
-        editor.setHighlightActiveLine(false)
-        editor.setHighlightActiveLine(true)
-
-        this.updateErrorAnnotations(this.props)
+        //Disable automatic error-marker correction by ace
+        editor.session.off("change", editor.renderer.$gutterLayer.$updateAnnotations)
+        this.props.setValue(editor.getValue())
     }
 
     updateErrorAnnotations = (nextProps) => {
+        console.log('nextProps', nextProps)
         if(this.state.editor && nextProps.errors) {
             let editorAnnotations = nextProps.errors.map(err => {
                 // Create annotation objects that ACE can use
@@ -84,12 +84,31 @@ class Editor extends Component {
                     text: err.message
                 }
             })
-
+            console.log('editorAnnotations', editorAnnotations)
+            console.log('current annotations', this.state.editor.getSession().getAnnotations())
             this.state.editor.getSession().setAnnotations(editorAnnotations)
+            console.log('after setting', this.state.editor.getSession().getAnnotations())
+        }
+    }
+
+    componentWillMount() {
+        // add user agent info to document
+        // allows our custom Editor styling for IE10 to take effect
+        var doc = document.documentElement
+        doc.setAttribute("data-useragent", navigator.userAgent)
+    }
+
+    componentDidMount() {
+        // eslint-disable-next-line react/no-did-mount-set-state
+        document.addEventListener("click", this.onClick)
+
+        if(this.props.errors) {
+            this.updateErrorAnnotations(this.props)
         }
     }
 
     shouldComponentUpdate(nextProps) {
+        // return true
         const oriYaml = this.yaml
         this.yaml = nextProps.yamlString
 
@@ -97,7 +116,31 @@ class Editor extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
+        let { state } = this
+        let hasChanged = (k) => !eq(nextProps[k], this.props[k])
+        let wasEmptyBefore = (k) => nextProps[k] && (!this.props[k] || isEmpty(this.props[k]))
+
         this.updateErrorAnnotations(nextProps)
+
+        this.setState({
+            shouldClearUndoStack: hasChanged("specId") || wasEmptyBefore("value"),
+        })
+
+    }
+
+    componentDidUpdate() {
+        let { shouldClearUndoStack, editor } = this.state
+
+        if(shouldClearUndoStack) {
+            setTimeout(function () {
+                editor.getSession().getUndoManager().reset()
+            }, 100)
+        }
+
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener("click", this.onClick)
     }
 
     render() {
@@ -119,7 +162,8 @@ class Editor extends Component {
                 wrapEnabled={true}
                 editorProps={{
                     "display_indent_guides": true,
-                    folding: "markbeginandend"
+                    folding: "markbeginandend",
+                    $useWorker: false
                 }}
                 setOptions={{
                     cursorStyle: "smooth",

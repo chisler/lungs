@@ -1,13 +1,15 @@
 import YAML from "yaml-js";
 import memoize from "lodash/memoize";
 
-let cachedCompose = memoize(YAML.compose)
+// let cachedCompose = memoize(YAML.compose)
+let cachedCompose = YAML.compose
 
 const MAP_TAG = "tag:yaml.org,2002:map"
 const SEQ_TAG = "tag:yaml.org,2002:seq"
 
 export function getLineForPath(yamlString, pathArray) {
     let mark = getAstNodeForPath(yamlString, pathArray)
+    console.log('yamlString', yamlString, 'path', pathArray, 'line', mark.start_mark.line)
     return mark.start_mark.line
 }
 
@@ -59,7 +61,7 @@ export function getPathForPosition(originalPos, editorValue) {
     }
 
     let path = pathForPosition(editorValue, {
-        line: pos.row + 1,
+        line: pos.row,
         column: pos.column
     })
 
@@ -96,6 +98,7 @@ export function pathForPosition(yaml, position) {
 
 
     var path = []
+    console.log(ast)
 
     return find(ast)
 
@@ -183,11 +186,13 @@ export function pathForPosition(yaml, position) {
 
             // if position is in the same line as end_mark
             if (position.line === node.end_mark.line) {
-                return position.column <= node.end_mark.column + 1
+                return position.column < node.end_mark.column
             }
 
             // if position is between start and end lines return true, otherwise
             // return false.
+
+            // < but not <= because sequence nodes end on the start mark of next
             return (node.start_mark.line < position.line) &&
                 (node.end_mark.line > position.line)
         }

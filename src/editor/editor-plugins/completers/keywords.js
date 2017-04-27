@@ -6,6 +6,8 @@ import {getBaseForPath} from "../../../ast/doc-model";
 import schema from "../../../validators/structure/schema";
 
 export function getKeywordsForPosition(originalPos, prefix, editorValue) {
+    console.log(originalPos)
+
     editorValue = recoverEditorValue(originalPos, prefix, editorValue)
     let parsedYaml = parseYAML(editorValue)
 
@@ -16,10 +18,8 @@ export function getKeywordsForPosition(originalPos, prefix, editorValue) {
     let jsonObj = parsedYaml.jsonObj
 
     let path = getPathForPosition(originalPos, editorValue)
-    console.log(editorValue)
-    console.log(path)
     let validated = validateSchema(jsonObj, editorValue)
-
+    console.log(path)
     return getKeywordsForPath(validated.docModel, path)
 
 }

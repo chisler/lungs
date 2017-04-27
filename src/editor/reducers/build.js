@@ -1,5 +1,5 @@
-import {getDocModel} from "../../ast/doc-model";
-import {getAllReferences, validateReferences} from "../../validators/semantic/references";
+import { getDocModel } from "../../ast/doc-model";
+import { getAllReferences, validateReferences } from "../../validators/semantic/references";
 const mockYAML = `kotlin:
   name: Kotlin
   description: This is a great thing!
@@ -19,9 +19,10 @@ const mockYAML = `kotlin:
 
 //TODO: remove defalts from reducer
 
-const build = (state = null , action) => {
+const build = (state = null, action) => {
     //default case
     if (state === null) {
+        console.warn('DEFAULT')
         let yamlString = mockYAML
         let dM = getDocModel(yamlString)
         let r = getAllReferences(dM)
@@ -40,12 +41,15 @@ const build = (state = null , action) => {
             }
         case 'VALIDATE':
             let dM = getDocModel(state.yamlString)
+
             let r = getAllReferences(dM)
-            let v = validateReferences(dM, mockYAML, r)
+            let v = validateReferences(dM, state.yamlString, r)
             return {
                 ...state,
                 errors: v.errors
             }
+
+
         default:
             return state
     }
