@@ -1,5 +1,7 @@
 import { getDocModel } from "../../ast/doc-model";
 import { getAllReferences, validateReferences } from "../../validators/semantic/references";
+import {parseYAML} from "../../parser/yaml";
+import {validateSchema} from "../../validators/structure/validator";
 const mockYAML = `kotlin:
   name: Kotlin
   description: This is a great thing!
@@ -17,20 +19,46 @@ const mockYAML = `kotlin:
         description: Some features have their own description or rationale.
 `;
 
+//Gets the editor value => returns new state
+const validate = (state) => {
+    let parsedYaml = parseYAML(state.yamlString)
+    console.log(parsedYaml)
+    if (parsedYaml.error) {
+        return {
+            ...state,
+            //TODO: is it better to add this error to existing?
+            errors: [parsedYaml.error]
+        }
+    }
+
+    let jsonObj = parsedYaml.jsonObj
+    let validatedSchema = validateSchema(jsonObj, state.yamlString)
+    console.log(validatedSchema)
+
+    if (validatedSchema.errors.length > 0) {
+        return {
+            ...state,
+            errors: validatedSchema.errors
+        }
+    }
+    let dM = validatedSchema.docModel
+    let r = getAllReferences(dM)
+    let v = validateReferences(dM, state.yamlString, r)
+    console.log(v)
+    return {
+        ...state,
+        errors: v.errors
+    }
+}
+
+
 //TODO: remove defalts from reducer
 
 const build = (state = null, action) => {
     //default case
     if (state === null) {
         console.warn('DEFAULT')
-        let yamlString = mockYAML
-        let dM = getDocModel(yamlString)
-        let r = getAllReferences(dM)
-        let v = validateReferences(dM, mockYAML, r)
-        return {
-            yamlString: yamlString,
-            errors: v.errors
-        }
+        return validate({yamlString: mockYAML})
     }
 
     switch (action.type) {
@@ -40,16 +68,7 @@ const build = (state = null, action) => {
                 yamlString: action.yamlString
             }
         case 'VALIDATE':
-            let dM = getDocModel(state.yamlString)
-
-            let r = getAllReferences(dM)
-            let v = validateReferences(dM, state.yamlString, r)
-            return {
-                ...state,
-                errors: v.errors
-            }
-
-
+            return validate(state)
         default:
             return state
     }

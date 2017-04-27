@@ -24,7 +24,6 @@ export function validateSchema(jsonObj, yamlString) {
             const path = err.property.replace('instance.', '')
             return {
                 line: getLineForPath(yamlString, pathToArray(path)),
-                path: path,
                 message: path + ' ' + err.message,
                 scope: "schema"
             }

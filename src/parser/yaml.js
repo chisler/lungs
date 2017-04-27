@@ -9,7 +9,6 @@ export function parseYAML(yamlString) {
     let res = {
         jsonObj: null,
         error: null,
-        line: null
     }
 
     try {
@@ -18,8 +17,11 @@ export function parseYAML(yamlString) {
     } catch (error) {
         console.warn(error.stack)
 
-        res.error = error.stack
-        res.line = error.problem_mark.line
+        res.error = {
+            line:error.problem_mark.line,
+            message: error.stack,
+            scope: "parsing"
+        }
     }
 
     return res

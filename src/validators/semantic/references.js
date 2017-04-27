@@ -58,7 +58,6 @@ function validateReference(docModel, editorValue, reference) {
 
     if (!isPathValid(docModel, referenceArray)) {
         return {
-            reference: reference,
             message: "Invalid reference " + reference.referenceString,
             line: getLineForPath(editorValue, pathToArray(reference.path)),
             scope: "reference"
