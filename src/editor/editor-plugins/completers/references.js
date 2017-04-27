@@ -12,7 +12,6 @@ export function getReferenceCompletions(docModel, referenceString) {
         referenceArray = referenceArray.slice(0, -1)
     }
     let node = getDmNodeByPath(docModel, referenceArray)
-    console.log("referenceArray", referenceArray, "node", node)
 
     if (!node || !node.value || typeof node.value === "string") {
         return []
@@ -24,7 +23,6 @@ export function getReferenceCompletions(docModel, referenceString) {
         return node.value[competion].value != undefined;
     })
 
-    console.log(completions)
     return completions
 }
 
