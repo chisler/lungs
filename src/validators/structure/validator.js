@@ -8,6 +8,10 @@ let schemaValidator = new JSONSchema.Validator()
 export function validateSchema(jsonObj, yamlString) {
 
     function rewrite(instance, schema, options, ctx) {
+        if (!instance) {
+            return instance
+        }
+
         return {
             value: instance,
             base: ctx.base
@@ -17,7 +21,6 @@ export function validateSchema(jsonObj, yamlString) {
     let options = {rewrite: rewrite}
 
     let validation = schemaValidator.validate(jsonObj, schema, options)
-
     return {
         docModel: validation.instance,
         errors: validation.errors.map(err => {

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types'
 
 import AceEditor from 'react-ace';
@@ -28,7 +28,7 @@ class Editor extends Component {
 
     constructor(props, context) {
         super(props, context)
-        if(props.yamlString) {
+        if (props.yamlString) {
             this.yaml = props.yamlString
         } else {
             this.yaml = ''
@@ -36,19 +36,19 @@ class Editor extends Component {
 
         this.state = {
             editor: null,
-            value:  this.yaml,
+            value: this.yaml,
         }
     }
 
     onChange = (value) => {
-        this.setState({ value })
+        this.setState({value})
 
         this.props.setValue(value)
         this.props.onChange()
     }
 
     onLoad = (editor) => {
-        let { state } = this;
+        let {state} = this;
         let session = editor.getSession()
         window.editor = editor;
         state.editor = editor // TODO: get editor out of state
@@ -58,22 +58,23 @@ class Editor extends Component {
             session.setScrollLeft(0)
         })
 
+        //Disable automatic error-marker correction by ace
+        session.off("change", editor.renderer.$gutterLayer.$updateAnnotations)
+
         //After dot completion
-        editor.commands.on("afterExec", function(e, t) {
-            if (e.command.name === "insertstring" && e.args === "." ) {
+        editor.commands.on("afterExec", function (e, t) {
+            if (e.command.name === "insertstring" && e.args === ".") {
                 e.editor.execCommand("startAutocomplete");
             }
         })
 
         editorPluginsHook(editor, null, null || ['autosuggestApis'])
 
-        //Disable automatic error-marker correction by ace
-        editor.session.off("change", editor.renderer.$gutterLayer.$updateAnnotations)
         this.props.setValue(editor.getValue())
     }
 
     updateErrorAnnotations = (nextProps) => {
-        if(this.state.editor && nextProps.errors) {
+        if (this.state.editor && nextProps.errors) {
             let editorAnnotations = nextProps.errors.map(err => {
                 // Create annotation objects that ACE can use
                 return {
@@ -98,7 +99,7 @@ class Editor extends Component {
         // eslint-disable-next-line react/no-did-mount-set-state
         document.addEventListener("click", this.onClick)
 
-        if(this.props.errors) {
+        if (this.props.errors) {
             this.updateErrorAnnotations(this.props)
         }
     }
@@ -112,35 +113,11 @@ class Editor extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        let { state } = this
-        let hasChanged = (k) => !eq(nextProps[k], this.props[k])
-        let wasEmptyBefore = (k) => nextProps[k] && (!this.props[k] || isEmpty(this.props[k]))
-
-        this.updateErrorAnnotations(nextProps)
-
-        this.setState({
-            shouldClearUndoStack: hasChanged("specId") || wasEmptyBefore("value"),
-        })
-
-    }
-
-    componentDidUpdate() {
-        let { shouldClearUndoStack, editor } = this.state
-
-        if(shouldClearUndoStack) {
-            setTimeout(function () {
-                editor.getSession().getUndoManager().reset()
-            }, 100)
-        }
-
-    }
-
-    componentWillUnmount() {
-        document.removeEventListener("click", this.onClick)
+                this.updateErrorAnnotations(nextProps)
     }
 
     render() {
-        const { yamlString } = this.props
+        const {yamlString} = this.props
 
         return (
             <AceEditor

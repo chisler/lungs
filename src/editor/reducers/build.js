@@ -22,7 +22,6 @@ const mockYAML = `kotlin:
 //Gets the editor value => returns new state
 const validate = (state) => {
     let parsedYaml = parseYAML(state.yamlString)
-    console.log(parsedYaml)
     if (parsedYaml.error) {
         return {
             ...state,
@@ -33,21 +32,16 @@ const validate = (state) => {
 
     let jsonObj = parsedYaml.jsonObj
     let validatedSchema = validateSchema(jsonObj, state.yamlString)
-    console.log(validatedSchema)
 
-    if (validatedSchema.errors.length > 0) {
-        return {
-            ...state,
-            errors: validatedSchema.errors
-        }
-    }
     let dM = validatedSchema.docModel
     let r = getAllReferences(dM)
     let v = validateReferences(dM, state.yamlString, r)
-    console.log(v)
     return {
         ...state,
-        errors: v.errors
+        errors: [
+            ...v.errors,
+            ...validatedSchema.errors
+        ]
     }
 }
 

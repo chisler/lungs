@@ -12,15 +12,26 @@ class Errors extends Component {
         errors: PropTypes.array.isRequired,
     }
 
+    sortedByLine = (errors) => {
+        const comparator = (e1, e2) => {return e1.line > e2.line}
+
+        let sortedErrors = Object.assign([], errors)
+
+        sortedErrors.sort(comparator)
+        return sortedErrors
+    }
+
     render() {
         const {errors} = this.props
+
+        const sortedErrors = this.sortedByLine(errors)
 
         return (
             <div className="errors_container">
                 <ul className="list_without_bullets">
-                    {errors.map(err => {
+                    {sortedErrors.map((err, index) => {
                     return (
-                        <li key={err.line + 1}>
+                        <li key={index}>
                             <Error
                                 line={err.line + 1}
                                 message={err.message}
