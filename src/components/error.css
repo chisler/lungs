@@ -10,3 +10,9 @@
     /*align-items: flex-start;*/
     justify-content: space-between;
 }
+
+.list_without_bullets {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}

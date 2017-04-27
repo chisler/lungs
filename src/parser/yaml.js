@@ -1,4 +1,4 @@
-import YAML from "yaml-js";
+import YAML from "js-yaml";
 
 //TODO: If errors use last successful build
 //TODO: tolerating errors
@@ -12,14 +12,14 @@ export function parseYAML(yamlString) {
     }
 
     try {
-        res.jsonObj = YAML.load(yamlString)
+        res.jsonObj = YAML.safeLoad(yamlString);
 
     } catch (error) {
         console.warn(error.stack)
 
         res.error = {
-            line:error.problem_mark.line,
-            message: error.stack,
+            line: error.mark.line,
+            message: error.message,
             scope: "parsing"
         }
     }

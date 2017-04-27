@@ -17,15 +17,19 @@ class Errors extends Component {
 
         return (
             <div className="errors_container">
-                {errors.map(err => {
+                <ul className="list_without_bullets">
+                    {errors.map(err => {
                     return (
-                        <Error
-                            line={err.line + 1}
-                            message={err.message}
-                            scope={err.scope}
-                        />
+                        <li key={err.line + 1}>
+                            <Error
+                                line={err.line + 1}
+                                message={err.message}
+                                scope={err.scope}
+                            />
+                        </li>
                     )
                 })}
+                </ul>
             </div>
         )
     }
