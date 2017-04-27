@@ -11,13 +11,19 @@ export function getReferenceCompletions(docModel, referenceString) {
     if (referenceString[-1] !== ".") {
         referenceArray = referenceArray.slice(0, -1)
     }
-
     let node = getDmNodeByPath(docModel, referenceArray)
+    console.log("referenceArray", referenceArray, "node", node)
+
     if (!node || !node.value || typeof node.value === "string") {
         return []
     }
 
     let completions = Object.keys(node.value)
+
+    completions = completions.filter(function(competion){
+        return node.value[competion].value != undefined;
+    })
+
     console.log(completions)
     return completions
 }

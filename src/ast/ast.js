@@ -9,7 +9,6 @@ const SEQ_TAG = "tag:yaml.org,2002:seq"
 
 export function getLineForPath(yamlString, pathArray) {
     let mark = getAstNodeForPath(yamlString, pathArray)
-    console.log('yamlString', yamlString, 'path', pathArray, 'line', mark.start_mark.line)
     return mark.start_mark.line
 }
 
@@ -98,7 +97,6 @@ export function pathForPosition(yaml, position) {
 
 
     var path = []
-    console.log(ast)
 
     return find(ast)
 

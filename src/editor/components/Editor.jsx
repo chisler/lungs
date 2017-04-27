@@ -73,7 +73,6 @@ class Editor extends Component {
     }
 
     updateErrorAnnotations = (nextProps) => {
-        console.log('nextProps', nextProps)
         if(this.state.editor && nextProps.errors) {
             let editorAnnotations = nextProps.errors.map(err => {
                 // Create annotation objects that ACE can use
@@ -84,10 +83,7 @@ class Editor extends Component {
                     text: err.message
                 }
             })
-            console.log('editorAnnotations', editorAnnotations)
-            console.log('current annotations', this.state.editor.getSession().getAnnotations())
             this.state.editor.getSession().setAnnotations(editorAnnotations)
-            console.log('after setting', this.state.editor.getSession().getAnnotations())
         }
     }
 

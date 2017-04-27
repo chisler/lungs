@@ -35,7 +35,7 @@ export function isPathValid(docModel, pathArray) {
         }
 
         node = node.value[key]
-        if (!node) {
+        if (!node || !node.value) {
             return false
         }
     }
