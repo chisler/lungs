@@ -3,3 +3,10 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+
+.container {
+  display: flex; /* or inline-flex */
+  flex-direction: row;
+  align-items: flex-start;
+}

@@ -150,7 +150,7 @@ class Editor extends Component {
                 onLoad={this.onLoad}
                 onChange={this.onChange}
                 name="ace-editor"
-                width="100%"
+                width="60%"
                 height="100%"
                 tabSize={2}
                 fontSize={14}

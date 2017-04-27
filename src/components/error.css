@@ -1,0 +1,12 @@
+.error {
+    border: 1px solid red;
+    padding: 10px;
+    margin: 10px;
+}
+
+.errors_container {
+    display: flex; /* or inline-flex */
+    flex-direction: column;
+    /*align-items: flex-start;*/
+    justify-content: space-between;
+}
