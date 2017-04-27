@@ -19,8 +19,31 @@ const mockYAML = `kotlin:
         description: Some features have their own description or rationale.
 `;
 
+//TODO: remove defalts from reducer
+
+const build = (state = null, action) => {
+    //default case
+    if (state === null) {
+        console.warn('DEFAULT')
+        return validateState({yamlString: mockYAML})
+    }
+
+    switch (action.type) {
+        case 'SET_VALUE':
+            return {
+                ...state,
+                yamlString: action.yamlString
+            }
+        case 'VALIDATE':
+            return validateState(state)
+        default:
+            return state
+    }
+}
+
+
 //Gets the editor value => returns new state
-const validate = (state) => {
+const validateState = (state) => {
     let parsedYaml = parseYAML(state.yamlString)
     if (parsedYaml.error) {
         return {
@@ -45,27 +68,5 @@ const validate = (state) => {
     }
 }
 
-
-//TODO: remove defalts from reducer
-
-const build = (state = null, action) => {
-    //default case
-    if (state === null) {
-        console.warn('DEFAULT')
-        return validate({yamlString: mockYAML})
-    }
-
-    switch (action.type) {
-        case 'SET_VALUE':
-            return {
-                ...state,
-                yamlString: action.yamlString
-            }
-        case 'VALIDATE':
-            return validate(state)
-        default:
-            return state
-    }
-}
 
 export default build

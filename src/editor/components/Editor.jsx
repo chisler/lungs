@@ -23,7 +23,8 @@ class Editor extends Component {
         yamlString: PropTypes.string.isRequired,
         onChange: PropTypes.func.isRequired,
         setValue: PropTypes.func.isRequired,
-        errors: PropTypes.array
+        errors: PropTypes.array,
+        goToLine: PropTypes.number
     }
 
     constructor(props, context) {
@@ -113,7 +114,13 @@ class Editor extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-                this.updateErrorAnnotations(nextProps)
+        this.updateErrorAnnotations(nextProps)
+        const hasChanged = (k) => !eq(nextProps[k], this.props[k])
+
+        console.log(nextProps)
+        if(this.state.editor && nextProps.goToLine && hasChanged("goToLine")) {
+            this.state.editor.gotoLine(nextProps.goToLine)
+        }
     }
 
     render() {

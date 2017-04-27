@@ -10,7 +10,12 @@ class Error extends Component {
     static propTypes = {
         line: PropTypes.number.isRequired,
         message: PropTypes.string.isRequired,
-        scope: PropTypes.string.isRequired
+        scope: PropTypes.string.isRequired,
+        onClick: PropTypes.func.isRequired
+    }
+
+    handleClick = () => {
+        this.props.onClick(this.props.line)
     }
 
     render() {
@@ -18,7 +23,7 @@ class Error extends Component {
 
         return (
             <div className="error">
-                Error. Line {line}: {message}
+                Error. <span className="anchor_hack" onClick={this.handleClick}>Line {line}</span>: {message}
             </div>
         )
     }

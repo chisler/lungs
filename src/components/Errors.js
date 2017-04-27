@@ -10,6 +10,7 @@ class Errors extends Component {
 
     static propTypes = {
         errors: PropTypes.array.isRequired,
+        onClick: PropTypes.func.isRequired
     }
 
     sortedByLine = (errors) => {
@@ -36,6 +37,7 @@ class Errors extends Component {
                                 line={err.line + 1}
                                 message={err.message}
                                 scope={err.scope}
+                                onClick={this.props.onClick}
                             />
                         </li>
                     )
