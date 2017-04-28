@@ -8,24 +8,23 @@ import editorApp from './editor/reducers'
 import "./index.css"
 
 const store = createStore(editorApp);
-const rootEl = document.getElementById('root')
 
 const render = () => ReactDOM.render(
     <div className="container">
         <Editor
             yamlString={store.getState().build.yamlString}
             onChange={() => store.dispatch({type: 'VALIDATE'})}
-            setValue={(yamlString) => store.dispatch({type: 'SET_VALUE', yamlString})}
+            setValue={yamlString => store.dispatch({type: 'SET_VALUE', yamlString})}
             errors={store.getState().build.errors}
             goToLine={store.getState().navigation.line}
         />
         <Errors
             errors={store.getState().build.errors}
-            onClick={(line) => store.dispatch({type: 'GO_TO_LINE', line})}
+            onClick={line => store.dispatch({type: 'GO_TO_LINE', line})}
         />
     </div>
     ,
-    rootEl
+    document.getElementById('root')
 )
 
 store.subscribe(render)
