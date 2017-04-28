@@ -37,7 +37,6 @@ export function getReferenceCompletionsForPosition(originalPos, prefix, editorVa
 
     let jsonObj = parsedYaml.jsonObj
 
-    //TODO: Do we need it here?
     let pathArray = getPathForPosition(originalPos, editorValue)
     let validated = validateSchema(jsonObj, editorValue)
 

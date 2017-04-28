@@ -15,8 +15,6 @@ import "brace/ext/searchbox"
 import "./editor.css"
 
 
-//TODO: get rid of unused state agruments
-
 class Editor extends Component {
 
     static propTypes = {
