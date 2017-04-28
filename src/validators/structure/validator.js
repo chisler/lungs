@@ -1,9 +1,14 @@
-import JSONSchema from "jsonschema";
+import { Validator } from "jsonschema";
 import {getLineForPath} from "../../ast/ast";
 import {pathToArray} from "../../helpers/path-to-array";
 import schema from "./schema";
 
-let schemaValidator = new JSONSchema.Validator()
+Validator.prototype.customFormats.languageFormat = function(input) {
+    return input === 'myFormat';
+};
+
+
+let schemaValidator = new Validator()
 
 export function validateSchema(jsonObj, yamlString) {
 
@@ -11,7 +16,6 @@ export function validateSchema(jsonObj, yamlString) {
         if (!instance) {
             return instance
         }
-
         return {
             value: instance,
             base: ctx.base

@@ -12,7 +12,8 @@ export default {
                 "creator": {"type": "string"},
                 "description": {"type": "string"},
                 "people": {"type": "array", "items": {"type": "string"}},
-                "features": {"$ref": "/#/definitions/features"}
+                "features": {"$ref": "/#/definitions/features"},
+                "ancestor": {"$ref": "/#/definitions/references/languageReference"},
             },
             "required": ["name", "creator", "people", "features"],
         },
@@ -32,14 +33,28 @@ export default {
             "properties": {
                 "description": {"type": "string"},
                 "inspired_by": {
-                    "$ref": "/#/definitions/reference"
-                },
+                    "$ref": "/#/definitions/references/anyReference"
+                }
             },
             "required": ["description", "inspired_by"]
         },
-        "reference": {
-            "type": "string",
-            "description": "Reference of programming language or feature: language.features.f1"
+        "references": {
+            "anyReference": {
+                "anyOf": [
+                    {"$ref": "/#/definitions/references/languageReference"},
+                    {"$ref": "/#/definitions/references/featureReference"}
+                ],
+            },
+            "languageReference": {
+                "type": "string",
+                "pattern": /^(\w)+$/,
+                "description": "Reference of programming language"
+            },
+            "featureReference": {
+                "type": "string",
+                "pattern": /^(\w)+\.features\.(\w)+$/,
+                "description": "Reference of feature: language.features.f1"
+            }
         }
     }
 }

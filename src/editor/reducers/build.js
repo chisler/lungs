@@ -5,10 +5,11 @@ import {validateSchema} from "../../validators/structure/validator";
 const mockYAML = `kotlin:
   name: Kotlin
   description: This is a great thing!
-  creator: 12
+  creator: You
+  ancestor: kotlin
   people:
     - Andrey Breslav
-    - 1
+    - Other gut
     - Roman Elizarov
   features:
     val_var:

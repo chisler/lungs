@@ -1,17 +1,3 @@
-import {parseYAML} from "../parser/yaml";
-import {validateSchema} from "../validators/structure/validator";
-
-export function getDocModel(editorValue) {
-    let parsedYaml = parseYAML(editorValue)
-    if (parsedYaml.error) {
-        return {}
-    }
-    let jsonObj = parsedYaml.jsonObj
-    let docModel = validateSchema(jsonObj, editorValue).docModel
-
-    return docModel
-}
-
 export function getBaseForPath(docModel, pathArray) {
     let node = docModel
 
@@ -61,5 +47,7 @@ export function getDmNodeByPath(docModel, pathArray) {
 }
 
 export function isBaseReference(base) {
-    return base === "/#/definitions/reference"
+    const references = '/#/definitions/references/'
+
+    return base.slice(0, references.length) === references
 }

@@ -28,7 +28,6 @@ export function getReferenceCompletions(docModel, referenceString) {
 
 
 export function getReferenceCompletionsForPosition(originalPos, prefix, editorValue) {
-    console.log(prefix)
     let parsedYaml = parseYAML(editorValue)
 
     if (parsedYaml.error) {
