@@ -4,11 +4,11 @@ import {pathToArray} from "../../helpers/path-to-array";
 import schema from "./schema";
 
 Validator.prototype.customFormats.languageReference = function(input) {
-    return input.match(/^(\w)+$/);
+    return input && input.match(/^(\w)+$/);
 };
 
 Validator.prototype.customFormats.featureReference = function(input) {
-    return input.match(/^(\w)+\.features\.(\w)+$/);
+    return input && input.match(/^(\w)+\.features\.(\w)+$/);
 };
 
 
