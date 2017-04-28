@@ -47,12 +47,12 @@ export default {
             },
             "languageReference": {
                 "type": "string",
-                "pattern": /^(\w)+$/,
+                "format": "languageReference",
                 "description": "Reference of programming language"
             },
             "featureReference": {
                 "type": "string",
-                "pattern": /^(\w)+\.features\.(\w)+$/,
+                "format": "featureReference",
                 "description": "Reference of feature: language.features.f1"
             }
         }

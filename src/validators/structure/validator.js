@@ -3,8 +3,12 @@ import {getLineForPath} from "../../ast/ast";
 import {pathToArray} from "../../helpers/path-to-array";
 import schema from "./schema";
 
-Validator.prototype.customFormats.languageFormat = function(input) {
-    return input === 'myFormat';
+Validator.prototype.customFormats.languageReference = function(input) {
+    return input.match(/^(\w)+$/);
+};
+
+Validator.prototype.customFormats.featureReference = function(input) {
+    return input.match(/^(\w)+\.features\.(\w)+$/);
 };
 
 
