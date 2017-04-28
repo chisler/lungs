@@ -1,12 +1,19 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
 }
 
-
 .container {
-  display: flex; /* or inline-flex */
-  flex-direction: row;
-  align-items: flex-start;
+    display: flex; /* or inline-flex */
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.editor {
+    flex: 2;
+}
+
+.build {
+    flex: 1;
 }

@@ -118,10 +118,8 @@ class Editor extends Component {
                 onLoad={this.onLoad}
                 onChange={this.onChange}
                 name="ace-editor"
-                width="60%"
-                height="100%"
                 tabSize={2}
-                fontSize={14}
+                fontSize={13}
                 useSoftTabs="true"
                 wrapEnabled={true}
                 editorProps={{

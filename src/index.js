@@ -11,17 +11,21 @@ const store = createStore(editorApp);
 
 const render = () => ReactDOM.render(
     <div className="container">
-        <Editor
-            yamlString={store.getState().build.yamlString}
-            onChange={() => store.dispatch({type: 'VALIDATE'})}
-            setValue={yamlString => store.dispatch({type: 'SET_VALUE', yamlString})}
-            errors={store.getState().build.errors}
-            goToLine={store.getState().navigation.line}
-        />
-        <Errors
-            errors={store.getState().build.errors}
-            onClick={line => store.dispatch({type: 'GO_TO_LINE', line})}
-        />
+        <div className="editor">
+            <Editor
+                yamlString={store.getState().build.yamlString}
+                onChange={() => store.dispatch({type: 'VALIDATE'})}
+                setValue={yamlString => store.dispatch({type: 'SET_VALUE', yamlString})}
+                errors={store.getState().build.errors}
+                goToLine={store.getState().navigation.line}
+            />
+        </div>
+        <div className="build">
+            <Errors
+                errors={store.getState().build.errors}
+                onClick={line => store.dispatch({type: 'GO_TO_LINE', line})}
+            />
+        </div>
     </div>
     ,
     document.getElementById('root')

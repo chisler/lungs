@@ -2,12 +2,12 @@
     border: 1px solid red;
     padding: 10px;
     margin: 10px;
+    font-size: 12px;
 }
 
 .errors_container {
-    display: flex; /* or inline-flex */
+    display: flex;
     flex-direction: column;
-    /*align-items: flex-start;*/
     justify-content: space-between;
 }
 

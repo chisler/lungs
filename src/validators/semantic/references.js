@@ -36,7 +36,7 @@ export function getAllReferences(docModel) {
 export function validateReferences(docModel, editorValue, references) {
     let errors = []
     let error
-    console.log(docModel, references)
+
     references.forEach(reference => {
         error = validateReference(docModel, editorValue, reference)
         if (error) {
