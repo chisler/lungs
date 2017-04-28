@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types'
 
 import './error.css'
@@ -20,9 +20,14 @@ class Error extends Component {
         const {line, message, scope} = this.props
 
         return (
-            <div className="error">
-                Error. <span className="anchor_hack" onClick={this.handleClick}>Line {line}</span>: {message}
-            </div>
+            <li className="error">
+                Error. <a href="#"
+                          onClick={e => {
+                              e.preventDefault()
+                              this.handleClick()
+                          }}>
+                Line {line}</a>: {message}
+            </li>
         )
     }
 }
