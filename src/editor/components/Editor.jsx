@@ -29,15 +29,10 @@ class Editor extends Component {
 
     constructor(props, context) {
         super(props, context)
-        if (props.yamlString) {
-            this.yaml = props.yamlString
-        } else {
-            this.yaml = ''
-        }
 
         this.state = {
             editor: null,
-            value: this.yaml,
+            value: null,
         }
     }
 
@@ -49,10 +44,13 @@ class Editor extends Component {
     }
 
     onLoad = (editor) => {
-        let {state} = this;
+        let {state, props} = this;
+        state.editor = editor
+
         let session = editor.getSession()
-        window.editor = editor;
-        state.editor = editor // TODO: get editor out of state
+        const value = editor.getValue()
+
+        props.setValue(value)
 
         session.setUseWrapMode(true)
         session.on("changeScrollLeft", xPos => { // eslint-disable-line no-unused-vars
@@ -70,56 +68,44 @@ class Editor extends Component {
         })
 
         editorPluginsHook(editor, null, null || ['autosuggestApis'])
-
-        this.props.setValue(editor.getValue())
     }
 
     updateErrorAnnotations = (nextProps) => {
-        if (this.state.editor && nextProps.errors) {
+        const {editor} = this.state
+
+        if (editor && nextProps.errors) {
             let editorAnnotations = nextProps.errors.map(err => {
                 // Create annotation objects that ACE can use
                 return {
                     row: err.line,
                     column: 0,
-                    type: 'error',
-                    text: err.message
+                    text: err.message,
+                    type: 'error'
                 }
             })
-            this.state.editor.getSession().setAnnotations(editorAnnotations)
+            editor.getSession().setAnnotations(editorAnnotations)
         }
-    }
-
-    componentWillMount() {
-        // add user agent info to document
-        // allows our custom Editor styling for IE10 to take effect
-        var doc = document.documentElement
-        doc.setAttribute("data-useragent", navigator.userAgent)
     }
 
     componentDidMount() {
-        // eslint-disable-next-line react/no-did-mount-set-state
-        document.addEventListener("click", this.onClick)
-
-        if (this.props.errors) {
-            this.updateErrorAnnotations(this.props)
-        }
+        console.log(this.props)
+        this.updateErrorAnnotations(this.props)
     }
 
     shouldComponentUpdate(nextProps) {
-        // return true
-        const oriYaml = this.yaml
-        this.yaml = nextProps.yamlString
+        const {yamlString} = this.props
 
-        return oriYaml !== nextProps.yamlString
+        return yamlString !== nextProps.yamlString
     }
 
     componentWillReceiveProps(nextProps) {
+        const {editor} = this.state
+
         this.updateErrorAnnotations(nextProps)
         const hasChanged = (k) => !eq(nextProps[k], this.props[k])
 
-        console.log(nextProps)
-        if(this.state.editor && nextProps.goToLine && hasChanged("goToLine")) {
-            this.state.editor.gotoLine(nextProps.goToLine)
+        if (editor && nextProps.goToLine && hasChanged("goToLine")) {
+            editor.gotoLine(nextProps.goToLine)
         }
     }
 
