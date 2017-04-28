@@ -1,1 +1,4 @@
-export default ['/#/definitions/language', '/#/definitions/feature']
+export default [
+    '/#/definitions/language',
+    '/#/definitions/feature'
+]
