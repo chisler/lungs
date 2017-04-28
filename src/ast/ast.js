@@ -1,8 +1,7 @@
 import YAML from "yaml-js";
 import memoize from "lodash/memoize";
 
-// let cachedCompose = memoize(YAML.compose)
-let cachedCompose = YAML.compose
+let cachedCompose = memoize(YAML.compose)
 
 const MAP_TAG = "tag:yaml.org,2002:map"
 const SEQ_TAG = "tag:yaml.org,2002:seq"

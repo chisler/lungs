@@ -51,7 +51,7 @@ export function getDmNodeByPath(docModel, pathArray) {
 
     for (let i = 0; i < pathArray.length; i++) {
         key = pathArray[i]
-        if (!node.value[key]) {
+        if (!node.value[key] || !key) {
             return null
         }
         node = node.value[key]

@@ -1,7 +1,7 @@
-import { getDocModel } from "../../ast/doc-model";
-import { getAllReferences, validateReferences } from "../../validators/semantic/references";
+import {getAllReferences, validateReferences} from "../../validators/semantic/references";
 import {parseYAML} from "../../parser/yaml";
 import {validateSchema} from "../../validators/structure/validator";
+
 const mockYAML = `kotlin:
   name: Kotlin
   description: This is a great thing!
@@ -18,28 +18,6 @@ const mockYAML = `kotlin:
         inspired_by: kotlin.features.f
         description: Some features have their own description or rationale.
 `;
-
-//TODO: remove defalts from reducer
-
-const build = (state = null, action) => {
-    //default case
-    if (state === null) {
-        console.warn('DEFAULT')
-        return validateState({yamlString: mockYAML})
-    }
-
-    switch (action.type) {
-        case 'SET_VALUE':
-            return {
-                ...state,
-                yamlString: action.yamlString
-            }
-        case 'VALIDATE':
-            return validateState(state)
-        default:
-            return state
-    }
-}
 
 
 //Gets the editor value => returns new state
@@ -65,6 +43,28 @@ const validateState = (state) => {
             ...v.errors,
             ...validatedSchema.errors
         ]
+    }
+}
+
+
+//TODO: remove defalts from reducer
+const build = (state = null, action) => {
+    //default case
+    if (state === null) {
+        console.warn('DEFAULT')
+        return validateState({yamlString: mockYAML})
+    }
+
+    switch (action.type) {
+        case 'SET_VALUE':
+            return {
+                ...state,
+                yamlString: action.yamlString
+            }
+        case 'VALIDATE':
+            return validateState(state)
+        default:
+            return state
     }
 }
 

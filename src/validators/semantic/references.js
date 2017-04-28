@@ -1,7 +1,7 @@
-import {isBaseReference, isPathValid} from "../../ast/doc-model";
+import {isBaseReference, isPathValid, getBaseForPath} from "../../ast/doc-model";
 import {pathToArray} from "../../helpers/path-to-array";
-import {getLineForPath} from "../../ast/ast";;
-
+import {getLineForPath} from "../../ast/ast";
+import referenceableNodes from './referenceableNodes'
 
 export function getAllReferences(docModel) {
     var references = []
@@ -54,8 +54,9 @@ export function validateReferences(docModel, editorValue, references) {
 
 //Returns only errors
 function validateReference(docModel, editorValue, reference) {
-    let referenceArray = pathToArray(reference.referenceString)
+    const referenceArray = pathToArray(reference.referenceString)
 
+    //validate presence
     if (!isPathValid(docModel, referenceArray)) {
         return {
             message: "Invalid reference " + reference.referenceString,
@@ -63,4 +64,17 @@ function validateReference(docModel, editorValue, reference) {
             scope: "reference"
         }
     }
+
+    const base = getBaseForPath(docModel, referenceArray)
+    if (!isBaseReferenceable(base)) {
+        return {
+            message: "Not referenceable node " + reference.referenceString,
+            line: getLineForPath(editorValue, pathToArray(reference.path)),
+            scope: "reference"
+        }
+    }
+}
+
+function isBaseReferenceable(base) {
+    return base && referenceableNodes.includes(base)
 }
