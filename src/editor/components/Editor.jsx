@@ -22,7 +22,7 @@ class Editor extends Component {
         onChange: PropTypes.func.isRequired,
         setValue: PropTypes.func.isRequired,
         errors: PropTypes.array,
-        goToLine: PropTypes.number
+        lineToGoTo: PropTypes.number
     }
 
     constructor(props, context) {
@@ -102,8 +102,8 @@ class Editor extends Component {
         this.updateErrorAnnotations(nextProps)
         const hasChanged = (k) => !eq(nextProps[k], this.props[k])
 
-        if (editor && nextProps.goToLine && hasChanged("goToLine")) {
-            editor.gotoLine(nextProps.goToLine)
+        if (editor && nextProps.lineToGoTo && hasChanged("lineToGoTo")) {
+            editor.gotoLine(nextProps.lineToGoTo)
         }
     }
 
@@ -135,6 +135,5 @@ class Editor extends Component {
         )
     }
 }
-
 
 export default Editor;
