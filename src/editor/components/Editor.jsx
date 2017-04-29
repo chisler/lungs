@@ -87,6 +87,7 @@ class Editor extends Component {
 
     componentDidMount() {
         console.log(this.props)
+
         this.updateErrorAnnotations(this.props)
     }
 
@@ -106,6 +107,7 @@ class Editor extends Component {
             editor.gotoLine(nextProps.lineToGoTo)
         }
     }
+
 
     render() {
         const {yamlString} = this.props

@@ -4,7 +4,8 @@ import {pathToArray} from "../../helpers/path-to-array";
 import schema from "./schema";
 
 Validator.prototype.customFormats.languageReference = function(input) {
-    return input && input.match(/^(\w)+$/);
+    // no presence in schema means undefined
+    return input && input.match(/^(\w)+$/) || input === undefined;
 };
 
 Validator.prototype.customFormats.featureReference = function(input) {

@@ -34,7 +34,6 @@ const validateState = (state) => {
 
     let jsonObj = parsedYaml.jsonObj
     let validatedSchema = validateSchema(jsonObj, state.yamlString)
-
     let dM = validatedSchema.docModel
     let r = getAllReferences(dM)
     let v = validateReferences(dM, state.yamlString, r)

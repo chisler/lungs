@@ -49,5 +49,5 @@ export function getDmNodeByPath(docModel, pathArray) {
 export function isBaseReference(base) {
     const references = '/#/definitions/references/'
 
-    return base.slice(0, references.length) === references
+    return base && base.slice(0, references.length) === references
 }
