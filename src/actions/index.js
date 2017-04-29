@@ -17,3 +17,9 @@ export const setLineToGoTo = (line) => {
         line
     }
 }
+
+export const extractReferenceMap = () => {
+    return {
+        type: 'EXTRACT_REFERENCE_MAP'
+    }
+}

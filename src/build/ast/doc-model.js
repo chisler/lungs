@@ -46,7 +46,50 @@ export function getDmNodeByPath(docModel, pathArray) {
     return node
 }
 
-export function isBaseReference(base) {
+export function getAllByBase(docModel, isBaseNeeded) {
+    var nodes = []
+
+    find(docModel, '')
+
+    return nodes
+
+    function find(docModel, pathString) {
+        if (!docModel) {
+            return
+        }
+
+        if (isBaseNeeded(docModel.base)) {
+            nodes.push({
+                //trim first dot from path
+                path: pathString.slice(1),
+                nodeValue: docModel.value
+            })
+        }
+
+        if (docModel && docModel.value && typeof docModel.value !== "string") {
+            Object.keys(docModel.value).forEach(key => {
+                    //keys of array are indices
+                    find(docModel.value[key], pathString + '.' + key.toString())
+                }
+            )
+        }
+    }
+}
+
+export function getAllReferences(docModel) {
+    return getAllByBase(docModel, isBaseReference)
+}
+
+export function getAllLanguages(docModel) {
+    return getAllByBase(docModel, isBaseLanguage)
+}
+
+
+function isBaseLanguage(base) {
+    return base === "/#/definitions/language"
+}
+
+function isBaseReference(base) {
     const references = '/#/definitions/references/'
 
     return base && base.slice(0, references.length) === references

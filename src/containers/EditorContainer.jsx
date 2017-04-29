@@ -2,9 +2,11 @@ import {connect} from "react-redux";
 
 import Editor from "../components/Editor";
 
-import {setValue, validate} from "../actions";
+import {extractReferenceMap, setValue, validate} from "../actions";
 
 const mapStateToProps = (state) => {
+    console.log(state)
+
     return {
         yamlString: state.build.yamlString,
         errors: state.build.errors,
@@ -15,7 +17,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         onChange: () => dispatch(validate()),
-        setValue: (yamlString) => dispatch(setValue(yamlString))
+        setValue: (yamlString) => dispatch(setValue(yamlString)),
+        getMatrix: () => dispatch(extractReferenceMap())
     }
 }
 

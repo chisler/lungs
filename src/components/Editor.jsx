@@ -20,6 +20,7 @@ class Editor extends Component {
         yamlString: PropTypes.string.isRequired,
         onChange: PropTypes.func.isRequired,
         setValue: PropTypes.func.isRequired,
+        getMatrix: PropTypes.func.isRequired,
         errors: PropTypes.array,
         lineToGoTo: PropTypes.number
     }
@@ -112,27 +113,30 @@ class Editor extends Component {
         const {yamlString} = this.props
 
         return (
-            <AceEditor
-                value={yamlString}
-                mode="yaml"
-                theme="tomorrow_night_eighties"
-                onLoad={this.onLoad}
-                onChange={this.onChange}
-                name="ace-editor"
-                tabSize={2}
-                fontSize={13}
-                useSoftTabs="true"
-                wrapEnabled={true}
-                editorProps={{
-                    "display_indent_guides": true,
-                    folding: "markbeginandend",
-                    $useWorker: false
-                }}
-                setOptions={{
-                    cursorStyle: "smooth",
-                    wrapBehavioursEnabled: true
-                }}
-            />
+            <div>
+                <AceEditor
+                    value={yamlString}
+                    mode="yaml"
+                    theme="tomorrow_night_eighties"
+                    onLoad={this.onLoad}
+                    onChange={this.onChange}
+                    name="ace-editor"
+                    tabSize={2}
+                    fontSize={14}
+                    useSoftTabs="true"
+                    wrapEnabled={true}
+                    editorProps={{
+                        "display_indent_guides": true,
+                        folding: "markbeginandend",
+                        $useWorker: false
+                    }}
+                    setOptions={{
+                        cursorStyle: "smooth",
+                        wrapBehavioursEnabled: true
+                    }}
+                />
+                <button onClick={this.props.getMatrix}>CLICK</button>
+            </div>
         )
     }
 }

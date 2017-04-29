@@ -1,4 +1,5 @@
-import {getAllReferences, validateReferences} from "../build/validators/semantic/references";
+import {getAllLanguages, getAllReferences} from "../build/ast/doc-model"
+import {validateReferences} from "../build/validators/semantic/references";
 import {parseYAML} from "../build/parser/yaml";
 import {validateSchema} from "../build/validators/structure/validator";
 
@@ -28,15 +29,19 @@ const validateState = (state) => {
         return {
             ...state,
             //TODO: is it better to add this error to existing?
-            errors: [parsedYaml.error]
+            errors: [parsedYaml.error],
         }
     }
-
     let jsonObj = parsedYaml.jsonObj
+
+    // Structural validation
     let validatedSchema = validateSchema(jsonObj, state.yamlString)
     let dM = validatedSchema.docModel
-    let r = getAllReferences(dM)
-    let v = validateReferences(dM, state.yamlString, r)
+
+    // Semantic validation
+    const references = getAllReferences(dM)
+    const v = validateReferences(dM, state.yamlString, references)
+
     return {
         ...state,
         errors: [
@@ -47,11 +52,10 @@ const validateState = (state) => {
 }
 
 
-//TODO: remove defalts from reducer
 const build = (state = null, action) => {
     //default case
     if (state === null) {
-        console.warn('DEFAULT')
+        //DEFAULT VALUE
         return validateState({yamlString: mockYAML})
     }
 
@@ -61,8 +65,69 @@ const build = (state = null, action) => {
                 ...state,
                 yamlString: action.yamlString
             }
+
         case 'VALIDATE':
             return validateState(state)
+
+        case 'EXTRACT_REFERENCE_MAP':
+            if (state.errors.length) {
+                //Do not update map if errors
+                return state
+            }
+            let parsedYaml = parseYAML(state.yamlString)
+            const dM = validateSchema(parsedYaml.jsonObj, state.yamlString).docModel
+            const references = getAllReferences(dM)
+
+            let languageMap = {}
+
+            getAllLanguages(dM).forEach((language, index) => {
+                const name = language.path
+                languageMap[name] = {
+                    name: name,
+                    id: index
+                }
+            })
+
+            const numberOfLanguages = Object.keys(languageMap).length
+
+            function zeros(dimensions) {
+                let array = [];
+                for (let i = 0; i < dimensions[0]; ++i) {
+                    array.push(dimensions.length == 1 ? 0 : zeros(dimensions.slice(1)));
+                }
+                return array;
+            }
+
+            let languageMatrix = zeros([numberOfLanguages, numberOfLanguages])
+
+            const cutByFirstDot = (string) => {
+                if (!string.includes('.')) {
+                    return string
+                }
+                return string.slice(0, string.indexOf('.'))
+            }
+
+            //fill matrix
+            references.forEach(reference => {
+                const isInfluenced = cutByFirstDot(reference.path)
+                const influencer = cutByFirstDot(reference.nodeValue)
+
+                console.log(reference, isInfluenced, influencer)
+                languageMatrix[
+                    languageMap[isInfluenced].id
+                    ]
+                    [
+                    languageMap[influencer].id
+                    ]++
+            })
+
+            console.log(languageMatrix);
+
+            return {
+                ...state,
+                languageMap: languageMap
+            }
+
         default:
             return state
     }
