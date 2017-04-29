@@ -23,7 +23,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         onClick: (line) => dispatch({
-            type: 'GO_TO_LINE',
+            type: 'SET_LINE_TO_GO_TO',
             line
         })
     }

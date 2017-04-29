@@ -1,6 +1,6 @@
 const navigation = (state = {line: null}, action) => {
     switch (action.type) {
-        case 'GO_TO_LINE':
+        case 'SET_LINE_TO_GO_TO':
             return {
                 line: action.line
             }
