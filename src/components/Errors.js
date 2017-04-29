@@ -20,7 +20,7 @@ class Errors extends Component {
                     {errors.map((err, index) => {
                         return (
                             <Error
-                                key = {index}
+                                key={index}
                                 line={err.line + 1}
                                 message={err.message}
                                 scope={err.scope}

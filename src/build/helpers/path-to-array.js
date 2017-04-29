@@ -6,7 +6,7 @@ export function pathToArray(pathString) {
     }
 
     let str;
-    if(pathString.slice(0,9) === "instance.") {
+    if (pathString.slice(0, 9) === "instance.") {
         str = pathString.slice(9).trim()
     } else {
         str = pathString.trim()
@@ -15,16 +15,16 @@ export function pathToArray(pathString) {
     return str
         .split('.')
         .map(item => {
-        // array[index] -> ['array', 'index']
-        if(item.includes("[")) {
-           return (/^(\w+)\s*((?:\[\s*\d+\s*\]\s*)*)$/.exec(item) || [null]).slice(1).reduce(
+            // array[index] -> ['array', 'index']
+            if (item.includes("[")) {
+                return (/^(\w+)\s*((?:\[\s*\d+\s*\]\s*)*)$/.exec(item) || [null]).slice(1).reduce(
                     (fun, args) => [fun].concat(args.match(/\d+/g)));
-        } else {
-            return item
-        }
+            } else {
+                return item
+            }
         })
         //flatten
-        .reduce(function(a, b) {
+        .reduce(function (a, b) {
             return a.concat(b)
         }, [])
 

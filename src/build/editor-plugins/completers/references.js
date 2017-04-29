@@ -19,7 +19,7 @@ export function getReferenceCompletions(docModel, referenceString) {
 
     let completions = Object.keys(node.value)
 
-    completions = completions.filter(function(competion){
+    completions = completions.filter(function (competion) {
         return node.value[competion].value !== undefined;
     })
 

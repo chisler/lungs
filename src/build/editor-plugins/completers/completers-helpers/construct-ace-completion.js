@@ -1,5 +1,5 @@
 export default function (meta, keyword) {
-    if(keyword.slice(0, 2) === "__") {
+    if (keyword.slice(0, 2) === "__") {
         return {}
     }
 
