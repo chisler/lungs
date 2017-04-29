@@ -2,10 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df2bc385-f543-4b06-8348-6371d6e0fd06" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/actions/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/build/ast/ast.js" afterPath="$PROJECT_DIR$/src/build/ast/ast.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/build/editor-plugins/completers/autosuggest-apis.js" afterPath="$PROJECT_DIR$/src/build/editor-plugins/completers/autosuggest-apis.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/build/editor-plugins/completers/keywords.js" afterPath="$PROJECT_DIR$/src/build/editor-plugins/completers/keywords.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/build/editor-plugins/completers/references.js" afterPath="$PROJECT_DIR$/src/build/editor-plugins/completers/references.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/build/parser/yaml.js" afterPath="$PROJECT_DIR$/src/build/parser/yaml.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/build/validators/semantic/references.js" afterPath="$PROJECT_DIR$/src/build/validators/semantic/references.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/build/validators/structure/validator.js" afterPath="$PROJECT_DIR$/src/build/validators/structure/validator.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Editor.jsx" afterPath="$PROJECT_DIR$/src/components/Editor.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Error.js" afterPath="$PROJECT_DIR$/src/components/Error.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Errors.js" afterPath="$PROJECT_DIR$/src/components/Errors.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/EditorContainer.jsx" afterPath="$PROJECT_DIR$/src/containers/EditorContainer.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/SortedErrors.js" afterPath="$PROJECT_DIR$/src/containers/SortedErrors.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.js" afterPath="$PROJECT_DIR$/src/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/reducers/build.js" afterPath="$PROJECT_DIR$/src/reducers/build.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/reducers/index.js" afterPath="$PROJECT_DIR$/src/reducers/index.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -36,8 +47,8 @@
       <file leaf-file-name="SortedErrors.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/containers/SortedErrors.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+            <state relative-caret-position="345">
+              <caret line="23" column="35" lean-forward="true" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
               </folding>
@@ -476,11 +487,18 @@
       <option name="project" value="LOCAL" />
       <updated>1493460212944</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="actions moved to separate file">
+      <created>1493461804280</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1493461804280</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72466000" />
+    <option name="totallyTimeSpent" value="72505000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -493,10 +511,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24543288" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24543288" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288171" sideWeight="0.5010941" order="7" side_tool="true" content_ui="tabs" />
@@ -548,7 +565,8 @@
     <MESSAGE value="set line to go to refactored" />
     <MESSAGE value="bug fixed: input to format function may be undefined" />
     <MESSAGE value="project layout rearrangement" />
-    <option name="LAST_COMMIT_MESSAGE" value="project layout rearrangement" />
+    <MESSAGE value="actions moved to separate file" />
+    <option name="LAST_COMMIT_MESSAGE" value="actions moved to separate file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -776,9 +794,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="13" column="35" lean-forward="true" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -794,9 +810,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="23" lean-forward="false" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#93#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -804,9 +818,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="20" column="32" lean-forward="false" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -838,9 +850,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="9" lean-forward="false" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#65#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -848,9 +858,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="5" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#68#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -872,8 +880,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/SortedErrors.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        <state relative-caret-position="345">
+          <caret line="23" column="35" lean-forward="true" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
           </folding>

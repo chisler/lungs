@@ -2,7 +2,7 @@ import {connect} from "react-redux";
 
 import Editor from "../components/Editor";
 
-import {validate, setValue} from '../actions'
+import {setValue, validate} from "../actions";
 
 const mapStateToProps = (state) => {
     return {
