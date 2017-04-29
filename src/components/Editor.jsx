@@ -1,18 +1,17 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types'
+import React, {Component} from "react";
+import PropTypes from "prop-types";
 
-import AceEditor from 'react-ace';
-import editorPluginsHook from "../editor-plugins/completers/completers-helpers/hook"
+import AceEditor from "react-ace";
+import editorPluginsHook from "../build/editor-plugins/completers/completers-helpers/hook";
 
-import eq from "lodash/eq"
-import isEmpty from "lodash/isEmpty"
+import eq from "lodash/eq";
 
-import "brace/mode/yaml"
-import "brace/theme/tomorrow_night_eighties"
-import "brace/ext/language_tools"
-import "brace/ext/searchbox"
+import "brace/mode/yaml";
+import "brace/theme/tomorrow_night_eighties";
+import "brace/ext/language_tools";
+import "brace/ext/searchbox";
 
-import "./editor.css"
+import "./editor.css";
 
 
 class Editor extends Component {

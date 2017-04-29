@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types'
+import React, {Component} from "react";
+import PropTypes from "prop-types";
 
-import Error from './Error'
+import Error from "./Error";
 
-import './error.css'
+import "./error.css";
 
 class Errors extends Component {
 

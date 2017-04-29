@@ -1,5 +1,5 @@
-import { makeAutosuggest } from "./completers-helpers/core"
-import constructAceCompletion from "./completers-helpers/construct-ace-completion"
+import {makeAutosuggest} from "./completers-helpers/core";
+import constructAceCompletion from "./completers-helpers/construct-ace-completion";
 import {getKeywordsForPosition} from "./keywords";
 import {getReferenceCompletionsForPosition} from "./references";
 

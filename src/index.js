@@ -1,13 +1,13 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import {createStore} from 'redux'
-import EditorContainer from './editor/components/EditorContainer'
-import SortedErrors from './components/SortedErrors'
-import editorApp from './editor/reducers'
-import {Provider} from 'react-redux'
+import React from "react";
+import ReactDOM from "react-dom";
+import {createStore} from "redux";
+import EditorContainer from "./containers/EditorContainer";
+import SortedErrors from "./containers/SortedErrors";
+import editorApp from "./reducers";
+import {Provider} from "react-redux";
 
 
-import "./index.css"
+import "./index.css";
 
 ReactDOM.render(
     <Provider store={createStore(editorApp)}>

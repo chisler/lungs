@@ -1,9 +1,9 @@
-import {recoverEditorValue} from "../../../helpers/recover-editor-value";
-import {parseYAML} from "../../../parser/yaml";
-import {getPathForPosition} from "../../../ast/ast";
-import {validateSchema} from "../../../validators/structure/validator";
-import {getBaseForPath} from "../../../ast/doc-model";
-import schema from "../../../validators/structure/schema";
+import {recoverEditorValue} from "../../helpers/recover-editor-value";
+import {parseYAML} from "../../parser/yaml";
+import {getPathForPosition} from "../../ast/ast";
+import {validateSchema} from "../../validators/structure/validator";
+import {getBaseForPath} from "../../ast/doc-model";
+import schema from "../../validators/structure/schema";
 
 export function getKeywordsForPosition(originalPos, prefix, editorValue) {
     editorValue = recoverEditorValue(originalPos, prefix, editorValue)

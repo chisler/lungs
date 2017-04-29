@@ -1,15 +1,15 @@
-import { Validator } from "jsonschema";
+import {Validator} from "jsonschema";
 import {getLineForPath} from "../../ast/ast";
 import {pathToArray} from "../../helpers/path-to-array";
 import schema from "./schema";
 
 Validator.prototype.customFormats.languageReference = function(input) {
     // no presence in schema means undefined
-    return input && input.match(/^(\w)+$/) || input === undefined;
+    return (input && input.match(/^(\w)+$/)) || input === undefined;
 };
 
 Validator.prototype.customFormats.featureReference = function(input) {
-    return input && input.match(/^(\w)+\.features\.(\w)+$/);
+    return (input && input.match(/^(\w)+\.features\.(\w)+$/)) || input === undefined;
 };
 
 

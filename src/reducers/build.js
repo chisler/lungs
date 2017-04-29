@@ -1,6 +1,6 @@
-import {getAllReferences, validateReferences} from "../../validators/semantic/references";
-import {parseYAML} from "../../parser/yaml";
-import {validateSchema} from "../../validators/structure/validator";
+import {getAllReferences, validateReferences} from "../build/validators/semantic/references";
+import {parseYAML} from "../build/parser/yaml";
+import {validateSchema} from "../build/validators/structure/validator";
 
 const mockYAML = `kotlin:
   name: Kotlin
@@ -15,7 +15,7 @@ const mockYAML = `kotlin:
     val_var:
         inspired_by: kotlin.features.
         description: Some features have their own description or rationale.
-    types_on_the_right: 
+    types_on_the_right:
         inspired_by: kotlin.features.f
         description: Some features have their own description or rationale.
 `;
