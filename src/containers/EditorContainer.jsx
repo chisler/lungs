@@ -2,6 +2,8 @@ import {connect} from "react-redux";
 
 import Editor from "../components/Editor";
 
+import {validate, setValue} from '../actions'
+
 const mapStateToProps = (state) => {
     return {
         yamlString: state.build.yamlString,
@@ -12,13 +14,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onChange: () => dispatch({
-            type: 'VALIDATE'
-        }),
-        setValue: (yamlString) => dispatch({
-            type: 'SET_VALUE',
-            yamlString
-        })
+        onChange: () => dispatch(validate()),
+        setValue: (yamlString) => dispatch(setValue(yamlString))
     }
 }
 

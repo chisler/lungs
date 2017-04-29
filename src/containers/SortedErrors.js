@@ -1,6 +1,7 @@
 import {connect} from "react-redux";
 
 import Errors from "../components/Errors";
+import {setLineToGoTo} from "../actions";
 
 
 const sortedByLine = (errors) => {
@@ -22,10 +23,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onClick: (line) => dispatch({
-            type: 'SET_LINE_TO_GO_TO',
-            line
-        })
+        onClick: (line) => dispatch(setLineToGoTo(line))
     }
 }
 
