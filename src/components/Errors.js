@@ -12,26 +12,12 @@ class Errors extends Component {
         onClick: PropTypes.func.isRequired
     }
 
-    sortedByLine = (errors) => {
-        const comparator = (e1, e2) => {
-            return e1.line > e2.line
-        }
-
-        let sortedErrors = Object.assign([], errors)
-
-        sortedErrors.sort(comparator)
-        return sortedErrors
-    }
-
     render() {
         const {errors} = this.props
-
-        const sortedErrors = this.sortedByLine(errors)
-
         return (
             <div className="errors_container">
                 <ul className="list_without_bullets">
-                    {sortedErrors.map((err, index) => {
+                    {errors.map((err, index) => {
                         return (
                             <Error
                                 key = {index}

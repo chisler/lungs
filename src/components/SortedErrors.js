@@ -2,9 +2,21 @@ import { connect } from 'react-redux';
 
 import Errors from './Errors'
 
+
+const sortedByLine = (errors) => {
+    const comparator = (e1, e2) => {
+        return e1.line > e2.line
+    }
+
+    let sortedErrors = Object.assign([], errors)
+
+    sortedErrors.sort(comparator)
+    return sortedErrors
+}
+
 const mapStateToProps = (state) => {
     return {
-        errors: state.build.errors,
+        errors: sortedByLine(state.build.errors),
     }
 }
 
@@ -17,10 +29,10 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-const ErrorsContainer = connect(
+const SortedErrors = connect(
     mapStateToProps,
     mapDispatchToProps
 )(Errors)
 
-export default ErrorsContainer;
+export default SortedErrors;
 

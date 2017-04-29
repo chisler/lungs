@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {createStore} from 'redux'
 import EditorContainer from './editor/components/EditorContainer'
-import ErrorsContainer from './components/ErrorsContainer'
+import SortedErrors from './components/SortedErrors'
 import editorApp from './editor/reducers'
 import {Provider} from 'react-redux'
 
@@ -16,7 +16,7 @@ ReactDOM.render(
                 <EditorContainer />
             </div>
             <div className="build">
-                <ErrorsContainer />
+                <SortedErrors />
             </div>
         </div>
     </Provider>
