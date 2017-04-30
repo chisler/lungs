@@ -39,6 +39,7 @@ class Editor extends Component {
 
         this.props.setValue(value)
         this.props.onChange()
+        this.props.getMatrix()
     }
 
     onLoad = (editor) => {
@@ -49,6 +50,7 @@ class Editor extends Component {
         const value = editor.getValue()
 
         props.setValue(value)
+        props.getMatrix()
 
         session.setUseWrapMode(true)
         session.on("changeScrollLeft", xPos => { // eslint-disable-line no-unused-vars

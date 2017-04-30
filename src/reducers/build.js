@@ -5,20 +5,33 @@ import {validateSchema} from "../build/validators/structure/validator";
 
 const mockYAML = `kotlin:
   name: Kotlin
-  description: This is a great thing!
-  creator: You
-  ancestor: kotlin
-  people:
-    - Andrey Breslav
-    - Other gut
-    - Roman Elizarov
   features:
-    val_var:
-        inspired_by: kotlin.features.
-        description: Some features have their own description or rationale.
-    types_on_the_right:
-        inspired_by: kotlin.features.f
-        description: Some features have their own description or rationale.
+    f1:
+        inspired_by: scala
+    f2:
+        inspired_by: scala
+scala:
+  name: Scala
+  features: 
+    f1:
+      inspired_by: js
+    f2:
+      inspired_by: kotlin
+js:
+  name: Javascript
+  features: 
+    f1:
+      inspired_by: pascal
+    f2:
+      inspired_by: scala
+pascal:
+  name: Pascal
+  features: 
+    f1:
+      inspired_by: scala
+    f2:
+      inspired_by: scala
+
 `;
 
 
@@ -121,10 +134,11 @@ const build = (state = null, action) => {
                     ]++
             })
 
-            console.log(languageMatrix);
+            // console.log(languageMatrix);
 
             return {
                 ...state,
+                languageMatrix: languageMatrix,
                 languageMap: languageMap
             }
 

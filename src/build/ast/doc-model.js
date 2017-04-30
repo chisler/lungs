@@ -85,11 +85,11 @@ export function getAllLanguages(docModel) {
 }
 
 
-function isBaseLanguage(base) {
+export function isBaseLanguage(base) {
     return base === "/#/definitions/language"
 }
 
-function isBaseReference(base) {
+export function isBaseReference(base) {
     const references = '/#/definitions/references/'
 
     return base && base.slice(0, references.length) === references

@@ -9,13 +9,13 @@ export default {
             "type": "object",
             "properties": {
                 "name": {"type": "string"},
-                "creator": {"type": "string"},
-                "description": {"type": "string"},
-                "people": {"type": "array", "items": {"type": "string"}},
+                // "creator": {"type": "string"},
+                // "description": {"type": "string"},
+                // "people": {"type": "array", "items": {"type": "string"}},
                 "features": {"$ref": "/#/definitions/features"},
-                "ancestor": {"$ref": "/#/definitions/references/languageReference"},
+                // "ancestor": {"$ref": "/#/definitions/references/languageReference"},
             },
-            "required": ["name", "creator", "people", "features"],
+            "required": ["name", /*"creator", "people",*/ "features"],
         },
         "features": {
             "type": "object",
@@ -31,12 +31,12 @@ export default {
             "type": "object",
             "description": "Feature on one programming language",
             "properties": {
-                "description": {"type": "string"},
+                // "description": {"type": "string"},
                 "inspired_by": {
                     "$ref": "/#/definitions/references/anyReference"
                 }
             },
-            "required": ["description", "inspired_by"]
+            "required": [/*"description", */"inspired_by"]
         },
         "references": {
             "anyReference": {

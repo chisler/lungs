@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import {createStore} from "redux";
 import EditorContainer from "./containers/EditorContainer";
 import SortedErrors from "./containers/SortedErrors";
+import D3container from "./containers/D3container";
 import editorApp from "./reducers";
 import {Provider} from "react-redux";
 
@@ -17,6 +18,7 @@ ReactDOM.render(
             </div>
             <div className="build">
                 <SortedErrors />
+                <D3container />
             </div>
         </div>
     </Provider>
