@@ -20,7 +20,6 @@ class Chord extends Component {
     }
 
     chooseLanguage (chosenLanguage) {
-        console.log(chosenLanguage)
         this.setState({ chosenLanguage })
     }
 
@@ -72,14 +71,14 @@ class Chord extends Component {
                 <g id="circle">
                     <g transform="translate(200,200)">
                         <g className="groups">
-                            {displayData.groups.map((slice, i) => {
-                                const isRotationNeeded = (slice.endAngle) > Math.PI
-                                const angle = (slice.startAngle + slice.endAngle) / 2
+                            {displayData.groups.map((group, i) => {
+                                const isRotationNeeded = (group.endAngle) > Math.PI
+                                const angle = (group.startAngle + group.endAngle) / 2
 
                                 return (
                                     <g key={i}>
                                         <path
-                                            d={arc(slice)}
+                                            d={arc(group)}
                                             fill={color(i)}
 
                                             onMouseOver={() => {this.chooseLanguage(i)}}
@@ -102,7 +101,6 @@ class Chord extends Component {
                             {displayData.map((slice, i) => {
                                 const { chosenLanguage } = this.state
 
-                                console.log(slice.target.index, slice.source.index, chosenLanguage, chosenLanguage && chosenLanguage !== slice.target.index && chosenLanguage !== slice.source.index)
                                 if (chosenLanguage !== null && chosenLanguage !== slice.target.index && chosenLanguage !== slice.source.index) {
                                     return (<g key={i} />)
                                 }
