@@ -11,6 +11,24 @@ class Chord extends Component {
         languageMap: PropTypes.object
     }
 
+    constructor(props, context) {
+        super(props, context)
+
+        this.state = {
+            chosenLanguage: null
+        }
+    }
+
+    chooseLanguage (chosenLanguage) {
+        console.log(chosenLanguage)
+        this.setState({ chosenLanguage })
+    }
+
+    clearChosenLanguage () {
+        const chosenLanguage = null
+        this.setState({ chosenLanguage })
+    }
+
     render() {
         const {languageMatrix, languageMap} = this.props;
 
@@ -48,7 +66,6 @@ class Chord extends Component {
                 }
             }
         }
-        console.log(displayData)
 
         return (
             <svg width="400" height="400">
@@ -56,13 +73,17 @@ class Chord extends Component {
                     <g transform="translate(200,200)">
                         <g className="groups">
                             {displayData.groups.map((slice, i) => {
-                                    const isRotationNeeded = (slice.endAngle) > Math.PI
-                                    const angle = (slice.startAngle + slice.endAngle) / 2
+                                const isRotationNeeded = (slice.endAngle) > Math.PI
+                                const angle = (slice.startAngle + slice.endAngle) / 2
 
-                                    return (<g key={i}>
+                                return (
+                                    <g key={i}>
                                         <path
                                             d={arc(slice)}
                                             fill={color(i)}
+
+                                            onMouseOver={() => {this.chooseLanguage(i)}}
+                                            onMouseOut={() => {this.clearChosenLanguage()}}
                                         />
                                         <text
                                             transform={"rotate(" + ( angle * 180 / Math.PI - 90) + ")"
@@ -74,19 +95,30 @@ class Chord extends Component {
                                             {findInMap(i)}
                                         </text>
                                     </g>)
-                                }
+                            }
                             )}
                         </g>
                         <g className="ribbons">
-                            {displayData.map((slice, i) =>
-                                <g key={i}>
+                            {displayData.map((slice, i) => {
+                                const { chosenLanguage } = this.state
+
+                                console.log(slice.target.index, slice.source.index, chosenLanguage, chosenLanguage && chosenLanguage !== slice.target.index && chosenLanguage !== slice.source.index)
+                                if (chosenLanguage !== null && chosenLanguage !== slice.target.index && chosenLanguage !== slice.source.index) {
+                                    return (<g key={i} />)
+                                }
+
+                                return (<g key={i}>
                                     <path
                                         className="chord"
                                         d={ribbon(slice)}
                                         fill={color(slice.target.index)}
                                         stroke={d3.rgb(color(slice.target.index)).darker()}
+
+                                        onMouseOver={() => {this.chooseLanguage(slice.source.index)}}
+                                        onMouseOut={() => {this.clearChosenLanguage()}}
                                     />
                                 </g>
+                                )}
                             )}
                         </g>
                     </g>
