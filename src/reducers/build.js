@@ -97,7 +97,7 @@ const build = (state = null, action) => {
       const referenceNodes = getAllReferences(dM);
 
       const languageMap = getLanguageMap(dM);
-      const references = getReferencesFromNodes(referenceNodes);
+      const references = getReferencesFromNodes(state.yamlString, referenceNodes);
       const languageMatrix = getLanguageMatrix(languageMap, references);
 
       return {

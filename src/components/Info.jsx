@@ -7,15 +7,15 @@ class Info extends Component {
   static propTypes = {
     references: PropTypes.array,
     unfixReferences: PropTypes.func.isRequired,
-    chooseLanguages: PropTypes.func.isRequired
+    chooseLanguages: PropTypes.func.isRequired,
+    goToLine: PropTypes.func.isRequired
   };
 
   render() {
-    const { references, chooseLanguages, unfixReferences } = this.props;
+    const { references, chooseLanguages, unfixReferences, goToLine } = this.props;
     if (!references.some(item => item.isVisible)) {
       return <div />;
     }
-
 
     return (
       <div className="info_wrapper">
@@ -34,6 +34,16 @@ class Info extends Component {
               if (reference.isVisible) {
                 return (
                   <div className="info" key={index}>
+                    <a
+                      href="#"
+                      onClick={e => {
+                        e.preventDefault();
+                        goToLine(reference.line);
+                      }}
+                    >
+                      Line {reference.line}
+                    </a>:
+                    {" "}
                     {reference.referral.join(".")}
                     {" "}
                     is

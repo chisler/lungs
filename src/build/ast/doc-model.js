@@ -1,4 +1,5 @@
 import { pathToArray } from "../helpers/path-to-array";
+import {getLineForPath} from "./ast";
 export function getBaseForPath(docModel, pathArray) {
   let node = docModel;
 
@@ -106,7 +107,7 @@ export function getLanguageMap(docModel) {
   return languageMap;
 }
 
-export function getReferencesFromNodes(referenceNodes) {
+export function getReferencesFromNodes(editorValue, referenceNodes) {
   let references = referenceNodes.map(({ path, nodeValue }) => {
     const fullPathArray = pathToArray(path);
 
@@ -114,6 +115,7 @@ export function getReferencesFromNodes(referenceNodes) {
       referral: fullPathArray.slice(0, -1),
       referenceKey: fullPathArray.slice(-1),
       value: pathToArray(nodeValue),
+      line: getLineForPath(editorValue, fullPathArray),
       isVisible: false
     };
   });

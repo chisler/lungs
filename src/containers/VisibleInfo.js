@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 
 import Info from "../components/Info";
-import { chooseLanguages, unfixReferences } from "../actions";
+import { chooseLanguages, unfixReferences, setLineToGoTo } from "../actions";
 
 const mapStateToProps = state => {
   return {
@@ -14,7 +14,9 @@ const mapDispatchToProps = dispatch => {
     chooseLanguages: chosenLanguages =>
       dispatch(chooseLanguages(chosenLanguages)),
     unfixReferences: () =>
-      dispatch(unfixReferences())
+      dispatch(unfixReferences()),
+    goToLine: line => dispatch(setLineToGoTo(line))
+
   };
 };
 
