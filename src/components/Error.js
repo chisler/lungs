@@ -16,7 +16,7 @@ class Error extends Component {
   };
 
   render() {
-    const { line, message, scope } = this.props;
+    const { line, message } = this.props;
 
     return (
       <li className="error">

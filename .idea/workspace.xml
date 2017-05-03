@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="df2bc385-f543-4b06-8348-6371d6e0fd06" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/Info.jsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/containers/VisibleInfo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
+    <list default="true" id="df2bc385-f543-4b06-8348-6371d6e0fd06" name="Default" comment="one">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/actions/index.js" afterPath="$PROJECT_DIR$/src/actions/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/build/ast/doc-model.js" afterPath="$PROJECT_DIR$/src/build/ast/doc-model.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Chord.jsx" afterPath="$PROJECT_DIR$/src/components/Chord.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Error.js" afterPath="$PROJECT_DIR$/src/components/Error.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Errors.js" afterPath="$PROJECT_DIR$/src/components/Errors.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Info.jsx" afterPath="$PROJECT_DIR$/src/components/Info.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/D3container.js" afterPath="$PROJECT_DIR$/src/containers/D3container.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.js" afterPath="$PROJECT_DIR$/src/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/reducers/build.js" afterPath="$PROJECT_DIR$/src/reducers/build.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -32,8 +31,8 @@
       <file leaf-file-name="Chord.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Chord.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="39" column="2" lean-forward="false" selection-start-line="39" selection-start-column="2" selection-end-line="39" selection-end-column="2" />
+            <state relative-caret-position="238">
+              <caret line="106" column="22" lean-forward="true" selection-start-line="106" selection-start-column="22" selection-end-line="106" selection-end-column="22" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -44,8 +43,8 @@
       <file leaf-file-name="build.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/reducers/build.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="113" column="33" lean-forward="true" selection-start-line="113" selection-start-column="33" selection-end-line="113" selection-end-column="33" />
+            <state relative-caret-position="472">
+              <caret line="136" column="19" lean-forward="false" selection-start-line="136" selection-start-column="19" selection-end-line="136" selection-end-column="19" />
               <folding>
                 <element signature="e#0#104#0" expanded="true" />
               </folding>
@@ -53,21 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="8" lean-forward="false" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="VisibleInfo.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/containers/VisibleInfo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="38" lean-forward="false" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="38" />
+            <state relative-caret-position="210">
+              <caret line="14" column="2" lean-forward="false" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -78,11 +67,21 @@
       <file leaf-file-name="Info.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Info.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+            <state relative-caret-position="319">
+              <caret line="26" column="35" lean-forward="false" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="D3container.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/containers/D3container.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="3" column="24" lean-forward="false" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -91,17 +90,7 @@
         <entry file="file://$PROJECT_DIR$/src/components/error.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
-              <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Errors.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Errors.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="20" column="20" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+              <caret line="11" column="1" lean-forward="false" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -110,21 +99,9 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/actions/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+            <state relative-caret-position="268">
+              <caret line="26" column="28" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="28" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="D3container.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/D3container.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="16" column="29" lean-forward="true" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -162,6 +139,7 @@
       <find>Error</find>
       <find>fill</find>
       <find>export const setLineToGoTo \= line \=\&gt; \{\n  return \{\n    type\: \&quot;SET_LINE_TO_GO_TO\&quot;\,\n    line\n  \}\;\n\}\;\n</find>
+      <find>chosenLanguageIndex</find>
     </findStrings>
     <replaceStrings>
       <replace>Error</replace>
@@ -194,7 +172,6 @@
         <option value="$PROJECT_DIR$/src/editor/components/EditorContainer.jsx.js" />
         <option value="$PROJECT_DIR$/src/editor/components/EditorContainer.jsx" />
         <option value="$PROJECT_DIR$/src/components/ErrorsContainer.js" />
-        <option value="$PROJECT_DIR$/src/components/Errors.js" />
         <option value="$PROJECT_DIR$/src/editor/reducers/navigation.js" />
         <option value="$PROJECT_DIR$/src/editor/components/Editor.jsx" />
         <option value="$PROJECT_DIR$/src/ast/doc-model.js" />
@@ -213,19 +190,20 @@
         <option value="$PROJECT_DIR$/src/build/validators/structure/schema.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/components/chord.css" />
-        <option value="$PROJECT_DIR$/src/components/Error.js" />
         <option value="$PROJECT_DIR$/src/reducers/navigation.js" />
         <option value="$PROJECT_DIR$/src/components/Editor.jsx" />
         <option value="$PROJECT_DIR$/src/containers/EditorContainer.jsx" />
         <option value="$PROJECT_DIR$/src/build/validators/semantic/references.js" />
         <option value="$PROJECT_DIR$/src/reducers/helpers.js" />
         <option value="$PROJECT_DIR$/src/build/ast/doc-model.js" />
-        <option value="$PROJECT_DIR$/src/containers/D3container.js" />
-        <option value="$PROJECT_DIR$/src/actions/index.js" />
         <option value="$PROJECT_DIR$/src/containers/visibleHints.js" />
         <option value="$PROJECT_DIR$/src/containers/visibleInfo.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
+        <option value="$PROJECT_DIR$/src/components/Errors.js" />
+        <option value="$PROJECT_DIR$/src/components/Error.js" />
         <option value="$PROJECT_DIR$/src/components/Info.jsx" />
+        <option value="$PROJECT_DIR$/src/actions/index.js" />
+        <option value="$PROJECT_DIR$/src/containers/D3container.js" />
         <option value="$PROJECT_DIR$/src/reducers/build.js" />
         <option value="$PROJECT_DIR$/src/components/Chord.jsx" />
       </list>
@@ -403,8 +381,8 @@
     <property name="js.eslint.eslintPackage" value="$PROJECT_DIR$/node_modules/eslint" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
-    <property name="SearchEverywhereHistoryKey" value="errors&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/components/Errors.js&#10;error&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/components/Error.js&#10;index&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/actions/index.js&#10;hel&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/reducers/helpers.js&#10;editor&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/components/Editor.jsx&#10;d3&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/containers/D3container.js&#10;doc&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/build/ast/doc-model.js&#10;refere&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/build/validators/semantic/references.js&#10;doc-model&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/build/ast/doc-model.js" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
+    <property name="SearchEverywhereHistoryKey" value="error&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/components/Error.js&#10;errors&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/components/Errors.js&#10;index&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/actions/index.js&#10;hel&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/reducers/helpers.js&#10;editor&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/components/Editor.jsx&#10;d3&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/containers/D3container.js&#10;doc&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/build/ast/doc-model.js&#10;refere&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/build/validators/semantic/references.js&#10;doc-model&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/build/ast/doc-model.js" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/Languages" value="JSX Harmony" />
   </component>
   <component name="RecentsManager">
@@ -435,7 +413,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.Start">
+  <component name="RunManager" selected="npm.deploy">
     <configuration default="false" name="referenceableNodes.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="$PROJECT_DIR$/src/validators/semantic/referenceNodes.js" working-dir="$PROJECT_DIR$/src/build/validators/semantic">
       <method />
     </configuration>
@@ -443,6 +421,9 @@
       <method />
     </configuration>
     <configuration default="false" name="index.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="index.js" working-dir="$PROJECT_DIR$/src">
+      <method />
+    </configuration>
+    <configuration default="false" name="Errors.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="Errors.js" working-dir="$PROJECT_DIR$/src/components">
       <method />
     </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
@@ -528,18 +509,20 @@
       <envs />
       <method />
     </configuration>
-    <list size="5">
+    <list size="6">
       <item index="0" class="java.lang.String" itemvalue="npm.Start" />
       <item index="1" class="java.lang.String" itemvalue="npm.deploy" />
       <item index="2" class="java.lang.String" itemvalue="Node.js.referenceableNodes.js" />
       <item index="3" class="java.lang.String" itemvalue="Node.js.build.js" />
       <item index="4" class="java.lang.String" itemvalue="Node.js.index.js" />
+      <item index="5" class="java.lang.String" itemvalue="Node.js.Errors.js" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Node.js.index.js" />
-        <item index="1" class="java.lang.String" itemvalue="Node.js.build.js" />
-        <item index="2" class="java.lang.String" itemvalue="Node.js.referenceableNodes.js" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Node.js.Errors.js" />
+        <item index="1" class="java.lang.String" itemvalue="Node.js.index.js" />
+        <item index="2" class="java.lang.String" itemvalue="Node.js.build.js" />
+        <item index="3" class="java.lang.String" itemvalue="Node.js.referenceableNodes.js" />
       </list>
     </recent_temporary>
   </component>
@@ -740,11 +723,18 @@
       <option name="project" value="LOCAL" />
       <updated>1493831676098</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="one language info displayed correctly">
+      <created>1493835117754</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1493835117754</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115883000" />
+    <option name="totallyTimeSpent" value="119147000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -764,14 +754,14 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32599118" sideWeight="0.50277996" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892805" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23348017" sideWeight="0.49722" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892805" sideWeight="0.49563146" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3010279" sideWeight="0.49722" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892805" sideWeight="0.49563146" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3010279" sideWeight="0.497839" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299337" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -800,7 +790,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="errors are sorted by line, semantic and structure errors are shown" />
     <MESSAGE value="goToLine from error component" />
     <MESSAGE value="validate referenceable nodes" />
     <MESSAGE value="code cleanup Editor.jsx" />
@@ -825,7 +814,8 @@
     <MESSAGE value="code style and more distinctive color map" />
     <MESSAGE value="refactoring todo" />
     <MESSAGE value="references refactored" />
-    <option name="LAST_COMMIT_MESSAGE" value="references refactored" />
+    <MESSAGE value="one language info displayed correctly" />
+    <option name="LAST_COMMIT_MESSAGE" value="one language info displayed correctly" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1088,37 +1078,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Error.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="15" column="4" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build/static/css/main.fa4b3ca2.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="125" lean-forward="false" selection-start-line="0" selection-start-column="125" selection-end-line="0" selection-end-column="125" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Errors.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="20" column="20" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/D3container.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="16" column="29" lean-forward="true" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1130,13 +1094,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/reducers/build.js">
+    <entry file="file://$PROJECT_DIR$/src/components/Errors.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="113" column="33" lean-forward="true" selection-start-line="113" selection-start-column="33" selection-end-line="113" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#104#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="210">
+          <caret line="19" column="20" lean-forward="true" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Error.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="20" column="12" lean-forward="true" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1148,46 +1118,64 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/VisibleInfo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="38" lean-forward="false" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Info.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/error.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
-          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+          <caret line="11" column="1" lean-forward="false" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/actions/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+        <state relative-caret-position="268">
+          <caret line="26" column="28" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="28" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/D3container.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="3" column="24" lean-forward="false" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Info.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="26" column="35" lean-forward="false" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/VisibleInfo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="2" lean-forward="false" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reducers/build.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="472">
+          <caret line="136" column="19" lean-forward="false" selection-start-line="136" selection-start-column="19" selection-end-line="136" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#104#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Chord.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="39" column="2" lean-forward="false" selection-start-line="39" selection-start-column="2" selection-end-line="39" selection-end-column="2" />
+        <state relative-caret-position="238">
+          <caret line="106" column="22" lean-forward="true" selection-start-line="106" selection-start-column="22" selection-end-line="106" selection-end-column="22" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>

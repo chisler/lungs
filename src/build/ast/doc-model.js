@@ -1,4 +1,4 @@
-import {pathToArray} from "../helpers/path-to-array";
+import { pathToArray } from "../helpers/path-to-array";
 export function getBaseForPath(docModel, pathArray) {
   let node = docModel;
 

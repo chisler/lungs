@@ -17,14 +17,14 @@ class Info extends Component {
             if (reference.isVisible) {
               return (
                 <div key={index}>
-                  {reference.referral[0]}
+                  {reference.referral.join('.')}
                   {" "}
                   is
                   {" "}
                   {reference.referenceKey}
 
                   {" "}
-                  {reference.value[0]}
+                  {reference.value.join('.')}
                 </div>
               );
             }

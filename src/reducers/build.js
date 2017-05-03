@@ -105,29 +105,42 @@ const build = (state = null, action) => {
         languageMatrix: languageMatrix,
         languageMap: languageMap
       };
-    case "CHOOSE_ONE_LANGUAGE":
-      const oldReferences = state.references;
-      if (!oldReferences) {
+    case "CHOOSE_LANGUAGES":
+      if (!state.references) {
         return state;
       }
-      const chosenLanguage = action.chosenLanguage;
-      console.log(chosenLanguage)
+      const chosenLanguages = action.chosenLanguages.filter(
+        item => item !== null && item !== undefined
+      );
 
-      let newReferences = oldReferences.map(reference => {
-        const isReferralOrReferenced =
-          chosenLanguage === reference.referral[0] ||
-          chosenLanguage === reference.value[0];
-        console.log(reference.referral[0], reference.value[0], isReferralOrReferenced)
+      const isReferralOrReferenced = (chosenLanguages, reference) => {
+        switch (chosenLanguages.length) {
+          case 1:
+            return (
+              chosenLanguages[0] === reference.referral[0] ||
+              chosenLanguages[0] === reference.value[0]
+            );
+          case 2:
+            return (
+              (chosenLanguages[0] === reference.referral[0] &&
+                chosenLanguages[1] === reference.value[0]) ||
+              (chosenLanguages[1] === reference.referral[0] &&
+                chosenLanguages[0] === reference.value[0])
+            );
+        }
+      };
 
+      let chosenReferences = state.references.map(reference => {
+        const isVisible = isReferralOrReferenced(chosenLanguages, reference);
         return {
           ...reference,
-          isVisible: isReferralOrReferenced
+          isVisible
         };
       });
 
       return {
         ...state,
-        references: newReferences
+        references: chosenReferences
       };
 
     default:

@@ -24,9 +24,9 @@ export const extractReferenceMap = () => {
   };
 };
 
-export const chooseOneLanguage = chosenLanguage => {
+export const chooseLanguages = chosenLanguages => {
   return {
-    type: "CHOOSE_ONE_LANGUAGE",
-    chosenLanguage
+    type: "CHOOSE_LANGUAGES",
+    chosenLanguages
   };
 };

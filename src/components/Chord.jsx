@@ -9,14 +9,14 @@ class Chord extends Component {
     languageMatrix: PropTypes.array,
     languageMap: PropTypes.object,
     references: PropTypes.array,
-    chooseOneLanguage: PropTypes.func.isRequired
+    chooseLanguages: PropTypes.func.isRequired
   };
 
   constructor(props, context) {
     super(props, context);
 
     this.state = {
-      chosenLanguageIndex: null
+      chosenLanguageIndices: []
     };
   }
 
@@ -31,19 +31,15 @@ class Chord extends Component {
     }
   }
 
-  chooseLanguage(chosenLanguageIndex) {
-    this.setState({ chosenLanguageIndex });
+  chooseLanguages(chosenLanguageIndices) {
+    this.setState({ chosenLanguageIndices });
 
-    const { chooseOneLanguage } = this.props;
-    chooseOneLanguage(this.languageNameByIndex(chosenLanguageIndex));
-  }
+    const { chooseLanguages } = this.props;
 
-  clearChosenLanguage() {
-    const { chooseOneLanguage } = this.props;
-    const chosenLanguageIndex = null;
-
-    this.setState({ chosenLanguageIndex });
-    chooseOneLanguage(null);
+    chooseLanguages([
+      this.languageNameByIndex(chosenLanguageIndices[0]),
+      this.languageNameByIndex(chosenLanguageIndices[1])
+    ]);
   }
 
   render() {
@@ -87,10 +83,10 @@ class Chord extends Component {
                       d={arc(group)}
                       fill={color(i)}
                       onMouseOver={() => {
-                        this.chooseLanguage(i);
+                        this.chooseLanguages([i]);
                       }}
                       onMouseOut={() => {
-                        this.clearChosenLanguage();
+                        this.chooseLanguages([]);
                       }}
                     />
                     <text
@@ -114,12 +110,15 @@ class Chord extends Component {
             </g>
             <g className="ribbons">
               {displayData.map((slice, i) => {
-                const { chosenLanguageIndex } = this.state;
+                const { chosenLanguageIndices } = this.state;
 
                 if (
-                  chosenLanguageIndex !== null &&
-                  chosenLanguageIndex !== slice.target.index &&
-                  chosenLanguageIndex !== slice.source.index
+                  (chosenLanguageIndices.length === 1 &&
+                    !(chosenLanguageIndices.includes(slice.target.index) ||
+                      chosenLanguageIndices.includes(slice.source.index))) ||
+                  (chosenLanguageIndices.length === 2 &&
+                    !(chosenLanguageIndices.includes(slice.target.index) &&
+                      chosenLanguageIndices.includes(slice.source.index)))
                 ) {
                   return <g key={i} />;
                 }
@@ -132,10 +131,13 @@ class Chord extends Component {
                       fill={color(slice.target.index)}
                       stroke={d3.rgb(color(slice.target.index)).darker()}
                       onMouseOver={() => {
-                        this.chooseLanguage(slice.source.index);
+                        this.chooseLanguages([
+                          slice.source.index,
+                          slice.target.index
+                        ]);
                       }}
                       onMouseOut={() => {
-                        this.clearChosenLanguage();
+                        this.chooseLanguages([]);
                       }}
                     />
                   </g>

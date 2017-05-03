@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 
 import Chord from "../components/Chord";
-import { chooseOneLanguage } from "../actions";
+import { chooseLanguages } from "../actions";
 
 const mapStateToProps = state => {
   return {
@@ -13,8 +13,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    chooseOneLanguage: chosenLanguage =>
-      dispatch(chooseOneLanguage(chosenLanguage))
+    chooseLanguages: chosenLanguages =>
+      dispatch(chooseLanguages(chosenLanguages))
   };
 };
 
