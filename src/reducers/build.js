@@ -52,6 +52,7 @@ const validateState = state => {
 
   // Semantic validation
   const references = getAllReferences(dM);
+  console.log(references);
   const v = validateReferences(dM, state.yamlString, references);
 
   return {
@@ -73,10 +74,9 @@ const build = (state = null, action) => {
         ...state,
         yamlString: action.yamlString
       };
-
     case "VALIDATE":
       return validateState(state);
-
+    //TODO: refactor this
     case "EXTRACT_REFERENCE_MAP":
       if (state.errors.length) {
         //Do not update map if errors
@@ -125,8 +125,6 @@ const build = (state = null, action) => {
           languageMap[influencer].id
         ]++;
       });
-
-      // console.log(languageMatrix);
 
       return {
         ...state,
