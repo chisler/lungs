@@ -30,3 +30,15 @@ export const chooseLanguages = chosenLanguages => {
     chosenLanguages
   };
 };
+
+export const fixReferences = () => {
+  return {
+    type: "FIX_REFERENCES"
+  };
+};
+
+export const unfixReferences = () => {
+  return {
+    type: "UNFIX_REFERENCES"
+  };
+};

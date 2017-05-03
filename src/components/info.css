@@ -11,6 +11,24 @@
     justify-content: space-between;
 }
 
+.info_wrapper {
+    margin: 10px;
+    border: 1px solid lightskyblue;
+}
+
+.close-button {
+    color: #777;
+    font: 16px/100% arial, sans-serif;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #fff;
+}
+
+.close-button:after {
+    content: 'x';
+    padding: 3px;
+    float: right;
+}
+
 .list_without_bullets {
     list-style-type: none;
     padding: 0;

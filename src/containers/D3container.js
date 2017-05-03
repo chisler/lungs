@@ -1,20 +1,23 @@
 import { connect } from "react-redux";
 
 import Chord from "../components/Chord";
-import { chooseLanguages } from "../actions";
+import { chooseLanguages, fixReferences } from "../actions";
 
 const mapStateToProps = state => {
   return {
     languageMatrix: state.build.languageMatrix,
     languageMap: state.build.languageMap,
-    references: state.build.references
+    references: state.build.references,
+    areReferencesFixed: state.build.areReferencesFixed
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     chooseLanguages: chosenLanguages =>
-      dispatch(chooseLanguages(chosenLanguages))
+      dispatch(chooseLanguages(chosenLanguages)),
+    fixReferences: () =>
+      dispatch(fixReferences())
   };
 };
 

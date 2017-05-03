@@ -9,6 +9,8 @@ class Chord extends Component {
     languageMatrix: PropTypes.array,
     languageMap: PropTypes.object,
     references: PropTypes.array,
+    areReferencesFixed: PropTypes.boolean,
+    fixReferences: PropTypes.func.isRequired,
     chooseLanguages: PropTypes.func.isRequired
   };
 
@@ -16,7 +18,7 @@ class Chord extends Component {
     super(props, context);
 
     this.state = {
-      chosenLanguageIndices: []
+      chosenLanguageIndices: [],
     };
   }
 
@@ -32,6 +34,10 @@ class Chord extends Component {
   }
 
   chooseLanguages(chosenLanguageIndices) {
+    if (this.props.areReferencesFixed) {
+      return;
+    }
+
     this.setState({ chosenLanguageIndices });
 
     const { chooseLanguages } = this.props;
@@ -43,30 +49,30 @@ class Chord extends Component {
   }
 
   render() {
-    const { languageMatrix, languageMap } = this.props;
+    const { languageMatrix, languageMap, fixReferences } = this.props;
 
     if (!languageMap) {
       return <div />;
     }
 
-    var width = 400,
+    let width = 400,
       height = 400,
       innerRadius = height / 2,
       outerRadius = innerRadius - 100;
-    var matrix = languageMatrix;
+    let matrix = languageMatrix;
 
     (outerRadius = Math.min(width, height) * 0.5 - 40), (innerRadius =
       outerRadius - 30);
 
-    var color = d3.scaleOrdinal(d3.schemeCategory10);
+    let color = d3.scaleOrdinal(d3.schemeCategory10);
 
-    var chord = d3.chord().padAngle(0.05).sortSubgroups(d3.descending);
+    let chord = d3.chord().padAngle(0.05).sortSubgroups(d3.descending);
 
-    var arc = d3.arc().innerRadius(innerRadius).outerRadius(outerRadius);
+    let arc = d3.arc().innerRadius(innerRadius).outerRadius(outerRadius);
 
-    var ribbon = d3.ribbon().radius(innerRadius);
+    let ribbon = d3.ribbon().radius(innerRadius);
 
-    var displayData = chord(matrix);
+    let displayData = chord(matrix);
 
     return (
       <svg width="400" height="400">
@@ -87,6 +93,10 @@ class Chord extends Component {
                       }}
                       onMouseOut={() => {
                         this.chooseLanguages([]);
+                      }}
+                      onClick={() => {
+                        this.chooseLanguages([i]);
+                        fixReferences();
                       }}
                     />
                     <text

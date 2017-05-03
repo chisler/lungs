@@ -74,7 +74,8 @@ const build = (state = null, action) => {
       references: [],
       languageMatrix: null,
       languageMap: null,
-      errors: null
+      errors: null,
+      areReferencesFixed: false
     });
   }
   switch (action.type) {
@@ -142,7 +143,16 @@ const build = (state = null, action) => {
         ...state,
         references: chosenReferences
       };
-
+    case "FIX_REFERENCES":
+      return {
+        ...state,
+        areReferencesFixed: true
+      }
+    case "UNFIX_REFERENCES":
+      return {
+        ...state,
+        areReferencesFixed: false
+      }
     default:
       return state;
   }
