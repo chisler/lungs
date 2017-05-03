@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-import "./error.css";
+import "./info.css";
 
 class Info extends Component {
   static propTypes = {
@@ -16,7 +16,7 @@ class Info extends Component {
           {references.map((reference, index) => {
             if (reference.isVisible) {
               return (
-                <div key={index}>
+                <div className="info" key={index}>
                   {reference.referral.join('.')}
                   {" "}
                   is
