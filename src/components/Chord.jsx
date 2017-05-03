@@ -8,24 +8,42 @@ class Chord extends Component {
   static propTypes = {
     languageMatrix: PropTypes.array,
     languageMap: PropTypes.object,
-    references: PropTypes.array
+    references: PropTypes.array,
+    chooseOneLanguage: PropTypes.func.isRequired
   };
 
   constructor(props, context) {
     super(props, context);
 
     this.state = {
-      chosenLanguage: null
+      chosenLanguageIndex: null
     };
   }
 
-  chooseLanguage(chosenLanguage) {
-    this.setState({ chosenLanguage });
+  languageNameByIndex(index) {
+    const { languageMap } = this.props;
+    const keys = Object.keys(languageMap);
+
+    for (let i = 0; i < keys.length; i++) {
+      if (languageMap[keys[i]].id === index) {
+        return languageMap[keys[i]].name;
+      }
+    }
+  }
+
+  chooseLanguage(chosenLanguageIndex) {
+    this.setState({ chosenLanguageIndex });
+
+    const { chooseOneLanguage } = this.props;
+    chooseOneLanguage(this.languageNameByIndex(chosenLanguageIndex));
   }
 
   clearChosenLanguage() {
-    const chosenLanguage = null;
-    this.setState({ chosenLanguage });
+    const { chooseOneLanguage } = this.props;
+    const chosenLanguageIndex = null;
+
+    this.setState({ chosenLanguageIndex });
+    chooseOneLanguage(null);
   }
 
   render() {
@@ -53,16 +71,6 @@ class Chord extends Component {
     var ribbon = d3.ribbon().radius(innerRadius);
 
     var displayData = chord(matrix);
-
-    const findInMap = index => {
-      const keys = Object.keys(languageMap);
-
-      for (var i = 0; i < keys.length; i++) {
-        if (languageMap[keys[i]].id === index) {
-          return languageMap[keys[i]].name;
-        }
-      }
-    };
 
     return (
       <svg width="400" height="400">
@@ -98,7 +106,7 @@ class Chord extends Component {
                       dy=".35em"
                       textAnchor={isRotationNeeded ? "end" : ""}
                     >
-                      {findInMap(i)}
+                      {this.languageNameByIndex(i)}
                     </text>
                   </g>
                 );
@@ -106,12 +114,12 @@ class Chord extends Component {
             </g>
             <g className="ribbons">
               {displayData.map((slice, i) => {
-                const { chosenLanguage } = this.state;
+                const { chosenLanguageIndex } = this.state;
 
                 if (
-                  chosenLanguage !== null &&
-                  chosenLanguage !== slice.target.index &&
-                  chosenLanguage !== slice.source.index
+                  chosenLanguageIndex !== null &&
+                  chosenLanguageIndex !== slice.target.index &&
+                  chosenLanguageIndex !== slice.source.index
                 ) {
                   return <g key={i} />;
                 }

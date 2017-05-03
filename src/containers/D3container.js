@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 
 import Chord from "../components/Chord";
+import { chooseOneLanguage } from "../actions";
 
 const mapStateToProps = state => {
   return {
@@ -10,10 +11,17 @@ const mapStateToProps = state => {
   };
 };
 
+const mapDispatchToProps = dispatch => {
+  return {
+    chooseOneLanguage: chosenLanguage =>
+      dispatch(chooseOneLanguage(chosenLanguage))
+  };
+};
+
 // prettier-ignore
 const D3container = connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(Chord)
 
 export default D3container;

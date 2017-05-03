@@ -4,6 +4,7 @@ import { createStore } from "redux";
 import EditorContainer from "./containers/EditorContainer";
 import SortedErrors from "./containers/SortedErrors";
 import D3container from "./containers/D3container";
+import VisibleInfo from "./containers/VisibleInfo";
 import editorApp from "./reducers";
 import { Provider } from "react-redux";
 
@@ -18,6 +19,7 @@ ReactDOM.render(
       <div className="build">
         <SortedErrors />
         <D3container />
+        <VisibleInfo />
       </div>
     </div>
   </Provider>,

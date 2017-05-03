@@ -1,9 +1,12 @@
-import { getAllReferences, getLanguageMap } from "../build/ast/doc-model";
+import {
+  getAllReferences,
+  getLanguageMap,
+  getReferencesFromNodes
+} from "../build/ast/doc-model";
 import { validateReferences } from "../build/validators/semantic/references";
 import { parseYAML } from "../build/parser/yaml";
 import { validateSchema } from "../build/validators/structure/validator";
 import { getLanguageMatrix } from "./helpers";
-import { pathToArray } from "../build/helpers/path-to-array";
 
 const mockYAML = `kotlin:
   name: Kotlin
@@ -66,23 +69,14 @@ const build = (state = null, action) => {
   //default case
   if (state === null) {
     //DEFAULT VALUE
-    return validateState({ yamlString: mockYAML });
-  }
-
-  function getReferencesFromNodes(referenceNodes) {
-    let references = referenceNodes.map(({ path, nodeValue }) => {
-      const fullPathArray = pathToArray(path);
-
-      return {
-        referral: fullPathArray.slice(0, -1),
-        referenceKey: fullPathArray.slice(-1),
-        value: pathToArray(nodeValue)
-      };
+    return validateState({
+      yamlString: mockYAML,
+      references: [],
+      languageMatrix: null,
+      languageMap: null,
+      errors: null
     });
-
-    return references;
   }
-
   switch (action.type) {
     case "SET_VALUE":
       return {
@@ -103,7 +97,6 @@ const build = (state = null, action) => {
 
       const languageMap = getLanguageMap(dM);
       const references = getReferencesFromNodes(referenceNodes);
-
       const languageMatrix = getLanguageMatrix(languageMap, references);
 
       return {
@@ -111,6 +104,30 @@ const build = (state = null, action) => {
         references: references,
         languageMatrix: languageMatrix,
         languageMap: languageMap
+      };
+    case "CHOOSE_ONE_LANGUAGE":
+      const oldReferences = state.references;
+      if (!oldReferences) {
+        return state;
+      }
+      const chosenLanguage = action.chosenLanguage;
+      console.log(chosenLanguage)
+
+      let newReferences = oldReferences.map(reference => {
+        const isReferralOrReferenced =
+          chosenLanguage === reference.referral[0] ||
+          chosenLanguage === reference.value[0];
+        console.log(reference.referral[0], reference.value[0], isReferralOrReferenced)
+
+        return {
+          ...reference,
+          isVisible: isReferralOrReferenced
+        };
+      });
+
+      return {
+        ...state,
+        references: newReferences
       };
 
     default:

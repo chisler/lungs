@@ -23,3 +23,10 @@ export const extractReferenceMap = () => {
     type: "EXTRACT_REFERENCE_MAP"
   };
 };
+
+export const chooseOneLanguage = chosenLanguage => {
+  return {
+    type: "CHOOSE_ONE_LANGUAGE",
+    chosenLanguage
+  };
+};
