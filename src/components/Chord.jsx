@@ -1,130 +1,143 @@
-import React, {Component} from "react";
-import * as d3 from 'd3'
+import React, { Component } from "react";
+import * as d3 from "d3";
 import PropTypes from "prop-types";
 
 import "./chord.css";
 
 class Chord extends Component {
+  static propTypes = {
+    languageMatrix: PropTypes.array,
+    languageMap: PropTypes.object
+  };
 
-    static propTypes = {
-        languageMatrix: PropTypes.array,
-        languageMap: PropTypes.object
+  constructor(props, context) {
+    super(props, context);
+
+    this.state = {
+      chosenLanguage: null
+    };
+  }
+
+  chooseLanguage(chosenLanguage) {
+    this.setState({ chosenLanguage });
+  }
+
+  clearChosenLanguage() {
+    const chosenLanguage = null;
+    this.setState({ chosenLanguage });
+  }
+
+  render() {
+    const { languageMatrix, languageMap } = this.props;
+
+    if (!languageMap) {
+      return <div />;
     }
 
-    constructor(props, context) {
-        super(props, context)
+    var width = 400,
+      height = 400,
+      innerRadius = height / 2,
+      outerRadius = innerRadius - 100;
+    var matrix = languageMatrix;
 
-        this.state = {
-            chosenLanguage: null
+    (outerRadius = Math.min(width, height) * 0.5 - 40), (innerRadius =
+      outerRadius - 30);
+
+    var color = d3.scaleOrdinal(d3.schemeCategory20);
+
+    var chord = d3.chord().padAngle(0.05).sortSubgroups(d3.descending);
+
+    var arc = d3.arc().innerRadius(innerRadius).outerRadius(outerRadius);
+
+    var ribbon = d3.ribbon().radius(innerRadius);
+
+    var displayData = chord(matrix);
+
+    const findInMap = index => {
+      const keys = Object.keys(languageMap);
+
+      for (var i = 0; i < keys.length; i++) {
+        if (languageMap[keys[i]].id === index) {
+          return languageMap[keys[i]].name;
         }
-    }
+      }
+    };
 
-    chooseLanguage (chosenLanguage) {
-        this.setState({ chosenLanguage })
-    }
+    return (
+      <svg width="400" height="400">
+        <g id="circle">
+          <g transform="translate(200,200)">
+            <g className="groups">
+              {displayData.groups.map((group, i) => {
+                const isRotationNeeded = group.endAngle > Math.PI;
+                const angle = (group.startAngle + group.endAngle) / 2;
 
-    clearChosenLanguage () {
-        const chosenLanguage = null
-        this.setState({ chosenLanguage })
-    }
+                return (
+                  <g key={i}>
+                    <path
+                      d={arc(group)}
+                      fill={color(i)}
+                      onMouseOver={() => {
+                        this.chooseLanguage(i);
+                      }}
+                      onMouseOut={() => {
+                        this.clearChosenLanguage();
+                      }}
+                    />
+                    <text
+                      transform={
+                        "rotate(" +
+                          (angle * 180 / Math.PI - 90) +
+                          ")" +
+                          "translate(" +
+                          (outerRadius + 3) +
+                          ")" +
+                          (isRotationNeeded ? "rotate(180)" : "")
+                      }
+                      dy=".35em"
+                      textAnchor={isRotationNeeded ? "end" : ""}
+                    >
+                      {findInMap(i)}
+                    </text>
+                  </g>
+                );
+              })}
+            </g>
+            <g className="ribbons">
+              {displayData.map((slice, i) => {
+                const { chosenLanguage } = this.state;
 
-    render() {
-        const {languageMatrix, languageMap} = this.props;
-
-        if (!languageMap) {
-            return (<div></div>)
-        }
-
-        var width = 400, height = 400, innerRadius = height / 2, outerRadius = innerRadius - 100;
-        var matrix = languageMatrix
-
-        outerRadius = Math.min(width, height) * 0.5 - 40,
-            innerRadius = outerRadius - 30;
-
-        var color = d3.scaleOrdinal(d3.schemeCategory20);
-
-        var chord = d3.chord()
-            .padAngle(0.05)
-            .sortSubgroups(d3.descending);
-
-        var arc = d3.arc()
-            .innerRadius(innerRadius)
-            .outerRadius(outerRadius);
-
-        var ribbon = d3.ribbon()
-            .radius(innerRadius);
-
-        var displayData = chord(matrix)
-
-        const findInMap = (index) => {
-            const keys = Object.keys(languageMap);
-
-            for (var i = 0; i < keys.length; i++) {
-                if (languageMap[keys[i]].id === index) {
-                    return languageMap[keys[i]].name
+                if (
+                  chosenLanguage !== null &&
+                  chosenLanguage !== slice.target.index &&
+                  chosenLanguage !== slice.source.index
+                ) {
+                  return <g key={i} />;
                 }
-            }
-        }
 
-        return (
-            <svg width="400" height="400">
-                <g id="circle">
-                    <g transform="translate(200,200)">
-                        <g className="groups">
-                            {displayData.groups.map((group, i) => {
-                                const isRotationNeeded = (group.endAngle) > Math.PI
-                                const angle = (group.startAngle + group.endAngle) / 2
-
-                                return (
-                                    <g key={i}>
-                                        <path
-                                            d={arc(group)}
-                                            fill={color(i)}
-
-                                            onMouseOver={() => {this.chooseLanguage(i)}}
-                                            onMouseOut={() => {this.clearChosenLanguage()}}
-                                        />
-                                        <text
-                                            transform={"rotate(" + ( angle * 180 / Math.PI - 90) + ")"
-                                            + "translate(" + (outerRadius + 3) + ")"
-                                            + (isRotationNeeded ? "rotate(180)" : "")}
-                                            dy=".35em"
-                                            textAnchor={isRotationNeeded ? "end" : ""}
-                                        >
-                                            {findInMap(i)}
-                                        </text>
-                                    </g>)
-                            }
-                            )}
-                        </g>
-                        <g className="ribbons">
-                            {displayData.map((slice, i) => {
-                                const { chosenLanguage } = this.state
-
-                                if (chosenLanguage !== null && chosenLanguage !== slice.target.index && chosenLanguage !== slice.source.index) {
-                                    return (<g key={i} />)
-                                }
-
-                                return (<g key={i}>
-                                    <path
-                                        className="chord"
-                                        d={ribbon(slice)}
-                                        fill={color(slice.target.index)}
-                                        stroke={d3.rgb(color(slice.target.index)).darker()}
-
-                                        onMouseOver={() => {this.chooseLanguage(slice.source.index)}}
-                                        onMouseOut={() => {this.clearChosenLanguage()}}
-                                    />
-                                </g>
-                                )}
-                            )}
-                        </g>
-                    </g>
-                </g>
-            </svg>
-        )
-    }
+                return (
+                  <g key={i}>
+                    <path
+                      className="chord"
+                      d={ribbon(slice)}
+                      fill={color(slice.target.index)}
+                      stroke={d3.rgb(color(slice.target.index)).darker()}
+                      onMouseOver={() => {
+                        this.chooseLanguage(slice.source.index);
+                      }}
+                      onMouseOut={() => {
+                        this.clearChosenLanguage();
+                      }}
+                    />
+                  </g>
+                );
+              })}
+            </g>
+          </g>
+        </g>
+      </svg>
+    );
+  }
 }
 
 export default Chord;
-
