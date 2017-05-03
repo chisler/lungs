@@ -7,7 +7,8 @@ import "./chord.css";
 class Chord extends Component {
   static propTypes = {
     languageMatrix: PropTypes.array,
-    languageMap: PropTypes.object
+    languageMap: PropTypes.object,
+    references: PropTypes.array
   };
 
   constructor(props, context) {

@@ -1,7 +1,9 @@
-import { getAllLanguages, getAllReferences } from "../build/ast/doc-model";
+import { getAllReferences, getLanguageMap } from "../build/ast/doc-model";
 import { validateReferences } from "../build/validators/semantic/references";
 import { parseYAML } from "../build/parser/yaml";
 import { validateSchema } from "../build/validators/structure/validator";
+import { getLanguageMatrix } from "./helpers";
+import { pathToArray } from "../build/helpers/path-to-array";
 
 const mockYAML = `kotlin:
   name: Kotlin
@@ -40,7 +42,6 @@ const validateState = state => {
   if (parsedYaml.error) {
     return {
       ...state,
-      //TODO: is it better to add this error to existing?
       errors: [parsedYaml.error]
     };
   }
@@ -51,9 +52,9 @@ const validateState = state => {
   let dM = validatedSchema.docModel;
 
   // Semantic validation
-  const references = getAllReferences(dM);
-  console.log(references);
-  const v = validateReferences(dM, state.yamlString, references);
+  const referenceNodes = getAllReferences(dM);
+
+  const v = validateReferences(dM, state.yamlString, referenceNodes);
 
   return {
     ...state,
@@ -68,6 +69,20 @@ const build = (state = null, action) => {
     return validateState({ yamlString: mockYAML });
   }
 
+  function getReferencesFromNodes(referenceNodes) {
+    let references = referenceNodes.map(({ path, nodeValue }) => {
+      const fullPathArray = pathToArray(path);
+
+      return {
+        referral: fullPathArray.slice(0, -1),
+        referenceKey: fullPathArray.slice(-1),
+        value: pathToArray(nodeValue)
+      };
+    });
+
+    return references;
+  }
+
   switch (action.type) {
     case "SET_VALUE":
       return {
@@ -76,58 +91,24 @@ const build = (state = null, action) => {
       };
     case "VALIDATE":
       return validateState(state);
-    //TODO: refactor this
     case "EXTRACT_REFERENCE_MAP":
       if (state.errors.length) {
         //Do not update map if errors
         return state;
       }
+
       let parsedYaml = parseYAML(state.yamlString);
       const dM = validateSchema(parsedYaml.jsonObj, state.yamlString).docModel;
-      const references = getAllReferences(dM);
+      const referenceNodes = getAllReferences(dM);
 
-      let languageMap = {};
+      const languageMap = getLanguageMap(dM);
+      const references = getReferencesFromNodes(referenceNodes);
 
-      getAllLanguages(dM).forEach((language, index) => {
-        const name = language.path;
-        languageMap[name] = {
-          name: name,
-          id: index
-        };
-      });
-
-      const numberOfLanguages = Object.keys(languageMap).length;
-
-      function zeros(dimensions) {
-        let array = [];
-        for (let i = 0; i < dimensions[0]; ++i) {
-          array.push(dimensions.length == 1 ? 0 : zeros(dimensions.slice(1)));
-        }
-        return array;
-      }
-
-      let languageMatrix = zeros([numberOfLanguages, numberOfLanguages]);
-
-      const cutByFirstDot = string => {
-        if (!string.includes(".")) {
-          return string;
-        }
-        return string.slice(0, string.indexOf("."));
-      };
-
-      //fill matrix
-      references.forEach(reference => {
-        const isInfluenced = cutByFirstDot(reference.path);
-        const influencer = cutByFirstDot(reference.nodeValue);
-
-        console.log(reference, isInfluenced, influencer);
-        languageMatrix[languageMap[isInfluenced].id][
-          languageMap[influencer].id
-        ]++;
-      });
+      const languageMatrix = getLanguageMatrix(languageMap, references);
 
       return {
         ...state,
+        references: references,
         languageMatrix: languageMatrix,
         languageMap: languageMap
       };

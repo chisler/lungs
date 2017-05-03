@@ -5,7 +5,8 @@ import Chord from "../components/Chord";
 const mapStateToProps = state => {
   return {
     languageMatrix: state.build.languageMatrix,
-    languageMap: state.build.languageMap
+    languageMap: state.build.languageMap,
+    references: state.build.references
   };
 };
 

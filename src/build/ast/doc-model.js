@@ -77,7 +77,7 @@ export function getAllReferences(docModel) {
   return getAllByBase(docModel, isBaseReference);
 }
 
-export function getAllLanguages(docModel) {
+function getAllLanguages(docModel) {
   return getAllByBase(docModel, isBaseLanguage);
 }
 
@@ -89,4 +89,18 @@ export function isBaseReference(base) {
   const references = "/#/definitions/references/";
 
   return base && base.slice(0, references.length) === references;
+}
+
+export function getLanguageMap(docModel) {
+  let languageMap = {};
+
+  getAllLanguages(docModel).forEach((language, index) => {
+    const name = language.path;
+    languageMap[name] = {
+      name: name,
+      id: index
+    };
+  });
+
+  return languageMap;
 }
