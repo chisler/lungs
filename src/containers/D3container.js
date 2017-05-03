@@ -11,8 +11,8 @@ const mapStateToProps = state => {
 
 // prettier-ignore
 const D3container = connect(
-    mapStateToProps,
-    null
+  mapStateToProps,
+  null
 )(Chord)
 
 export default D3container;

@@ -43,7 +43,7 @@ class Chord extends Component {
     (outerRadius = Math.min(width, height) * 0.5 - 40), (innerRadius =
       outerRadius - 30);
 
-    var color = d3.scaleOrdinal(d3.schemeCategory20);
+    var color = d3.scaleOrdinal(d3.schemeCategory10);
 
     var chord = d3.chord().padAngle(0.05).sortSubgroups(d3.descending);
 

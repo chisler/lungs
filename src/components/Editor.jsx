@@ -88,8 +88,6 @@ class Editor extends Component {
   };
 
   componentDidMount() {
-    console.log(this.props);
-
     this.updateErrorAnnotations(this.props);
   }
 
@@ -103,9 +101,8 @@ class Editor extends Component {
     const { editor } = this.state;
 
     this.updateErrorAnnotations(nextProps);
-    const hasChanged = k => !eq(nextProps[k], this.props[k]);
-
-    if (editor && nextProps.lineToGoTo && hasChanged("lineToGoTo")) {
+    //TODO: handle repetitive going to one line
+    if (editor && nextProps.lineToGoTo) {
       editor.gotoLine(nextProps.lineToGoTo);
     }
   }
