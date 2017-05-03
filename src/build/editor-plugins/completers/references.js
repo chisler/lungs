@@ -1,57 +1,62 @@
-import {validateSchema} from "../../validators/structure/validator";
-import {pathToArray} from "../../helpers/path-to-array";
-import {getDmNodeByPath, isBaseReference} from "../../ast/doc-model";
-import {parseYAML} from "../../parser/yaml";
-import {getAstNodeForPath, getPathForPosition} from "../../ast/ast";
+import { validateSchema } from "../../validators/structure/validator";
+import { pathToArray } from "../../helpers/path-to-array";
+import { getDmNodeByPath, isBaseReference } from "../../ast/doc-model";
+import { parseYAML } from "../../parser/yaml";
+import { getAstNodeForPath, getPathForPosition } from "../../ast/ast";
 
 export function getReferenceCompletions(docModel, referenceString) {
-    let referenceArray = pathToArray(referenceString)
+  let referenceArray = pathToArray(referenceString);
 
-    //check if the word is complete: kotlin.features_
-    if (referenceString[-1] !== ".") {
-        referenceArray = referenceArray.slice(0, -1)
-    }
-    let node = getDmNodeByPath(docModel, referenceArray)
+  //check if the word is complete: kotlin.features_
+  if (referenceString[-1] !== ".") {
+    referenceArray = referenceArray.slice(0, -1);
+  }
+  let node = getDmNodeByPath(docModel, referenceArray);
 
-    if (!node || !node.value || typeof node.value === "string") {
-        return []
-    }
+  if (!node || !node.value || typeof node.value === "string") {
+    return [];
+  }
 
-    let completions = Object.keys(node.value)
+  let completions = Object.keys(node.value);
 
-    completions = completions.filter(function (competion) {
-        return node.value[competion].value !== undefined;
-    })
+  completions = completions.filter(function(competion) {
+    return node.value[competion].value !== undefined;
+  });
 
-    return completions
+  return completions;
 }
 
+export function getReferenceCompletionsForPosition(
+  originalPos,
+  prefix,
+  editorValue
+) {
+  let parsedYaml = parseYAML(editorValue);
 
-export function getReferenceCompletionsForPosition(originalPos, prefix, editorValue) {
-    let parsedYaml = parseYAML(editorValue)
+  if (parsedYaml.error) {
+    return [];
+  }
 
-    if (parsedYaml.error) {
-        return []
-    }
+  let jsonObj = parsedYaml.jsonObj;
 
-    let jsonObj = parsedYaml.jsonObj
+  let pathArray = getPathForPosition(originalPos, editorValue);
+  let validated = validateSchema(jsonObj, editorValue);
 
-    let pathArray = getPathForPosition(originalPos, editorValue)
-    let validated = validateSchema(jsonObj, editorValue)
+  let node = getDmNodeByPath(validated.docModel, pathArray);
 
-    let node = getDmNodeByPath(validated.docModel, pathArray)
+  if (!isBaseReference(node.base)) {
+    return [];
+  }
 
-    if (!isBaseReference(node.base)) {
-        return []
-    }
+  let referenceString = node.value;
+  let astNode = getAstNodeForPath(editorValue, pathArray);
+  let prefixLength = astNode.end_mark.column - originalPos.column;
 
-    let referenceString = node.value
-    let astNode = getAstNodeForPath(editorValue, pathArray)
-    let prefixLength = astNode.end_mark.column - originalPos.column
-
-    if (prefixLength >= 0) {
-        referenceString = referenceString.slice(0, referenceString.length - prefixLength)
-    } else
-        referenceString = ""
-    return getReferenceCompletions(validated.docModel, referenceString)
+  if (prefixLength >= 0) {
+    referenceString = referenceString.slice(
+      0,
+      referenceString.length - prefixLength
+    );
+  } else referenceString = "";
+  return getReferenceCompletions(validated.docModel, referenceString);
 }

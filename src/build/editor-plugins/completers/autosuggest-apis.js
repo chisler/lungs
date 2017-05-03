@@ -1,42 +1,42 @@
-import {makeAutosuggest} from "./completers-helpers/core";
-import constructAceCompletion from "./completers-helpers/construct-ace-completion";
-import {getKeywordsForPosition} from "./keywords";
-import {getReferenceCompletionsForPosition} from "./references";
+import { makeAutosuggest } from "./completers-helpers/core";
+import constructAceCompletion
+  from "./completers-helpers/construct-ace-completion";
+import { getKeywordsForPosition } from "./keywords";
+import { getReferenceCompletionsForPosition } from "./references";
 
-export default function (editor) {
+export default function(editor) {
+  let KeywordCompleter = {
+    getCompletions: function(editor, session, pos, prefix, callback) {
+      editor.completer.autoSelect = true;
 
-    let KeywordCompleter = {
-        getCompletions: function (editor, session, pos, prefix, callback) {
-            editor.completer.autoSelect = true
+      let editorValue = session.getValue();
 
-            let editorValue = session.getValue()
+      let array = getKeywordsForPosition(pos, prefix, editorValue);
 
-            let array = getKeywordsForPosition(pos, prefix, editorValue)
+      let completions = array.map(key => {
+        return constructAceCompletion("Keyword", key);
+      });
 
-            let completions = array.map(key => {
-                return constructAceCompletion("Keyword", key)
-            })
-
-            callback(null, completions)
-        }
+      callback(null, completions);
     }
+  };
 
-    let ReferenceCompleter = {
-        getCompletions: function (editor, session, pos, prefix, callback) {
-            editor.completer.autoSelect = true
+  let ReferenceCompleter = {
+    getCompletions: function(editor, session, pos, prefix, callback) {
+      editor.completer.autoSelect = true;
 
-            let editorValue = session.getValue()
+      let editorValue = session.getValue();
 
-            let array = getReferenceCompletionsForPosition(pos, prefix, editorValue) //["SCALA", "KOTLIN"]
+      let array = getReferenceCompletionsForPosition(pos, prefix, editorValue); //["SCALA", "KOTLIN"]
 
-            let completions = array.map(key => {
-                return constructAceCompletion("Reference", key)
-            })
+      let completions = array.map(key => {
+        return constructAceCompletion("Reference", key);
+      });
 
-            callback(null, completions)
-        }
+      callback(null, completions);
     }
-    return makeAutosuggest({
-        completers: [KeywordCompleter, ReferenceCompleter]
-    })(editor)
+  };
+  return makeAutosuggest({
+    completers: [KeywordCompleter, ReferenceCompleter]
+  })(editor);
 }

@@ -1,36 +1,35 @@
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 
 import Errors from "../components/Errors";
-import {setLineToGoTo} from "../actions";
+import { setLineToGoTo } from "../actions";
 
+const sortedByLine = errors => {
+  const comparator = (e1, e2) => {
+    return e1.line > e2.line;
+  };
 
-const sortedByLine = (errors) => {
-    const comparator = (e1, e2) => {
-        return e1.line > e2.line
-    }
+  let sortedErrors = Object.assign([], errors);
 
-    let sortedErrors = Object.assign([], errors)
+  sortedErrors.sort(comparator);
+  return sortedErrors;
+};
 
-    sortedErrors.sort(comparator)
-    return sortedErrors
-}
+const mapStateToProps = state => {
+  return {
+    errors: sortedByLine(state.build.errors)
+  };
+};
 
-const mapStateToProps = (state) => {
-    return {
-        errors: sortedByLine(state.build.errors),
-    }
-}
+const mapDispatchToProps = dispatch => {
+  return {
+    onClick: line => dispatch(setLineToGoTo(line))
+  };
+};
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onClick: (line) => dispatch(setLineToGoTo(line))
-    }
-}
-
+//prettier-ignore
 const SortedErrors = connect(
     mapStateToProps,
     mapDispatchToProps
 )(Errors)
 
 export default SortedErrors;
-
