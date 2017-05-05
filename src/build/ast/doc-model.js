@@ -62,7 +62,8 @@ export function getAllByBase(docModel, isBaseNeeded) {
       nodes.push({
         //trim first dot from path
         path: pathString.slice(1),
-        nodeValue: docModel.value
+        nodeValue: docModel.value,
+        base: docModel.base
       });
     }
 
