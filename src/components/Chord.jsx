@@ -9,7 +9,7 @@ class Chord extends Component {
     languageMatrix: PropTypes.array,
     languageMap: PropTypes.object,
     references: PropTypes.array,
-    areReferencesFixed: PropTypes.boolean,
+    areReferencesFixed: PropTypes.bool,
     fixReferences: PropTypes.func.isRequired,
     chooseLanguages: PropTypes.func.isRequired
   };
