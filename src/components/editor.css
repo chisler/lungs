@@ -2,3 +2,8 @@
     height: 500px !important;
     width: 100% !important;
 }
+
+.ace_link_marker {
+    position: absolute;
+    border-bottom: 1px solid blue;
+}

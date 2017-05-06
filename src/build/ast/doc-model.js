@@ -7,6 +7,10 @@ export function getBaseForPath(docModel, pathArray) {
     node = node.value[pathArray[i]];
   }
 
+  if (!node) {
+    return "/";
+  }
+
   //default case for not scheme-valid nodes
   return node.base || "/";
 }

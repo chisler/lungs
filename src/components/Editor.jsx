@@ -1,11 +1,11 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 import AceEditor from "react-ace";
 import editorPluginsHook
   from "../build/editor-plugins/completers/completers-helpers/hook";
-import {onMouseDown} from "../build/editor-plugins/commands/ctrl-click"
-
+import { onCtrlMouseDown } from "../build/editor-plugins/commands/ctrl-click";
+import { onCtrl } from "../build/editor-plugins/commands/ctrl";
 
 import "brace/mode/yaml";
 import "brace/theme/tomorrow_night_eighties";
@@ -34,7 +34,7 @@ class Editor extends Component {
   }
 
   onChange = value => {
-    this.setState({value});
+    this.setState({ value });
 
     this.props.setValue(value);
     this.props.onChange();
@@ -42,9 +42,9 @@ class Editor extends Component {
   };
 
   onLoad = editor => {
-    let {state, props} = this;
+    let { state, props } = this;
     state.editor = editor;
-    window.editor = editor
+    window.editor = editor;
     let session = editor.getSession();
     const value = editor.getValue();
 
@@ -61,24 +61,27 @@ class Editor extends Component {
     session.off("change", editor.renderer.$gutterLayer.$updateAnnotations);
 
     //After dot completion
-    editor.commands.on("afterExec", function (e, t) {
+    editor.commands.on("afterExec", function(e, t) {
       if (e.command.name === "insertstring" && e.args === ".") {
         e.editor.execCommand("startAutocomplete");
       }
     });
-    //Handle mouseDowns
-    editor.on('mousedown', onMouseDown);
+    //Handle ctrl+click
+    editor.on("mousedown", onCtrlMouseDown);
+    //Highlight references on ctrl
+    editor.on("mousemove", onCtrl);
+
     editorPluginsHook(editor, null, null || ["autosuggestApis"]);
   };
 
   updateErrorAnnotations = nextProps => {
-    const {editor} = this.state;
+    const { editor } = this.state;
 
     if (editor && nextProps.errors) {
       let editorAnnotations = nextProps.errors.map(err => {
         // Create annotation objects that ACE can use
         return {
-          row: err.line,
+          row: err.line - 1,
           column: 0,
           text: err.message,
           type: "error"
@@ -93,13 +96,13 @@ class Editor extends Component {
   }
 
   shouldComponentUpdate(nextProps) {
-    const {yamlString} = this.props;
+    const { yamlString } = this.props;
 
     return yamlString !== nextProps.yamlString;
   }
 
   componentWillReceiveProps(nextProps) {
-    const {editor} = this.state;
+    const { editor } = this.state;
 
     this.updateErrorAnnotations(nextProps);
     //TODO: handle repetitive going to one line
@@ -109,7 +112,7 @@ class Editor extends Component {
   }
 
   render() {
-    const {yamlString} = this.props;
+    const { yamlString } = this.props;
 
     return (
       <AceEditor

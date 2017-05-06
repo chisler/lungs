@@ -44,7 +44,7 @@ export function getReferenceCompletionsForPosition(
 
   let node = getDmNodeByPath(validated.docModel, pathArray);
 
-  if (!isBaseReference(node.base)) {
+  if (!node || !isBaseReference(node.base)) {
     return [];
   }
 
@@ -79,7 +79,7 @@ export function getReferenceDestinationForPosition(
 
   let node = getDmNodeByPath(validated.docModel, pathArray);
 
-  if (!isBaseReference(node.base)) {
+  if (!node || !isBaseReference(node.base)) {
     return null;
   }
 
@@ -88,9 +88,15 @@ export function getReferenceDestinationForPosition(
 
   let prefixLength = originalPos.column - astNode.start_mark.column;
 
-  let endIndex = referenceString.slice(prefixLength).indexOf('.');
+  let endIndex = referenceString.slice(prefixLength).indexOf(".");
   if (endIndex === -1) {
-    endIndex = referenceString.length
+    endIndex = referenceString.length;
   }
-  return referenceString.slice(0, endIndex + prefixLength)
+  endIndex = endIndex + prefixLength;
+
+  return {
+    referenceString: referenceString.slice(0, endIndex),
+    referenceStartPos: astNode.start_mark,
+    endIndex: endIndex
+  };
 }

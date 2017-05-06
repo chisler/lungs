@@ -1,18 +1,20 @@
+import ace from "brace";
+const { Range } = ace.acequire("ace/range");
 import { getReferenceDestinationForPosition } from "../completers/references";
-import { getLineForPath } from "../../ast/ast";
-import { pathToArray } from "../../helpers/path-to-array";
-
 import { isMac } from "../../helpers/useragent";
 
-export function onCtrlMouseDown(e) {
+let currentMarker;
+
+export function onCtrl(e) {
   const ev = e.domEvent;
   const ctrl = ev.ctrlKey;
   const accel = e.getAccelKey();
   const editor = e.editor;
   const editorValue = editor.getValue();
 
-  //Win: Ctrl + Click
-  //Mac: Cmd + Click
+  //Remove the old marker
+  editor.session.removeMarker(currentMarker);
+
   if ((accel && isMac()) || (ctrl && !isMac())) {
     const currentPos = e.getDocumentPosition();
     const referenceDestination = getReferenceDestinationForPosition(
@@ -24,14 +26,14 @@ export function onCtrlMouseDown(e) {
     if (!referenceDestination) {
       return;
     }
-    const destinationArray = pathToArray(referenceDestination.referenceString);
-    const line = getLineForPath(editorValue, destinationArray);
 
-    if (!line) {
-      return;
-    }
+    const { line, column } = referenceDestination.referenceStartPos;
 
-    editor.gotoLine(line);
-    e.preventDefault();
+    currentMarker = editor.session.addMarker(
+      new Range(line, column, line, column + referenceDestination.endIndex),
+      "ace_link_marker",
+      "text",
+      true
+    );
   }
 }
