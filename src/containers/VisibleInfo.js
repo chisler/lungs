@@ -13,10 +13,8 @@ const mapDispatchToProps = dispatch => {
   return {
     chooseLanguages: chosenLanguages =>
       dispatch(chooseLanguages(chosenLanguages)),
-    unfixReferences: () =>
-      dispatch(unfixReferences()),
+    unfixReferences: () => dispatch(unfixReferences()),
     goToLine: line => dispatch(setLineToGoTo(line))
-
   };
 };
 
