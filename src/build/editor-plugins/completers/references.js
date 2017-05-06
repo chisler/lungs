@@ -60,3 +60,37 @@ export function getReferenceCompletionsForPosition(
   } else referenceString = "";
   return getReferenceCompletions(validated.docModel, referenceString);
 }
+
+export function getReferenceDestinationForPosition(
+  originalPos,
+  prefix,
+  editorValue
+) {
+  let parsedYaml = parseYAML(editorValue);
+
+  if (parsedYaml.error) {
+    return null;
+  }
+
+  let jsonObj = parsedYaml.jsonObj;
+
+  let pathArray = getPathForPosition(originalPos, editorValue);
+  let validated = validateSchema(jsonObj, editorValue);
+
+  let node = getDmNodeByPath(validated.docModel, pathArray);
+
+  if (!isBaseReference(node.base)) {
+    return null;
+  }
+
+  let referenceString = node.value;
+  let astNode = getAstNodeForPath(editorValue, pathArray);
+
+  let prefixLength = originalPos.column - astNode.start_mark.column;
+
+  let endIndex = referenceString.slice(prefixLength).indexOf('.');
+  if (endIndex === -1) {
+    endIndex = referenceString.length
+  }
+  return referenceString.slice(0, endIndex + prefixLength)
+}

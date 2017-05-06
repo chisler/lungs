@@ -8,7 +8,10 @@ const SEQ_TAG = "tag:yaml.org,2002:seq";
 
 export function getLineForPath(yamlString, pathArray) {
   let mark = getAstNodeForPath(yamlString, pathArray);
-  return mark.start_mark.line;
+  if (mark.tag === MAP_TAG) {
+    return mark.start_mark.line;
+  }
+  return mark.start_mark.line + 1;
 }
 
 export function getAstNodeForPath(yamlString, pathArray) {

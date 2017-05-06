@@ -1,6 +1,4 @@
 export function pathToArray(pathString) {
-  // console.log('path', Object.assign({}, pathString))
-
   if (!pathString) {
     return [];
   }
