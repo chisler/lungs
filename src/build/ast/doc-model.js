@@ -1,5 +1,5 @@
 import { pathToArray } from "../helpers/path-to-array";
-import {getLineForPath} from "./ast";
+import { getLineForPath } from "./ast";
 export function getBaseForPath(docModel, pathArray) {
   let node = docModel;
 

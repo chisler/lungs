@@ -18,7 +18,7 @@ class Chord extends Component {
     super(props, context);
     //TODO: move to redux state
     this.state = {
-      chosenLanguageIndices: [],
+      chosenLanguageIndices: []
     };
   }
 

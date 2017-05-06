@@ -97,7 +97,10 @@ const build = (state = null, action) => {
       const referenceNodes = getAllReferences(dM);
 
       const languageMap = getLanguageMap(dM);
-      const references = getReferencesFromNodes(state.yamlString, referenceNodes);
+      const references = getReferencesFromNodes(
+        state.yamlString,
+        referenceNodes
+      );
       const languageMatrix = getLanguageMatrix(languageMap, references);
 
       return {
@@ -147,12 +150,12 @@ const build = (state = null, action) => {
       return {
         ...state,
         areReferencesFixed: true
-      }
+      };
     case "UNFIX_REFERENCES":
       return {
         ...state,
         areReferencesFixed: false
-      }
+      };
     default:
       return state;
   }

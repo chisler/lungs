@@ -16,8 +16,7 @@ const mapDispatchToProps = dispatch => {
   return {
     chooseLanguages: chosenLanguages =>
       dispatch(chooseLanguages(chosenLanguages)),
-    fixReferences: () =>
-      dispatch(fixReferences())
+    fixReferences: () => dispatch(fixReferences())
   };
 };
 

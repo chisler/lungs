@@ -33,16 +33,15 @@ function validateReference(docModel, editorValue, reference) {
     };
   }
 
-  const destinationBase =  getBaseForPath(docModel, referenceArray);
+  const destinationBase = getBaseForPath(docModel, referenceArray);
   if (!isDestinationValid(destinationBase, reference.base, schema)) {
     return {
       message: `Invalid destination ${destinationBase}. Valid destinations: ${getValidDestinations(reference.base, schema)}`,
       line: getLineForPath(editorValue, pathToArray(reference.path)),
       scope: "reference"
-    }
+    };
   }
 }
-
 
 function isDestinationValid(destinationBase, referenceType, schema) {
   const validDestinations = getValidDestinations(referenceType, schema);
@@ -51,12 +50,12 @@ function isDestinationValid(destinationBase, referenceType, schema) {
 }
 
 function getValidDestinations(referenceType, schema) {
-  const definitionArray = referenceType.split('/').slice(2)
+  const definitionArray = referenceType.split("/").slice(2);
   let pointer = schema;
 
   definitionArray.forEach(key => {
-    pointer = pointer[key]
-  })
+    pointer = pointer[key];
+  });
 
   return pointer.validDestinations;
 }
