@@ -1,6 +1,6 @@
 import {
   getAllReferences,
-  getLanguageMap,
+  getInstanceMap,
   getReferencesFromNodes
 } from "../build/ast/doc-model";
 import { validateReferences } from "../build/validators/semantic/references";
@@ -87,6 +87,16 @@ const build = (state = null, action) => {
     case "VALIDATE":
       return validateState(state);
     case "EXTRACT_REFERENCE_MAP":
+      //1 Input: linkedBase, linkBase, linkType
+      //2. linkedInstances = getAllByBase(linkedBase)
+      //3. linkedMap = getMap(linkedInstances)
+      //4. links = getAllByBase(linkBase)
+      //5. each(links, link => {return ...{referral: instance.name, referenced: instance.name} })
+      //6. links => Fill linkedMatrix
+      const linkedBase = "/#/definitions/language";
+      const linkBase = "/#/definitions/feature";
+      const linkType = "inspired_by";
+
       if (state.errors.length) {
         //Do not update map if errors
         return state;
@@ -96,11 +106,20 @@ const build = (state = null, action) => {
       const dM = validateSchema(parsedYaml.jsonObj, state.yamlString).docModel;
       const referenceNodes = getAllReferences(dM);
 
-      const languageMap = getLanguageMap(dM);
+      console.log(referenceNodes);
+
+      const languageMap = getInstanceMap(dM, linkedBase);
       const references = getReferencesFromNodes(
+        dM,
         state.yamlString,
-        referenceNodes
+        referenceNodes,
+        linkedBase
       );
+
+      if (!references.length > 0) {
+        return state;
+      }
+
       const languageMatrix = getLanguageMatrix(languageMap, references);
 
       return {

@@ -1,5 +1,6 @@
 import { pathToArray } from "../helpers/path-to-array";
 import { getLineForPath } from "./ast";
+
 export function getBaseForPath(docModel, pathArray) {
   let node = docModel;
 
@@ -84,10 +85,6 @@ export function getAllReferences(docModel) {
   return getAllByBase(docModel, isBaseReference);
 }
 
-function getAllLanguages(docModel) {
-  return getAllByBase(docModel, isBaseLanguage);
-}
-
 export function isBaseLanguage(base) {
   return base === "/#/definitions/language";
 }
@@ -98,32 +95,51 @@ export function isBaseReference(base) {
   return base && base.slice(0, references.length) === references;
 }
 
-export function getLanguageMap(docModel) {
-  let languageMap = {};
+export function getInstanceMap(docModel, base) {
+  let instanceMap = {};
 
-  getAllLanguages(docModel).forEach((language, index) => {
-    const name = language.path;
-    languageMap[name] = {
+  getAllByBase(docModel, (b) => b === base).forEach((instance, index) => {
+    const name = instance.path;
+    instanceMap[name] = {
       name: name,
       id: index
     };
   });
 
-  return languageMap;
+  return instanceMap;
 }
 
-export function getReferencesFromNodes(editorValue, referenceNodes) {
+export function getReferencesFromNodes(docModel, editorValue, referenceNodes, linkedBase) {
   let references = referenceNodes.map(({ path, nodeValue }) => {
     const fullPathArray = pathToArray(path);
 
-    return {
-      referral: fullPathArray.slice(0, -1),
-      referenceKey: fullPathArray.slice(-1),
-      value: pathToArray(nodeValue),
-      line: getLineForPath(editorValue, fullPathArray),
-      isVisible: false
-    };
-  });
+    const value = pathToArray(getNodeByBaseInPath(docModel, linkedBase, nodeValue));
+    const referral = pathToArray(getNodeByBaseInPath(docModel, linkedBase, path));
+
+    if (value.length > 0 && referral.length > 0) {
+      return {
+        referral,
+        referenceKey: fullPathArray.slice(-1),
+        value,
+        line: getLineForPath(editorValue, fullPathArray),
+        isVisible: false
+      };
+    }
+  }).filter(item => item);
 
   return references;
+}
+
+//gets pathString e.g. kotlin.features.f1.inspired_by and gets the pathString of Base===base
+//kotlin.features.f1.inspired_by + "/#/definitions/language/" = kotlin
+export function getNodeByBaseInPath(docModel, base, pathString) {
+  const pathArray = pathToArray(pathString);
+  let subPath;
+
+  return pathArray.map((_, i) => {
+    subPath = pathArray.slice(0, i + 1);
+    let subBase = getBaseForPath(docModel, subPath);
+
+    return base === subBase ? subPath.join(".") : null;
+  }).filter(item => item)[0];
 }

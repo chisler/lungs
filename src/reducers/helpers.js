@@ -9,6 +9,7 @@ const getMatrixE = dimensions => {
 };
 
 export const getLanguageMatrix = (languageMap, references) => {
+  console.log(languageMap, references)
   const numberOfLanguages = Object.keys(languageMap).length;
   let languageMatrix = getMatrixE([numberOfLanguages, numberOfLanguages]);
 
@@ -20,8 +21,8 @@ export const getLanguageMatrix = (languageMap, references) => {
   let referencedLanguageId;
 
   references.forEach(reference => {
-    referralLanguageId = getLanguageId(languageMap, reference.referral[0]);
-    referencedLanguageId = getLanguageId(languageMap, reference.value[0]);
+    referralLanguageId = getLanguageId(languageMap, reference.referral.join('.'));
+    referencedLanguageId = getLanguageId(languageMap, reference.value.join('.'));
 
     languageMatrix[referralLanguageId][referencedLanguageId]++;
   });
