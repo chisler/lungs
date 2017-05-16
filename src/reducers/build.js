@@ -93,7 +93,7 @@ const build = (state = null, action) => {
       //4. links = getAllByBase(linkBase)
       //5. each(links, link => {return ...{referral: instance.name, referenced: instance.name} })
       //6. links => Fill linkedMatrix
-      const linkedBase = "/#/definitions/language";
+      const linkedBase = "/#/definitions/feature";
       const linkBase = "/#/definitions/feature";
       const linkType = "inspired_by";
 
