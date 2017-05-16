@@ -6,8 +6,8 @@ import "./chord.css";
 
 class Chord extends Component {
   static propTypes = {
-    languageMatrix: PropTypes.array,
-    languageMap: PropTypes.object,
+    instanceMatrix: PropTypes.array,
+    instanceMap: PropTypes.object,
     references: PropTypes.array,
     areReferencesFixed: PropTypes.bool,
     fixReferences: PropTypes.func.isRequired,
@@ -23,12 +23,12 @@ class Chord extends Component {
   }
 
   languageNameByIndex(index) {
-    const { languageMap } = this.props;
-    const keys = Object.keys(languageMap);
+    const { instanceMap } = this.props;
+    const keys = Object.keys(instanceMap);
 
     for (let i = 0; i < keys.length; i++) {
-      if (languageMap[keys[i]].id === index) {
-        return languageMap[keys[i]].name;
+      if (instanceMap[keys[i]].id === index) {
+        return instanceMap[keys[i]].name;
       }
     }
   }
@@ -49,9 +49,9 @@ class Chord extends Component {
   }
 
   render() {
-    const { languageMatrix, languageMap, fixReferences } = this.props;
+    const { instanceMatrix, instanceMap, fixReferences } = this.props;
 
-    if (!languageMap) {
+    if (!instanceMap) {
       return <div />;
     }
 
@@ -59,7 +59,7 @@ class Chord extends Component {
       height = 400,
       innerRadius = height / 2,
       outerRadius = innerRadius - 100;
-    let matrix = languageMatrix;
+    let matrix = instanceMatrix;
 
     (outerRadius = Math.min(width, height) * 0.5 - 40), (innerRadius =
       outerRadius - 30);

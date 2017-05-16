@@ -6,7 +6,7 @@ import {
 import { validateReferences } from "../build/validators/semantic/references";
 import { parseYAML } from "../build/parser/yaml";
 import { validateSchema } from "../build/validators/structure/validator";
-import { getLanguageMatrix } from "./helpers";
+import { getInstanceMatrix } from "./helpers";
 
 const mockYAML = `kotlin:
   name: Kotlin
@@ -72,8 +72,8 @@ const build = (state = null, action) => {
     return validateState({
       yamlString: mockYAML,
       references: [],
-      languageMatrix: null,
-      languageMap: null,
+      instanceMatrix: null,
+      instanceMap: null,
       errors: null,
       areReferencesFixed: false
     });
@@ -108,7 +108,7 @@ const build = (state = null, action) => {
 
       console.log(referenceNodes);
 
-      const languageMap = getInstanceMap(dM, linkedBase);
+      const instanceMap = getInstanceMap(dM, linkedBase);
       const references = getReferencesFromNodes(
         dM,
         state.yamlString,
@@ -120,13 +120,13 @@ const build = (state = null, action) => {
         return state;
       }
 
-      const languageMatrix = getLanguageMatrix(languageMap, references);
+      const instanceMatrix = getInstanceMatrix(instanceMap, references);
 
       return {
         ...state,
         references: references,
-        languageMatrix: languageMatrix,
-        languageMap: languageMap
+        instanceMatrix: instanceMatrix,
+        instanceMap: instanceMap
       };
     case "CHOOSE_LANGUAGES":
       if (!state.references) {

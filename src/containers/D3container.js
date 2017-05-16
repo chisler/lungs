@@ -5,8 +5,8 @@ import { chooseLanguages, fixReferences } from "../actions";
 
 const mapStateToProps = state => {
   return {
-    languageMatrix: state.build.languageMatrix,
-    languageMap: state.build.languageMap,
+    instanceMatrix: state.build.instanceMatrix,
+    instanceMap: state.build.instanceMap,
     references: state.build.references,
     areReferencesFixed: state.build.areReferencesFixed
   };

@@ -20,13 +20,12 @@ const getZeroMatrix = dimensions => {
   return array;
 };
 
-export const getLanguageMatrix = (languageMap, references) => {
-  console.log(languageMap, references);
-  const numberOfLanguages = Object.keys(languageMap).length;
-  let languageMatrix = getZeroMatrix([numberOfLanguages, numberOfLanguages]);
+export const getInstanceMatrix = (instanceMap, references) => {
+  const numberOfInstances = Object.keys(instanceMap).length;
+  let instanceMatrix = getZeroMatrix([numberOfInstances, numberOfInstances]);
 
-  const getLanguageId = (languageMatrix, name) => {
-    return languageMap[name].id;
+  const getLanguageId = (instanceMap, name) => {
+    return instanceMap[name].id;
   };
 
   let referralLanguageId;
@@ -34,26 +33,26 @@ export const getLanguageMatrix = (languageMap, references) => {
 
   references.forEach(reference => {
     referralLanguageId = getLanguageId(
-      languageMap,
+      instanceMap,
       reference.referral.join(".")
     );
     referencedLanguageId = getLanguageId(
-      languageMap,
+      instanceMap,
       reference.value.join(".")
     );
 
-    languageMatrix[referralLanguageId][referencedLanguageId]++;
+    instanceMatrix[referralLanguageId][referencedLanguageId]++;
   });
 
   // Link to itself is added to nodes without links
-  const anyReference = (i, languageMatrix) => {
-    return languageMatrix[i].some(Boolean);
+  const anyReference = (i, instanceMatrix) => {
+    return instanceMatrix[i].some(Boolean);
   };
-  for (let i in languageMatrix) {
-    if (!anyReference(i, languageMatrix)) {
-      languageMatrix[i][i] += 1;
+  for (let i in instanceMatrix) {
+    if (!anyReference(i, instanceMatrix)) {
+      instanceMatrix[i][i] += 1;
     }
   }
 
-  return languageMatrix;
+  return instanceMatrix;
 };
