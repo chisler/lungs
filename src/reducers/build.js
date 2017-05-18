@@ -41,6 +41,7 @@ pascal:
 
 //Gets the editor value => returns new state
 const validateState = state => {
+  // console.log(state)
   let parsedYaml = parseYAML(state.yamlString);
   if (parsedYaml.error) {
     return {
@@ -68,9 +69,24 @@ const validateState = state => {
 const build = (state = null, action) => {
   //default case
   if (state === null) {
+    //TODO: move to consts
+    const link = "https://api.github.com/repos/languagesWiki/languageWiki/contents/languages.yml";
+    let yamlString = mockYAML;
+
+    //TODO: make async
+    //FIXME: state is initialized 3 times
+    let request = new XMLHttpRequest();
+    request.open("GET", link, false); // `false` makes the request synchronous
+    request.setRequestHeader('accept', 'application/vnd.github.VERSION.raw')
+    request.send(null);
+
     //DEFAULT VALUE
+    if (request.status == 200) {
+      yamlString = request.responseText;
+    }
+
     return validateState({
-      yamlString: mockYAML,
+      yamlString: yamlString,
       references: [],
       instanceMatrix: null,
       instanceMap: null,
@@ -78,6 +94,7 @@ const build = (state = null, action) => {
       areReferencesFixed: false
     });
   }
+
   switch (action.type) {
     case "SET_VALUE":
       return {
@@ -93,7 +110,7 @@ const build = (state = null, action) => {
       //4. links = getAllByBase(linkBase)
       //5. each(links, link => {return ...{referral: instance.name, referenced: instance.name} })
       //6. links => Fill linkedMatrix
-      const linkedBase = "/#/definitions/feature";
+      const linkedBase = "/#/definitions/language";
       const linkBase = "/#/definitions/feature";
       const linkType = "inspired_by";
 
