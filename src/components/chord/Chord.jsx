@@ -55,14 +55,13 @@ class Chord extends Component {
       return <div />;
     }
 
-    let width = 400,
-      height = 400,
-      innerRadius = height / 2,
-      outerRadius = innerRadius - 100;
+    let width = 400;
+    let height = 400;
+
     let matrix = instanceMatrix;
 
-    (outerRadius = Math.min(width, height) * 0.5 - 40), (innerRadius =
-      outerRadius - 30);
+    let outerRadius = Math.min(width, height) * 0.5 - 40
+    let innerRadius = outerRadius - 30;
 
     let color = d3.scaleOrdinal(d3.schemeCategory10);
 
