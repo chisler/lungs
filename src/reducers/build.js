@@ -87,11 +87,10 @@ const build = (state = null, action) => {
 
     return validateState({
       yamlString: yamlString,
-      references: [],
       instanceMatrix: null,
       instanceMap: null,
+      chosenInstances: [],
       errors: null,
-      areReferencesFixed: false
     });
   }
 
@@ -141,56 +140,13 @@ const build = (state = null, action) => {
 
       return {
         ...state,
-        references: references,
         instanceMatrix: instanceMatrix,
         instanceMap: instanceMap
       };
-    case "CHOOSE_LANGUAGES":
-      if (!state.references) {
-        return state;
-      }
-      const chosenLanguages = action.chosenLanguages.filter(
-        item => item !== null && item !== undefined
-      );
-
-      const isReferralOrReferenced = (chosenLanguages, reference) => {
-        switch (chosenLanguages.length) {
-          case 1:
-            return (
-              chosenLanguages[0] === reference.referral[0] ||
-              chosenLanguages[0] === reference.value[0]
-            );
-          case 2:
-            return (
-              (chosenLanguages[0] === reference.referral[0] &&
-                chosenLanguages[1] === reference.value[0]) ||
-              (chosenLanguages[1] === reference.referral[0] &&
-                chosenLanguages[0] === reference.value[0])
-            );
-        }
-      };
-
-      let chosenReferences = state.references.map(reference => {
-        const isVisible = isReferralOrReferenced(chosenLanguages, reference);
-        return {
-          ...reference,
-          isVisible
-        };
-      });
-
-      return {
+    case "CHOOSE_INSTANCES":
+      return  {
         ...state,
-        references: chosenReferences
-      };
-    case "FIX_REFERENCES":
-      return {
-        ...state,
-        areReferencesFixed: true
-      };
-    case "UNFIX_REFERENCES":
-      return {
-        ...state,
-        areReferencesFixed: false
+        chosenInstances: action.chosenInstances
       };
     default:
       return state;

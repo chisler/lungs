@@ -1,28 +1,18 @@
 import React, { Component } from "react";
 import * as d3 from "d3";
 import PropTypes from "prop-types";
-
+import Vertexes from "./Vertexes";
 import "./chord.css";
 
 class Chord extends Component {
   static propTypes = {
     instanceMatrix: PropTypes.array,
     instanceMap: PropTypes.object,
-    references: PropTypes.array,
-    areReferencesFixed: PropTypes.bool,
-    fixReferences: PropTypes.func.isRequired,
-    chooseLanguages: PropTypes.func.isRequired
+    setChosenInstances: PropTypes.func.isRequired,
+    chosenInstances: PropTypes.array
   };
 
-  constructor(props, context) {
-    super(props, context);
-    //TODO: move to redux state
-    this.state = {
-      chosenInstancesIndices: []
-    };
-  }
-
-  languageNameByIndex(index) {
+  instancePathByIndex(index) {
     const { instanceMap } = this.props;
     const keys = Object.keys(instanceMap);
 
@@ -33,24 +23,24 @@ class Chord extends Component {
     }
   }
 
-  chooseLanguages(chosenLanguageIndices) {
-    if (this.props.areReferencesFixed) {
-      return;
-    }
+  instanceIndicesByPaths(paths) {
+    const { instanceMap } = this.props;
+    return paths.filter(path => instanceMap[path]).map(path => {
+      return instanceMap[path].id;
+    });
+  }
 
-    this.setState({ chosenInstancesIndices });
+  chooseInstances(instanceIndices) {
+    const { setChosenInstances } = this.props;
 
-    const { chooseLanguages } = this.props;
-
-    chooseLanguages([
-      this.languageNameByIndex(chosenLanguageIndices[0]),
-      this.languageNameByIndex(chosenLanguageIndices[1])
+    setChosenInstances([
+      this.instancePathByIndex(instanceIndices[0]),
+      this.instancePathByIndex(instanceIndices[1])
     ]);
   }
 
   render() {
-    const { instanceMatrix, instanceMap, fixReferences } = this.props;
-
+    const { instanceMatrix, instanceMap } = this.props;
     if (!instanceMap) {
       return <div />;
     }
@@ -89,14 +79,13 @@ class Chord extends Component {
                       d={arc(group)}
                       fill={color(i)}
                       onMouseOver={() => {
-                        this.chooseLanguages([i]);
+                        this.chooseInstances([i]);
                       }}
                       onMouseOut={() => {
-                        this.chooseLanguages([]);
+                        this.chooseInstances([]);
                       }}
                       onClick={() => {
-                        this.chooseLanguages([i]);
-                        fixReferences();
+                        this.chooseInstances([i]);
                       }}
                     />
                     <text
@@ -112,47 +101,33 @@ class Chord extends Component {
                       dy=".35em"
                       textAnchor={isRotationNeeded ? "end" : ""}
                     >
-                      {this.languageNameByIndex(i)}
+                      {this.instancePathByIndex(i)}
                     </text>
                   </g>
                 );
               })}
             </g>
             <g className="ribbons">
-              {displayData.map((slice, i) => {
-                const { chosenInstancesIndices } = this.state;
+              <Vertexes
+                displayData={displayData}
+                getRibbon={ribbon}
+                getFill={vertex => color(vertex.target.index)}
+                getStroke={vertex =>
+                  d3.rgb(color(vertex.target.index)).darker()}
+                onMouseOver={vertex => {
+                  this.chooseInstances([
+                    vertex.source.index,
+                    vertex.target.index
+                  ]);
+                }}
+                onMouseOut={() => {
+                  this.chooseInstances([]);
+                }}
+                chosenInstancesIndices={this.instanceIndicesByPaths(
+                  this.props.chosenInstances
+                )}
+              />
 
-                if (
-                  (chosenInstancesIndices.length === 1 &&
-                    !(chosenInstancesIndices.includes(slice.target.index) ||
-                      chosenInstancesIndices.includes(slice.source.index))) ||
-                  (chosenInstancesIndices.length === 2 &&
-                    !(chosenInstancesIndices.includes(slice.target.index) &&
-                      chosenInstancesIndices.includes(slice.source.index)))
-                ) {
-                  return <g key={i} />;
-                }
-
-                return (
-                  <g key={i}>
-                    <path
-                      className="chord"
-                      d={ribbon(slice)}
-                      fill={color(slice.target.index)}
-                      stroke={d3.rgb(color(slice.target.index)).darker()}
-                      onMouseOver={() => {
-                        this.chooseLanguages([
-                          slice.source.index,
-                          slice.target.index
-                        ]);
-                      }}
-                      onMouseOut={() => {
-                        this.chooseLanguages([]);
-                      }}
-                    />
-                  </g>
-                );
-              })}
             </g>
           </g>
         </g>

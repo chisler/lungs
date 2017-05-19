@@ -13,7 +13,7 @@ class Info extends Component {
 
   render() {
     const { references, chooseLanguages, unfixReferences, goToLine } = this.props;
-    if (!references.some(item => item.isVisible)) {
+    if (!references || !references.some(item => item.isVisible)) {
       return <div />;
     }
 

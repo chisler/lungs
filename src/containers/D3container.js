@@ -1,22 +1,20 @@
 import { connect } from "react-redux";
 
-import Chord from "../components/Chord";
-import { chooseLanguages, fixReferences } from "../actions";
+import newChord from "../components/newChord";
+import { chooseInstances } from "../actions";
 
 const mapStateToProps = state => {
   return {
     instanceMatrix: state.build.instanceMatrix,
     instanceMap: state.build.instanceMap,
-    references: state.build.references,
-    areReferencesFixed: state.build.areReferencesFixed
+    chosenInstances: state.build.chosenInstances
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    chooseLanguages: chosenLanguages =>
-      dispatch(chooseLanguages(chosenLanguages)),
-    fixReferences: () => dispatch(fixReferences())
+    setChosenInstances: chosenInstances =>
+      dispatch(chooseInstances(chosenInstances)),
   };
 };
 
@@ -24,6 +22,6 @@ const mapDispatchToProps = dispatch => {
 const D3container = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Chord)
+)(newChord);
 
 export default D3container;

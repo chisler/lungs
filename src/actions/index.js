@@ -24,21 +24,9 @@ export const extractReferenceMap = () => {
   };
 };
 
-export const chooseLanguages = chosenLanguages => {
+export const chooseInstances = chosenInstances => {
   return {
-    type: "CHOOSE_LANGUAGES",
-    chosenLanguages
-  };
-};
-
-export const fixReferences = () => {
-  return {
-    type: "FIX_REFERENCES"
-  };
-};
-
-export const unfixReferences = () => {
-  return {
-    type: "UNFIX_REFERENCES"
+    type: "CHOOSE_INSTANCES",
+    chosenInstances
   };
 };
