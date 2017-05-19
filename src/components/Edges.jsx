@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-class Vertexes extends Component {
+class Edges extends Component {
   static propTypes = {
     displayData: PropTypes.array.isRequired,
     getRibbon: PropTypes.func.isRequired,
@@ -38,19 +38,19 @@ class Vertexes extends Component {
 
     return (
       <g>
-        {displayData.map((vertex, i) => {
-          if (!shouldBeDisplayed(vertex)) {
+        {displayData.map((edge, i) => {
+          if (!shouldBeDisplayed(edge)) {
             return <g key={i} />;
           }
 
           return (
             <g key={i}>
               <path
-                d={getRibbon(vertex)}
-                fill={getFill(vertex)}
-                stroke={getStroke(vertex)}
-                onMouseOver={() => onMouseOver(vertex)}
-                onMouseOut={() => onMouseOut(vertex)}
+                d={getRibbon(edge)}
+                fill={getFill(edge)}
+                stroke={getStroke(edge)}
+                onMouseOver={() => onMouseOver(edge)}
+                onMouseOut={() => onMouseOut(edge)}
               />
             </g>
           );
@@ -60,4 +60,4 @@ class Vertexes extends Component {
   }
 }
 
-export default Vertexes;
+export default Edges;

@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="df2bc385-f543-4b06-8348-6371d6e0fd06" name="Default" comment="renaming from hardcoded languages to flexible instances">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/Vertexes.jsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/newChord.jsx" />
+    <list default="true" id="df2bc385-f543-4b06-8348-6371d6e0fd06" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/components/Vertexes.jsx" afterPath="$PROJECT_DIR$/src/components/Edges.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/actions/index.js" afterPath="$PROJECT_DIR$/src/actions/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Chord.jsx" afterPath="$PROJECT_DIR$/src/components/Chord.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Info.jsx" afterPath="$PROJECT_DIR$/src/components/Info.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/D3container.js" afterPath="$PROJECT_DIR$/src/containers/D3container.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/reducers/build.js" afterPath="$PROJECT_DIR$/src/reducers/build.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/newChord.jsx" afterPath="$PROJECT_DIR$/src/components/newChord.jsx" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -50,11 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="newChord.jsx" pinned="false" current-in-tab="false">
+      <file leaf-file-name="newChord.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/newChord.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="109" column="13" lean-forward="true" selection-start-line="109" selection-start-column="13" selection-end-line="109" selection-end-column="14" />
+            <state relative-caret-position="202">
+              <caret line="19" column="46" lean-forward="false" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -62,11 +57,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Vertexes.jsx" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/Vertexes.jsx">
+      <file leaf-file-name="Edges.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Edges.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="41" column="43" lean-forward="true" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="43" />
+            <state relative-caret-position="157">
+              <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -128,7 +123,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>var</find>
       <find>useragent</find>
       <find>removeMar</find>
       <find>getDmNodeByPath</find>
@@ -158,6 +152,7 @@
       <find>references</find>
       <find>instancePathByIndex</find>
       <find>i</find>
+      <find>vertex</find>
     </findStrings>
     <replaceStrings>
       <replace>Error</replace>
@@ -165,6 +160,7 @@
       <replace>let</replace>
       <replace>const</replace>
       <replace>getInstanceMap</replace>
+      <replace>edge</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/node_modules/brace</dir>
@@ -177,11 +173,13 @@
         <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
+    <push-targets>
+      <push-target-info target-remote="origin" target-branch="info" repo="$PROJECT_DIR$" source="info" />
+    </push-targets>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/validators/semantic/references.js" />
         <option value="$PROJECT_DIR$/src/index.css" />
         <option value="$PROJECT_DIR$/src/editor/components/EditorContainer.jsx.js" />
         <option value="$PROJECT_DIR$/src/editor/components/EditorContainer.jsx" />
@@ -230,8 +228,9 @@
         <option value="$PROJECT_DIR$/src/actions/index.js" />
         <option value="$PROJECT_DIR$/src/containers/D3container.js" />
         <option value="$PROJECT_DIR$/src/reducers/build.js" />
-        <option value="$PROJECT_DIR$/src/components/newChord.jsx" />
         <option value="$PROJECT_DIR$/src/components/Vertexes.jsx" />
+        <option value="$PROJECT_DIR$/src/components/Edges.jsx" />
+        <option value="$PROJECT_DIR$/src/components/newChord.jsx" />
       </list>
     </option>
   </component>
@@ -843,11 +842,18 @@
       <option name="project" value="LOCAL" />
       <updated>1494966174276</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Vertexes moved out of Chord!">
+      <created>1495190116974</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1495190116974</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="158156000" />
+    <option name="totallyTimeSpent" value="158692000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -957,7 +963,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="set line to go to refactored" />
     <MESSAGE value="bug fixed: input to format function may be undefined" />
     <MESSAGE value="project layout rearrangement" />
     <MESSAGE value="actions moved to separate file" />
@@ -982,7 +987,8 @@
     <MESSAGE value="relaxed linkBase" />
     <MESSAGE value="link to itself in map for instances without links" />
     <MESSAGE value="renaming from hardcoded languages to flexible instances" />
-    <option name="LAST_COMMIT_MESSAGE" value="renaming from hardcoded languages to flexible instances" />
+    <MESSAGE value="Vertexes moved out of Chord!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Vertexes moved out of Chord!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1329,20 +1335,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/newChord.jsx">
+    <entry file="file://$PROJECT_DIR$/src/components/Edges.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="109" column="13" lean-forward="true" selection-start-line="109" selection-start-column="13" selection-end-line="109" selection-end-column="14" />
+        <state relative-caret-position="157">
+          <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Vertexes.jsx">
+    <entry file="file://$PROJECT_DIR$/src/components/newChord.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="41" column="43" lean-forward="true" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="43" />
+        <state relative-caret-position="202">
+          <caret line="19" column="46" lean-forward="false" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>

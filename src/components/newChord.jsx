@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import * as d3 from "d3";
 import PropTypes from "prop-types";
-import Vertexes from "./Vertexes";
+import Edges from "./Edges";
 import "./chord.css";
 
 class Chord extends Component {
@@ -108,16 +108,16 @@ class Chord extends Component {
               })}
             </g>
             <g className="ribbons">
-              <Vertexes
+              <Edges
                 displayData={displayData}
                 getRibbon={ribbon}
-                getFill={vertex => color(vertex.target.index)}
-                getStroke={vertex =>
-                  d3.rgb(color(vertex.target.index)).darker()}
-                onMouseOver={vertex => {
+                getFill={edge => color(edge.target.index)}
+                getStroke={edge =>
+                  d3.rgb(color(edge.target.index)).darker()}
+                onMouseOver={edge => {
                   this.chooseInstances([
-                    vertex.source.index,
-                    vertex.target.index
+                    edge.source.index,
+                    edge.target.index
                   ]);
                 }}
                 onMouseOut={() => {
