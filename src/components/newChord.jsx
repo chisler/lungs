@@ -17,7 +17,7 @@ class Chord extends Component {
     const keys = Object.keys(instanceMap);
 
     for (let i = 0; i < keys.length; i++) {
-      if (instanceMap[keys[i]].id === index) {
+      if (instanceMap[keys[i]].index === index) {
         return instanceMap[keys[i]].name;
       }
     }
@@ -26,7 +26,7 @@ class Chord extends Component {
   instanceIndicesByPaths(paths) {
     const { instanceMap } = this.props;
     return paths.filter(path => instanceMap[path]).map(path => {
-      return instanceMap[path].id;
+      return instanceMap[path].index;
     });
   }
 
@@ -127,7 +127,6 @@ class Chord extends Component {
                   this.props.chosenInstances
                 )}
               />
-
             </g>
           </g>
         </g>

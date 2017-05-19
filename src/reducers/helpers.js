@@ -24,24 +24,24 @@ export const getInstanceMatrix = (instanceMap, references) => {
   const numberOfInstances = Object.keys(instanceMap).length;
   let instanceMatrix = getZeroMatrix([numberOfInstances, numberOfInstances]);
 
-  const getLanguageId = (instanceMap, name) => {
-    return instanceMap[name].id;
+  const getLanguageIndex = (instanceMap, name) => {
+    return instanceMap[name].index;
   };
 
-  let referralLanguageId;
-  let referencedLanguageId;
+  let referralLanguageIndex;
+  let referencedLanguageIndex;
 
   references.forEach(reference => {
-    referralLanguageId = getLanguageId(
+    referralLanguageIndex = getLanguageIndex(
       instanceMap,
       reference.referral.join(".")
     );
-    referencedLanguageId = getLanguageId(
+    referencedLanguageIndex = getLanguageIndex(
       instanceMap,
       reference.value.join(".")
     );
 
-    instanceMatrix[referralLanguageId][referencedLanguageId]++;
+    instanceMatrix[referralLanguageIndex][referencedLanguageIndex]++;
   });
 
   // Link to itself is added to nodes without links

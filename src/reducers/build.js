@@ -121,10 +121,6 @@ const build = (state = null, action) => {
       let parsedYaml = parseYAML(state.yamlString);
       const dM = validateSchema(parsedYaml.jsonObj, state.yamlString).docModel;
       const referenceNodes = getAllReferences(dM);
-
-      console.log(referenceNodes);
-
-      const instanceMap = getInstanceMap(dM, linkedBase);
       const references = getReferencesFromNodes(
         dM,
         state.yamlString,
@@ -136,6 +132,7 @@ const build = (state = null, action) => {
         return state;
       }
 
+      const instanceMap = getInstanceMap(dM, linkedBase);
       const instanceMatrix = getInstanceMatrix(instanceMap, references);
 
       return {

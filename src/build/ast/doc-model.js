@@ -102,7 +102,7 @@ export function getInstanceMap(docModel, base) {
     const name = instance.path;
     instanceMap[name] = {
       name: name,
-      id: index
+      index: index
     };
   });
 
