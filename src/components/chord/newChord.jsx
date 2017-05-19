@@ -9,8 +9,12 @@ class Chord extends Component {
   static propTypes = {
     instanceMatrix: PropTypes.array,
     instanceMap: PropTypes.object,
+
     setChosenInstances: PropTypes.func.isRequired,
-    chosenInstances: PropTypes.array
+    chosenInstances: PropTypes.array,
+
+    setHoveredInstances: PropTypes.func.isRequired,
+    hoveredInstances: PropTypes.array
   };
 
   instancePathByIndex(index) {
@@ -45,8 +49,17 @@ class Chord extends Component {
     ]);
   }
 
+  hoverInstances(instanceIndices) {
+    const { setHoveredInstances } = this.props;
+
+    setHoveredInstances([
+      this.instancePathByIndex(instanceIndices[0]),
+      this.instancePathByIndex(instanceIndices[1])
+    ]);
+  }
+
   render() {
-    const { instanceMatrix, instanceMap, chosenInstances } = this.props;
+    const { instanceMatrix, instanceMap, hoveredInstances, chosenInstances } = this.props;
     if (!instanceMap) {
       return <div />;
     }
@@ -80,8 +93,8 @@ class Chord extends Component {
                 getStroke={i => d3.rgb(color(i)).darker()}
                 instancePathByIndex={(i) => this.getInstancePathByIndex(i, instanceMap)}
 
-                onMouseOverVertex={i => this.chooseInstances([i])}
-                onMouseOutVertex={() => this.chooseInstances([])}
+                onMouseOverVertex={i => this.hoverInstances([i])}
+                onMouseOutVertex={() => this.hoverInstances([])}
                 onClickVertex={i => this.chooseInstances([i])}
               />
             </g>
@@ -93,9 +106,11 @@ class Chord extends Component {
                 getFill={edge => color(edge.target.index)}
                 getStroke={edge => d3.rgb(color(edge.target.index)).darker()}
 
-                onMouseOver={edge => this.chooseInstances([edge.source.index, edge.target.index])}
-                onMouseOut={() => this.chooseInstances([])}
-                chosenInstancesIndices={this.instanceIndicesByPaths(chosenInstances)}
+                onMouseOver={edge => this.hoverInstances([edge.source.index, edge.target.index])}
+                onMouseOut={() => this.hoverInstances([])}
+                chosenInstancesIndices={this.instanceIndicesByPaths(
+                  chosenInstances.filter(Boolean).length ? chosenInstances : hoveredInstances
+                )}
               />
             </g>
           </g>

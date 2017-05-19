@@ -30,3 +30,10 @@ export const chooseInstances = chosenInstances => {
     chosenInstances
   };
 };
+
+export const hoverInstances = hoveredInstances => {
+  return {
+    type: "HOVER_INSTANCES",
+    hoveredInstances
+  };
+};

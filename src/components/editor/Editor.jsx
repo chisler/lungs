@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 
 import AceEditor from "react-ace";
 import editorPluginsHook
-  from "../build/editor-plugins/completers/completers-helpers/hook";
-import { onCtrlMouseDown } from "../build/editor-plugins/commands/ctrl-click";
-import { onCtrl } from "../build/editor-plugins/commands/ctrl";
+  from "../../build/editor-plugins/completers/completers-helpers/hook";
+import { onCtrlMouseDown } from "../../build/editor-plugins/commands/ctrl-click";
+import { onCtrl } from "../../build/editor-plugins/commands/ctrl";
 
 import "brace/mode/yaml";
 import "brace/theme/tomorrow_night_eighties";

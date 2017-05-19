@@ -90,7 +90,8 @@ const build = (state = null, action) => {
       instanceMatrix: null,
       instanceMap: null,
       chosenInstances: [],
-      errors: null,
+      hoveredInstances: [],
+      errors: null
     });
   }
 
@@ -144,6 +145,11 @@ const build = (state = null, action) => {
       return  {
         ...state,
         chosenInstances: action.chosenInstances
+      };
+    case "HOVER_INSTANCES":
+      return  {
+        ...state,
+        hoveredInstances: action.hoveredInstances
       };
     default:
       return state;
