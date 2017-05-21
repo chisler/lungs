@@ -3,25 +3,21 @@ body {
     padding: 0;
     font-family: sans-serif;
     height: 100%;
-    display: flex;
 }
 
 .container {
     display: flex;
-    position: absolute;
-    height: 100%;
     flex-direction: row;
     align-items: flex-start;
+    height: 100vh;
+    flex: 1;
 }
 
 .build {
     overflow-y: scroll;
 }
 
-.editor {
-    flex: 1;
-}
-
-.build {
+.editor, .build {
+    height: 100vh;
     flex: 1;
 }
