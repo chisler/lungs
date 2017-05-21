@@ -1,6 +1,6 @@
 #ace-editor {
-    height: 500px !important;
-    width: 100% !important;
+    height: 100vh !important;
+    width: 50vw !important;
 }
 
 .ace_link_marker {

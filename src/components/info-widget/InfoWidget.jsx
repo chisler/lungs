@@ -9,9 +9,9 @@ class InfoWidget extends Component {
     super(props);
     let collapsed = {};
     const keys = Object.keys(props.data ? props.data.value : []);
-      for (let i in keys) {
-        collapsed[keys[i]] = true;
-      }
+    for (let i in keys) {
+      collapsed[keys[i]] = true;
+    }
     this.state = {
       collapsed
     };
@@ -33,12 +33,12 @@ class InfoWidget extends Component {
   };
 
   render() {
-    const { data } = this.props;
+    const { data, isContainerKey } = this.props;
 
     if (!data) {
-      return <div></div>
+      return <div />;
     }
-
+    //TODO: move out of render()
     const isNestedInfoWidget = node =>
       typeof node.value === "object" && !(node.value instanceof Array);
 
@@ -49,10 +49,13 @@ class InfoWidget extends Component {
     const makeBasePretty = base =>
       capitalize(base.split("/")[base.split("/").length - 1] || base);
 
+    const getIsContainerKey = (data, key) =>
+      makeBasePretty(data.base) === makeKeyPretty(key);
+
     return (
-      <div>
+      <div className="info_widget">
         <div className="info_widget__header">
-          {makeBasePretty(data.base)}
+          {isContainerKey ? null : makeBasePretty(data.base)}
         </div>
         <div className="info_widget__highlight">
           {Object.keys(data.value).map(key => {
@@ -67,7 +70,13 @@ class InfoWidget extends Component {
                 </div>
               );
             }
-            const nestedNodes = <InfoWidget data={node} />;
+            const nestedNodes = (
+              <div className="nested_info_widget">
+                <InfoWidget
+                  data={node}
+                  isContainerKey={getIsContainerKey(node, key)}/>
+              </div>
+            );
             const collapsed = this.state.collapsed[key];
 
             return (

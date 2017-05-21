@@ -63,16 +63,16 @@ class Chord extends Component {
     if (!instanceMap) {
       return <div />;
     }
+    const size = 400;
 
-    let width = 400, height = 400;
-
-    const matrix = instanceMatrix;
+    const width = size, height = size;
 
     const outerRadius = Math.min(width, height) * 0.5 - 40;
     const innerRadius = outerRadius - 30;
 
-    const chord = d3.chord().padAngle(0.05).sortSubgroups(d3.descending);
+    const matrix = instanceMatrix;
 
+    const chord = d3.chord().padAngle(0.05).sortSubgroups(d3.descending);
     const color = d3.scaleOrdinal(d3.schemeCategory10);
     const arc = d3.arc().innerRadius(innerRadius).outerRadius(outerRadius);
     const ribbon = d3.ribbon().radius(innerRadius);
@@ -80,9 +80,10 @@ class Chord extends Component {
     const displayData = chord(matrix);
 
     return (
-      <svg width="400" height="400">
+    <div className="Aligner">
+      <svg width={size} height={size}>
         <g id="circle">
-          <g transform="translate(200,200)">
+          <g transform={`translate(${size/2},${size/2})`}>
             <g className="groups">
               <Vertices
                 displayData={displayData}
@@ -116,6 +117,7 @@ class Chord extends Component {
           </g>
         </g>
       </svg>
+    </div>
     );
   }
 }

@@ -3,3 +3,9 @@
     stroke: #000;
     stroke-width: .25px;
 }
+
+.Aligner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
