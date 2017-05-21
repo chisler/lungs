@@ -15,7 +15,7 @@ const InfoContainer = props => {
   return (
     <div>
       <CloseInfo onCloseInfo={onCloseInfo}/>
-      <InfoWidget data={data} />;
+      <InfoWidget data={data} />
     </div>
   );
 };
