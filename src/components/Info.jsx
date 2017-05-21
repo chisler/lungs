@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-import "./info.css";
+import "./info-widget/close_info.css";
 
 class Info extends Component {
   static propTypes = {

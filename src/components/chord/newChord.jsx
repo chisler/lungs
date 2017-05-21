@@ -67,8 +67,8 @@ class Chord extends Component {
 
     const width = size, height = size;
 
-    const outerRadius = Math.min(width, height) * 0.5 - 40;
-    const innerRadius = outerRadius - 30;
+    const outerRadius = Math.min(width, height) * 0.5 - 20;
+    const innerRadius = outerRadius - 20;
 
     const matrix = instanceMatrix;
 

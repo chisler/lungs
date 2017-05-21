@@ -2,15 +2,22 @@ import { connect } from "react-redux";
 import React from "react";
 
 import InfoWidget from "../components/info-widget/InfoWidget";
+import CloseInfo from "../components/info-widget/CloseInfo";
+import { chooseInstances } from "../actions";
 
 const InfoContainer = props => {
-  const { data } = props;
+  const { data, onCloseInfo } = props;
 
   if (!data) {
     return <div />;
   }
 
-  return <InfoWidget data={data} />;
+  return (
+    <div>
+      <CloseInfo onCloseInfo={onCloseInfo}/>
+      <InfoWidget data={data} />;
+    </div>
+  );
 };
 
 const mapStateToProps = state => {
@@ -19,7 +26,14 @@ const mapStateToProps = state => {
   };
 };
 
+const mapDispatchToProps = dispatch => {
+  return {
+    onCloseInfo: () => dispatch(chooseInstances([]))
+  };
+};
+
 // prettier-ignore
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(InfoContainer);

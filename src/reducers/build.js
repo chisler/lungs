@@ -77,12 +77,12 @@ const getInfoInstances = (state, paths) => {
   let parsedYaml = parseYAML(state.yamlString);
   const dM = validateSchema(parsedYaml.jsonObj, state.yamlString).docModel;
 
-  paths.forEach(pathString => {
+  paths.filter(Boolean).forEach(pathString => {
     infoInstances.push(getDmNodeByPath(dM, pathToArray(pathString)));
   });
-
+  console.log(infoInstances, paths);
   return infoInstances;
-}
+};
 
 const build = (state = null, action) => {
   //default case
@@ -162,16 +162,24 @@ const build = (state = null, action) => {
         instanceMap: instanceMap
       };
     case "CHOOSE_INSTANCES":
+      const chosenInstances = action.chosenInstances.filter(Boolean);
+
       return {
         ...state,
-        chosenInstances: action.chosenInstances,
-        infoInstances: getInfoInstances(state, action.chosenInstances) || state.infoInstances
+        chosenInstances,
+        infoInstances: getInfoInstances(state, chosenInstances) ||
+          state.infoInstances
       };
     case "HOVER_INSTANCES":
+      const hoveredInstances = action.hoveredInstances.filter(Boolean);
+
       return {
         ...state,
-        hoveredInstances: action.hoveredInstances,
-        // infoInstances: getInfoInstances(state, action.chosenInstances) || state.infoInstances
+        hoveredInstances,
+        infoInstances: getInfoInstances(
+          state,
+          state.chosenInstances.length ? state.chosenInstances : hoveredInstances
+        ) || state.infoInstances
       };
     default:
       return state;
