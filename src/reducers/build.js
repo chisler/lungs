@@ -1,5 +1,6 @@
 import {
   getAllReferences,
+  getDmNodeByPath,
   getInstanceMap,
   getReferencesFromNodes
 } from "../build/ast/doc-model";
@@ -7,6 +8,7 @@ import { validateReferences } from "../build/validators/semantic/references";
 import { parseYAML } from "../build/parser/yaml";
 import { validateSchema } from "../build/validators/structure/validator";
 import { getInstanceMatrix } from "./helpers";
+import { pathToArray } from "../build/helpers/path-to-array";
 
 const mockYAML = `kotlin:
   name: Kotlin
@@ -66,18 +68,35 @@ const validateState = state => {
   };
 };
 
+const getInfoInstances = (state, paths) => {
+  if (state.errors.length || !paths) {
+    return [];
+  }
+
+  let infoInstances = [];
+  let parsedYaml = parseYAML(state.yamlString);
+  const dM = validateSchema(parsedYaml.jsonObj, state.yamlString).docModel;
+
+  paths.forEach(pathString => {
+    infoInstances.push(getDmNodeByPath(dM, pathToArray(pathString)));
+  });
+
+  return infoInstances;
+}
+
 const build = (state = null, action) => {
   //default case
   if (state === null) {
     //TODO: move to consts
-    const link = "https://api.github.com/repos/languagesWiki/languageWiki/contents/languages.yml";
+    const link =
+      "https://api.github.com/repos/languagesWiki/languageWiki/contents/languages.yml";
     let yamlString = mockYAML;
 
     //TODO: make async
     //FIXME: state is initialized 3 times
     let request = new XMLHttpRequest();
     request.open("GET", link, false); // `false` makes the request synchronous
-    request.setRequestHeader('accept', 'application/vnd.github.VERSION.raw')
+    request.setRequestHeader("accept", "application/vnd.github.VERSION.raw");
     request.send(null);
 
     //DEFAULT VALUE
@@ -91,6 +110,7 @@ const build = (state = null, action) => {
       instanceMap: null,
       chosenInstances: [],
       hoveredInstances: [],
+      infoInstances: [],
       errors: null
     });
   }
@@ -142,14 +162,16 @@ const build = (state = null, action) => {
         instanceMap: instanceMap
       };
     case "CHOOSE_INSTANCES":
-      return  {
+      return {
         ...state,
-        chosenInstances: action.chosenInstances
+        chosenInstances: action.chosenInstances,
+        infoInstances: getInfoInstances(state, action.chosenInstances) || state.infoInstances
       };
     case "HOVER_INSTANCES":
-      return  {
+      return {
         ...state,
-        hoveredInstances: action.hoveredInstances
+        hoveredInstances: action.hoveredInstances,
+        // infoInstances: getInfoInstances(state, action.chosenInstances) || state.infoInstances
       };
     default:
       return state;

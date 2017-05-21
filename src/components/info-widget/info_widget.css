@@ -1,0 +1,26 @@
+.info_widget__header {
+    background-color: #f1ede4;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #c2c0bc;
+}
+
+.info_widget__highlight {
+    position: relative;
+    padding: 7px 0px 10px 7px;
+    border: none;
+    border-radius: 0;
+    overflow: auto;
+    line-height: 1.5;
+    font-size: 13px;
+    background: #f8f5ec;
+    font-family: 'source-code-pro', Menlo, Consolas, 'Courier New', monospace;
+}
+
+.info_widget__key {
+    font-weight: bold;
+}
