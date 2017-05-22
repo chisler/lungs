@@ -13,23 +13,23 @@ import { pathToArray } from "../build/helpers/path-to-array";
 const mockYAML = `kotlin:
   name: Kotlin
   features:
-    f1:
+    val_var:
         inspired_by: scala
-    f2:
+    lambda:
         inspired_by: scala
 scala:
   name: Scala
   features: 
-    f1:
+    implicits:
       inspired_by: js
-    f2:
+    akka:
       inspired_by: kotlin
 js:
   name: Javascript
   features: 
-    f1:
+    arrow_functions:
       inspired_by: pascal
-    f2:
+    super:
       inspired_by: scala
 pascal:
   name: Pascal

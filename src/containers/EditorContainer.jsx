@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import Editor from "../components/editor/Editor";
 
 import { extractReferenceMap, setValue, validate } from "../actions";
+import {setEditor} from "../actions/index";
 
 const mapStateToProps = state => {
   return {
@@ -16,7 +17,8 @@ const mapDispatchToProps = dispatch => {
   return {
     onChange: () => dispatch(validate()),
     setValue: yamlString => dispatch(setValue(yamlString)),
-    getMatrix: () => dispatch(extractReferenceMap())
+    getMatrix: () => dispatch(extractReferenceMap()),
+    setEditor: (editor) => dispatch(setEditor(editor))
   };
 };
 

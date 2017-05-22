@@ -1,3 +1,8 @@
+html {
+    height: 100%;
+}
+
+
 body {
     margin: 0;
     padding: 0;
@@ -17,7 +22,14 @@ body {
     overflow-y: scroll;
 }
 
-.editor, .build {
-    height: 100vh;
+.left, .build {
+    height: 100%;
     flex: 1;
+    flex-basis: 50%;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }

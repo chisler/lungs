@@ -8,11 +8,15 @@ import "./error.css";
 class Errors extends Component {
   static propTypes = {
     errors: PropTypes.array.isRequired,
-    onClick: PropTypes.func.isRequired
+    onClick: PropTypes.func.isRequired,
+    onUpdate: PropTypes.func.isRequired
   };
 
   render() {
     const { errors } = this.props;
+    if (!errors.length){
+      return <div/>
+    }
     return (
       <div className="errors_container">
         <ul className="list_without_bullets">
@@ -30,6 +34,10 @@ class Errors extends Component {
         </ul>
       </div>
     );
+  }
+
+  componentDidUpdate() {
+    this.props.onUpdate();
   }
 }
 

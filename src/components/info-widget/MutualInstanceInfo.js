@@ -57,6 +57,7 @@ class MutualInfoWidget extends Component {
           instance1={infoInstances[1]}
           referenceData={forward}
         />
+        <hr/>
         <OneDirectionInfo
           instance0={infoInstances[1]}
           instance1={infoInstances[0]}

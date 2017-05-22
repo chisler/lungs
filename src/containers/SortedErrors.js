@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 
 import Errors from "../components/Errors";
 import { setLineToGoTo } from "../actions";
+import {resizeEditor} from "../actions/index";
 
 const sortedByLine = errors => {
   const comparator = (e1, e2) => {
@@ -22,7 +23,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onClick: line => dispatch(setLineToGoTo(line))
+    onClick: line => dispatch(setLineToGoTo(line)),
+    onUpdate: () => dispatch(resizeEditor())
   };
 };
 

@@ -13,11 +13,11 @@ import "./index.css";
 ReactDOM.render(
   <Provider store={createStore(editorApp)}>
     <div className="container">
-      <div className="editor">
+      <div className="left">
         <EditorContainer />
+        <SortedErrors />
       </div>
       <div className="build">
-        <SortedErrors />
         <D3container />
         <InfoContainer />
       </div>

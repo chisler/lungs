@@ -20,6 +20,7 @@ class Editor extends Component {
     onChange: PropTypes.func.isRequired,
     setValue: PropTypes.func.isRequired,
     getMatrix: PropTypes.func.isRequired,
+    setEditor: PropTypes.func.isRequired,
     errors: PropTypes.array,
     lineToGoTo: PropTypes.number
   };
@@ -36,26 +37,25 @@ class Editor extends Component {
   onChange = value => {
     this.setState({ value });
 
-    this.props.setValue(value);
-    this.props.onChange();
-    this.props.getMatrix();
+    const { setValue, onChange, getMatrix } = this.props;
+
+    setValue(value);
+    onChange();
+    getMatrix();
   };
 
   onLoad = editor => {
-    let { state, props } = this;
-    state.editor = editor;
-    window.editor = editor;
+    const { setEditor, setValue, getMatrix } = this.props;
+    this.setState({editor});
+    setEditor(editor);
+
     let session = editor.getSession();
     const value = editor.getValue();
 
-    props.setValue(value);
-    props.getMatrix();
+    setValue(value);
 
-    session.setUseWrapMode(true);
-    session.on("changeScrollLeft", xPos => {
-      // eslint-disable-line no-unused-vars
-      session.setScrollLeft(0);
-    });
+    //Get initial matrix for building visualization
+    getMatrix();
 
     //Disable automatic error-marker correction by ace
     session.off("change", editor.renderer.$gutterLayer.$updateAnnotations);
@@ -96,9 +96,9 @@ class Editor extends Component {
   }
 
   shouldComponentUpdate(nextProps) {
-    const { yamlString } = this.props;
+    const hasChanged = property => this.props[property] !== nextProps[property];
 
-    return yamlString !== nextProps.yamlString;
+    return hasChanged("yamlString") || hasChanged("errors");
   }
 
   componentWillReceiveProps(nextProps) {
@@ -116,6 +116,8 @@ class Editor extends Component {
 
     return (
       <AceEditor
+        width="100%"
+        height="100%"
         value={yamlString}
         mode="yaml"
         theme="tomorrow_night_eighties"
@@ -133,7 +135,7 @@ class Editor extends Component {
         }}
         setOptions={{
           cursorStyle: "smooth",
-          wrapBehavioursEnabled: true,
+          // wrapBehavioursEnabled: true,
           enableMultiselect: false
         }}
       />
