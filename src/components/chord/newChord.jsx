@@ -68,7 +68,7 @@ class Chord extends Component {
     if (!instanceMap) {
       return <div />;
     }
-    const size = 400;
+    const size = 500;
 
     const width = size, height = size;
 

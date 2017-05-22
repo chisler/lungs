@@ -19,6 +19,7 @@ class Errors extends Component {
     }
     return (
       <div className="errors_container">
+        <div>Errors: </div>
         <ul className="list_without_bullets">
           {errors.map((err, index) => {
             return (

@@ -19,8 +19,8 @@ class Error extends Component {
     const { line, message } = this.props;
 
     return (
-      <li className="error">
-        Error. <a
+      <div>
+        <a
           href="#"
           onClick={e => {
             e.preventDefault();
@@ -29,7 +29,7 @@ class Error extends Component {
         >
           Line {line}
         </a>: {message}
-      </li>
+      </div>
     );
   }
 }

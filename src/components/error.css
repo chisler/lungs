@@ -1,5 +1,4 @@
 .error {
-    border: 1px solid red;
     padding: 10px;
     margin: 10px;
     font-size: 12px;
@@ -7,6 +6,7 @@
 
 .errors_container {
     display: flex;
+    border: 1px solid red;
     flex-direction: column;
     justify-content: space-between;
     height: 30vh;

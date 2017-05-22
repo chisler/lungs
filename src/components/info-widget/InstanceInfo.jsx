@@ -53,6 +53,7 @@ class InstanceInfo extends Component {
     }
 
     const base = isContainerKey ? null : makeBasePretty(data.base);
+    const nestedNodeClass = isContainerKey ? null : "nested_info_widget";
 
     const body = (
       <div>
@@ -69,7 +70,7 @@ class InstanceInfo extends Component {
             );
           }
           const nestedNodes = (
-            <div className="nested_info_widget">
+            <div className={nestedNodeClass}>
               <InstanceInfo
                 data={node}
                 isContainerKey={getIsContainerKey(node, key)}
