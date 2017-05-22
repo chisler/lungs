@@ -173,3 +173,6 @@ export const extractReferencesTo = (instance, destination) => {
 
   return {base: instance.base, value: newInstanceValue}
 };
+
+export const getDmNodeName = instance =>
+  instance.value ? (instance.value.name ? instance.value.name.value : null) : null;

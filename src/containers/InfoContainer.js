@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
 import React from "react";
 
-import InfoWidget from "../components/info-widget/InfoWidget";
-import MutualInfoWidget from "../components/info-widget/MutualInfoWidget";
+import InstanceInfo from "../components/info-widget/InstanceInfo";
+import MutualInfoWidget from "../components/info-widget/MutualInstanceInfo";
 import CloseInfo from "../components/info-widget/CloseInfo";
 import { chooseInstances } from "../actions";
 
@@ -14,15 +14,11 @@ const InfoContainer = props => {
       return (
         <div>
           <CloseInfo onCloseInfo={onCloseInfo} />
-          <InfoWidget data={infoInstances[0]} />
+          <InstanceInfo data={infoInstances[0]} />
         </div>
       );
     case 2:
-      return (
-        <MutualInfoWidget
-          infoInstances={infoInstances}
-        />
-      );
+      return <MutualInfoWidget infoInstances={infoInstances} />;
     default:
       return <div />;
   }
@@ -30,7 +26,7 @@ const InfoContainer = props => {
 
 const mapStateToProps = state => {
   return {
-    infoInstances: state.build.infoInstances,
+    infoInstances: state.build.infoInstances
   };
 };
 

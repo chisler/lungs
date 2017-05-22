@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="df2bc385-f543-4b06-8348-6371d6e0fd06" name="Default" comment="Descriptional info is working">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/info-widget/MutualInfoWidget.js" />
+    <list default="true" id="df2bc385-f543-4b06-8348-6371d6e0fd06" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/info-widget/InstanceInfo.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/info-widget/MutualInstanceInfo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/info-widget/helpers.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/info-widget/MutualInfoWidget.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/build/ast/doc-model.js" afterPath="$PROJECT_DIR$/src/build/ast/doc-model.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/info-widget/InfoWidget.jsx" afterPath="$PROJECT_DIR$/src/components/info-widget/InfoWidget.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/info-widget/info_widget.css" afterPath="$PROJECT_DIR$/src/components/info-widget/info_widget.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/InfoContainer.js" afterPath="$PROJECT_DIR$/src/containers/InfoContainer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/reducers/build.js" afterPath="$PROJECT_DIR$/src/reducers/build.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -28,11 +28,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MutualInfoWidget.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/info-widget/MutualInfoWidget.js">
+      <file leaf-file-name="MutualInstanceInfo.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/info-widget/MutualInstanceInfo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="43" column="54" lean-forward="false" selection-start-line="43" selection-start-column="54" selection-end-line="43" selection-end-column="54" />
+            <state relative-caret-position="170">
+              <caret line="52" column="18" lean-forward="true" selection-start-line="52" selection-start-column="18" selection-end-line="52" selection-end-column="18" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -40,21 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="doc-model.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/build/ast/doc-model.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="162" column="13" lean-forward="true" selection-start-line="162" selection-start-column="13" selection-end-line="162" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InfoWidget.jsx" pinned="false" current-in-tab="true">
+      <file leaf-file-name="InfoWidget.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/info-widget/InfoWidget.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="52" column="39" lean-forward="false" selection-start-line="52" selection-start-column="39" selection-end-line="52" selection-end-column="39" />
+            <state relative-caret-position="150">
+              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -62,12 +52,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Error.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Error.js">
+      <file leaf-file-name="InstanceInfo.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/info-widget/InstanceInfo.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="1156">
+              <caret line="93" column="49" lean-forward="false" selection-start-line="93" selection-start-column="49" selection-end-line="93" selection-end-column="49" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InfoContainer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/containers/InfoContainer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="23" lean-forward="false" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -84,9 +88,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>languageMatrix</find>
-      <find>languageMap</find>
-      <find>chooseInstances</find>
       <find>chooseInstance</find>
       <find>chooseInst</find>
       <find>chooseIns</find>
@@ -113,7 +114,10 @@
       <find>path</find>
       <find>pathto</find>
       <find>getReferencesFromNodes</find>
+      <find>MutualInfoWidget</find>
       <find>getDm</find>
+      <find>getDmNodeBy</find>
+      <find>pathString</find>
     </findStrings>
     <replaceStrings>
       <replace>Error</replace>
@@ -124,6 +128,7 @@
       <replace>edge</replace>
       <replace>Index</replace>
       <replace>vertex</replace>
+      <replace>MutualInfoList</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/node_modules/brace</dir>
@@ -143,9 +148,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/containers/SortedErrors.js" />
-        <option value="$PROJECT_DIR$/src/components/Chord.js" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/components/chord.css" />
         <option value="$PROJECT_DIR$/src/reducers/navigation.js" />
         <option value="$PROJECT_DIR$/src/containers/EditorContainer.jsx" />
@@ -189,10 +191,13 @@
         <option value="$PROJECT_DIR$/src/components/info-widget/CloseInfo.jsx" />
         <option value="$PROJECT_DIR$/src/components/info-widget/info_widget.css" />
         <option value="$PROJECT_DIR$/src/components/info-widget/MutualWidget.js" />
-        <option value="$PROJECT_DIR$/src/components/info-widget/InfoWidget.jsx" />
+        <option value="$PROJECT_DIR$/src/components/info-widget/helpers.js" />
         <option value="$PROJECT_DIR$/src/build/ast/doc-model.js" />
-        <option value="$PROJECT_DIR$/src/containers/InfoContainer.js" />
         <option value="$PROJECT_DIR$/src/reducers/build.js" />
+        <option value="$PROJECT_DIR$/src/components/info-widget/MutualInfoList.jsx" />
+        <option value="$PROJECT_DIR$/src/components/info-widget/InfoWidget.jsx" />
+        <option value="$PROJECT_DIR$/src/components/info-widget/InstanceInfo.jsx" />
+        <option value="$PROJECT_DIR$/src/containers/InfoContainer.js" />
         <option value="$PROJECT_DIR$/src/components/info-widget/MutualInfoWidget.js" />
       </list>
     </option>
@@ -396,24 +401,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="react-editor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="react-editor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="actions" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -460,10 +447,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.Start">
-    <configuration default="false" name="referenceableNodes.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="$PROJECT_DIR$/src/validators/semantic/referenceNodes.js" working-dir="$PROJECT_DIR$/src/build/validators/semantic">
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Node.js.InstanceInfo.jsx">
     <configuration default="false" name="build.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="build.js" working-dir="$PROJECT_DIR$/src/reducers">
       <method />
     </configuration>
@@ -474,6 +458,9 @@
       <method />
     </configuration>
     <configuration default="false" name="Info.jsx" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="Info.jsx" working-dir="$PROJECT_DIR$/src/components">
+      <method />
+    </configuration>
+    <configuration default="false" name="InstanceInfo.jsx" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="InstanceInfo.jsx" working-dir="$PROJECT_DIR$/src/components/info-widget">
       <method />
     </configuration>
     <configuration default="true" type="BashConfigurationType" factoryName="Bash">
@@ -573,19 +560,19 @@
     <list size="7">
       <item index="0" class="java.lang.String" itemvalue="npm.Start" />
       <item index="1" class="java.lang.String" itemvalue="npm.deploy" />
-      <item index="2" class="java.lang.String" itemvalue="Node.js.referenceableNodes.js" />
-      <item index="3" class="java.lang.String" itemvalue="Node.js.build.js" />
-      <item index="4" class="java.lang.String" itemvalue="Node.js.index.js" />
-      <item index="5" class="java.lang.String" itemvalue="Node.js.Errors.js" />
-      <item index="6" class="java.lang.String" itemvalue="Node.js.Info.jsx" />
+      <item index="2" class="java.lang.String" itemvalue="Node.js.build.js" />
+      <item index="3" class="java.lang.String" itemvalue="Node.js.index.js" />
+      <item index="4" class="java.lang.String" itemvalue="Node.js.Errors.js" />
+      <item index="5" class="java.lang.String" itemvalue="Node.js.Info.jsx" />
+      <item index="6" class="java.lang.String" itemvalue="Node.js.InstanceInfo.jsx" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Node.js.Info.jsx" />
-        <item index="1" class="java.lang.String" itemvalue="Node.js.Errors.js" />
-        <item index="2" class="java.lang.String" itemvalue="Node.js.index.js" />
-        <item index="3" class="java.lang.String" itemvalue="Node.js.build.js" />
-        <item index="4" class="java.lang.String" itemvalue="Node.js.referenceableNodes.js" />
+        <item index="0" class="java.lang.String" itemvalue="Node.js.InstanceInfo.jsx" />
+        <item index="1" class="java.lang.String" itemvalue="Node.js.Info.jsx" />
+        <item index="2" class="java.lang.String" itemvalue="Node.js.Errors.js" />
+        <item index="3" class="java.lang.String" itemvalue="Node.js.index.js" />
+        <item index="4" class="java.lang.String" itemvalue="Node.js.build.js" />
       </list>
     </recent_temporary>
   </component>
@@ -619,7 +606,7 @@
       <workItem from="1495036790824" duration="3059000" />
       <workItem from="1495193161416" duration="9410000" />
       <workItem from="1495271749441" duration="17873000" />
-      <workItem from="1495375345758" duration="7031000" />
+      <workItem from="1495375345758" duration="9656000" />
     </task>
     <task id="LOCAL-00001" summary="errors are sorted by line, semantic and structure errors are shown">
       <created>1493294314758</created>
@@ -943,11 +930,18 @@
       <option name="project" value="LOCAL" />
       <updated>1495373076949</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="not pretty mutual widget">
+      <created>1495444701915</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1495444701915</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="193521000" />
+    <option name="totallyTimeSpent" value="196146000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -965,6 +959,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15806195" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299337" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3211196" sideWeight="0.50216097" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3273906" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2706645" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3517018" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -981,7 +976,6 @@
       <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3273906" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Salesforce" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1024,7 +1018,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="minor code styling" />
     <MESSAGE value="code style and more distinctive color map" />
     <MESSAGE value="refactoring todo" />
     <MESSAGE value="references refactored" />
@@ -1049,7 +1042,8 @@
     <MESSAGE value="two scrollable panels" />
     <MESSAGE value="fix new info" />
     <MESSAGE value="Descriptional info is working" />
-    <option name="LAST_COMMIT_MESSAGE" value="Descriptional info is working" />
+    <MESSAGE value="not pretty mutual widget" />
+    <option name="LAST_COMMIT_MESSAGE" value="not pretty mutual widget" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1064,27 +1058,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/lodash/lodash.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="11042" column="13" lean-forward="false" selection-start-line="11042" selection-start-column="13" selection-end-line="11042" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="986">
-          <caret line="34" column="1" lean-forward="true" selection-start-line="34" selection-start-column="1" selection-end-line="34" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/reducers/navigation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1361,14 +1334,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Error.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/actions/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="172">
@@ -1385,46 +1350,80 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/info-widget/MutualInfoList.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="37" lean-forward="false" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/build/ast/doc-model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="138" column="17" lean-forward="false" selection-start-line="138" selection-start-column="17" selection-end-line="138" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/reducers/build.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="162" column="19" lean-forward="false" selection-start-line="162" selection-start-column="19" selection-end-line="162" selection-end-column="19" />
+        <state relative-caret-position="48">
+          <caret line="70" column="6" lean-forward="false" selection-start-line="70" selection-start-column="6" selection-end-line="70" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/info-widget/helpers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="67" lean-forward="false" selection-start-line="11" selection-start-column="67" selection-end-line="11" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Error.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/InfoContainer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="33" column="4" lean-forward="true" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
+        <state relative-caret-position="240">
+          <caret line="16" column="23" lean-forward="false" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/build/ast/doc-model.js">
+    <entry file="file://$PROJECT_DIR$/src/components/info-widget/InfoWidget.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="162" column="13" lean-forward="true" selection-start-line="162" selection-start-column="13" selection-end-line="162" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/info-widget/MutualInfoWidget.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="43" column="54" lean-forward="false" selection-start-line="43" selection-start-column="54" selection-end-line="43" selection-end-column="54" />
+        <state relative-caret-position="150">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/info-widget/InfoWidget.jsx">
+    <entry file="file://$PROJECT_DIR$/src/components/info-widget/InstanceInfo.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="52" column="39" lean-forward="false" selection-start-line="52" selection-start-column="39" selection-end-line="52" selection-end-column="39" />
+        <state relative-caret-position="1156">
+          <caret line="93" column="49" lean-forward="false" selection-start-line="93" selection-start-column="49" selection-end-line="93" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/info-widget/MutualInstanceInfo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="52" column="18" lean-forward="true" selection-start-line="52" selection-start-column="18" selection-end-line="52" selection-end-column="18" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
