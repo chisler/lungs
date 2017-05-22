@@ -21,6 +21,7 @@ class Editor extends Component {
     setValue: PropTypes.func.isRequired,
     getMatrix: PropTypes.func.isRequired,
     setEditor: PropTypes.func.isRequired,
+    onScroll: PropTypes.func.isRequired,
     errors: PropTypes.array,
     lineToGoTo: PropTypes.number
   };
@@ -70,7 +71,7 @@ class Editor extends Component {
     editor.on("mousedown", onCtrlMouseDown);
     //Highlight references on ctrl
     editor.on("mousemove", onCtrl);
-
+    editor.$blockScrolling = Infinity
     editorPluginsHook(editor, null, null || ["autosuggestApis"]);
   };
 
@@ -103,11 +104,13 @@ class Editor extends Component {
 
   componentWillReceiveProps(nextProps) {
     const { editor } = this.state;
+    const { onScroll } = this.props;
 
     this.updateErrorAnnotations(nextProps);
     //TODO: handle repetitive going to one line
     if (editor && nextProps.lineToGoTo) {
       editor.gotoLine(nextProps.lineToGoTo);
+      onScroll();
     }
   }
 

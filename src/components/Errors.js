@@ -14,25 +14,28 @@ class Errors extends Component {
 
   render() {
     const { errors } = this.props;
-    if (!errors.length){
-      return <div/>
+    if (!errors.length) {
+      return <div />;
     }
     return (
-      <div className="errors_container">
-        <div>Errors: </div>
-        <ul className="list_without_bullets">
+      <div>
+        <div className="errors__header">Errors: </div>
+        <div className="errors_container">
           {errors.map((err, index) => {
             return (
-              <Error
-                key={index}
-                line={err.line + 1}
-                message={err.message}
-                scope={err.scope}
-                onClick={this.props.onClick}
-              />
+              <div className="errors__body">
+
+                <Error
+                  key={index}
+                  line={err.line}
+                  message={err.message}
+                  scope={err.scope}
+                  onClick={this.props.onClick}
+                />
+              </div>
             );
           })}
-        </ul>
+        </div>
       </div>
     );
   }

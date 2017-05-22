@@ -6,12 +6,29 @@
 
 .errors_container {
     display: flex;
-    border: 1px solid red;
     flex-direction: column;
-    justify-content: space-between;
-    height: 30vh;
     overflow: auto;
+    background: #ffc0bc;
+    max-height: 20vh;
 }
+
+.errors__header {
+    background-color: #ff807d;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding: 3px 3px;
+    font-size: 14px;
+    color: white;
+}
+
+.errors__body {
+    padding: 3px 3px 10px 7px;
+    line-height: 1.5;
+    font-size: 12px;
+    font-family: 'source-code-pro', Menlo, Consolas, 'Courier New', monospace;
+}
+
 
 .list_without_bullets {
     list-style-type: none;
