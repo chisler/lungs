@@ -2,27 +2,35 @@ import { connect } from "react-redux";
 import React from "react";
 
 import InfoWidget from "../components/info-widget/InfoWidget";
+import MutualInfoWidget from "../components/info-widget/MutualInfoWidget";
 import CloseInfo from "../components/info-widget/CloseInfo";
 import { chooseInstances } from "../actions";
 
 const InfoContainer = props => {
-  const { data, onCloseInfo } = props;
+  const { infoInstances, onCloseInfo } = props;
 
-  if (!data) {
-    return <div />;
+  switch (infoInstances.length) {
+    case 1:
+      return (
+        <div>
+          <CloseInfo onCloseInfo={onCloseInfo} />
+          <InfoWidget data={infoInstances[0]} />
+        </div>
+      );
+    case 2:
+      return (
+        <MutualInfoWidget
+          infoInstances={infoInstances}
+        />
+      );
+    default:
+      return <div />;
   }
-
-  return (
-    <div>
-      <CloseInfo onCloseInfo={onCloseInfo}/>
-      <InfoWidget data={data} />
-    </div>
-  );
 };
 
 const mapStateToProps = state => {
   return {
-    data: state.build.infoInstances[0]
+    infoInstances: state.build.infoInstances,
   };
 };
 

@@ -1,12 +1,20 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+
 import "./info_widget.css";
 
 //Accepts map
 //Map = children, else = its properties
 
 class InfoWidget extends Component {
+  static propTypes = {
+    data: PropTypes.object.isRequired,
+    isContainerKey: PropTypes.bool
+  };
+
   constructor(props) {
     super(props);
+
     let collapsed = {};
     const keys = Object.keys(props.data ? props.data.value : []);
     for (let i in keys) {
@@ -87,7 +95,7 @@ class InfoWidget extends Component {
                 >
                   {prettyKey}
                   <span>
-                    {collapsed ? " +" : " -"}
+                    {collapsed ? " [+]" : " [-]"}
                   </span>
                 </div>
                 {collapsed ? null : nestedNodes}

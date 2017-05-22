@@ -35,7 +35,7 @@ export function isPathValid(docModel, pathArray) {
   return true;
 }
 
-//if path is incorrect, returns null
+//if path is incorrect, returns docModel
 export function getDmNodeByPath(docModel, pathArray) {
   let node = docModel;
   let key;
@@ -85,10 +85,6 @@ export function getAllReferences(docModel) {
   return getAllByBase(docModel, isBaseReference);
 }
 
-export function isBaseLanguage(base) {
-  return base === "/#/definitions/language";
-}
-
 export function isBaseReference(base) {
   const references = "/#/definitions/references/";
 
@@ -98,7 +94,7 @@ export function isBaseReference(base) {
 export function getInstanceMap(docModel, base) {
   let instanceMap = {};
 
-  getAllByBase(docModel, (b) => b === base).forEach((instance, index) => {
+  getAllByBase(docModel, b => b === base).forEach((instance, index) => {
     const name = instance.path;
     instanceMap[name] = {
       name: name,
@@ -109,23 +105,33 @@ export function getInstanceMap(docModel, base) {
   return instanceMap;
 }
 
-export function getReferencesFromNodes(docModel, editorValue, referenceNodes, linkedBase) {
-  let references = referenceNodes.map(({ path, nodeValue }) => {
-    const fullPathArray = pathToArray(path);
+export function getReferencesFromNodes(
+  docModel,
+  editorValue,
+  referenceNodes,
+  linkedBase
+) {
+  let references = referenceNodes
+    .map(({ path, nodeValue }) => {
+      const fullPathArray = pathToArray(path);
 
-    const value = pathToArray(getNodeByBaseInPath(docModel, linkedBase, nodeValue));
-    const referral = pathToArray(getNodeByBaseInPath(docModel, linkedBase, path));
+      const value = pathToArray(
+        getNodeByBaseInPath(docModel, linkedBase, nodeValue)
+      );
+      const referral = pathToArray(
+        getNodeByBaseInPath(docModel, linkedBase, path)
+      );
 
-    if (value.length > 0 && referral.length > 0) {
-      return {
-        referral,
-        referenceKey: fullPathArray.slice(-1),
-        value,
-        line: getLineForPath(editorValue, fullPathArray),
-        isVisible: false
-      };
-    }
-  }).filter(item => item);
+      if (value.length > 0 && referral.length > 0) {
+        return {
+          referral,
+          referenceKey: fullPathArray.slice(-1),
+          value,
+          line: getLineForPath(editorValue, fullPathArray)
+        };
+      }
+    })
+    .filter(item => item);
 
   return references;
 }
@@ -136,10 +142,34 @@ export function getNodeByBaseInPath(docModel, base, pathString) {
   const pathArray = pathToArray(pathString);
   let subPath;
 
-  return pathArray.map((_, i) => {
-    subPath = pathArray.slice(0, i + 1);
-    let subBase = getBaseForPath(docModel, subPath);
+  return pathArray
+    .map((_, i) => {
+      subPath = pathArray.slice(0, i + 1);
+      let subBase = getBaseForPath(docModel, subPath);
 
-    return base === subBase ? subPath.join(".") : null;
-  }).filter(item => item)[0];
+      return base === subBase ? subPath.join(".") : null;
+    })
+    .filter(item => item)[0];
 }
+
+const isParentOfReferenceTo = (instance, destination) => {
+  return (
+    getAllReferences(instance)
+      .filter(i => i.nodeValue === destination)
+      .length > 0
+  );
+};
+
+export const extractReferencesTo = (instance, destination) => {
+  let newInstanceValue = {};
+  let keys = Object.keys(instance.value);
+
+  for (let i in keys) {
+    let subInstance = instance.value[keys[i]];
+    if (isParentOfReferenceTo(subInstance, destination)) {
+      newInstanceValue[keys[i]] = Object.assign({}, subInstance);
+    }
+  }
+
+  return {base: instance.base, value: newInstanceValue}
+};

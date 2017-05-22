@@ -78,9 +78,11 @@ const getInfoInstances = (state, paths) => {
   const dM = validateSchema(parsedYaml.jsonObj, state.yamlString).docModel;
 
   paths.filter(Boolean).forEach(pathString => {
-    infoInstances.push(getDmNodeByPath(dM, pathToArray(pathString)));
+    infoInstances.push({
+      ...getDmNodeByPath(dM, pathToArray(pathString)),
+      pathString
+    });
   });
-  console.log(infoInstances, paths);
   return infoInstances;
 };
 
@@ -94,15 +96,15 @@ const build = (state = null, action) => {
 
     //TODO: make async
     //FIXME: state is initialized 3 times
-    let request = new XMLHttpRequest();
-    request.open("GET", link, false); // `false` makes the request synchronous
-    request.setRequestHeader("accept", "application/vnd.github.VERSION.raw");
-    request.send(null);
-
-    //DEFAULT VALUE
-    if (request.status == 200) {
-      yamlString = request.responseText;
-    }
+    // let request = new XMLHttpRequest();
+    // request.open("GET", link, false); // `false` makes the request synchronous
+    // request.setRequestHeader("accept", "application/vnd.github.VERSION.raw");
+    // request.send(null);
+    //
+    // //DEFAULT VALUE
+    // if (request.status == 200) {
+    //   yamlString = request.responseText;
+    // }
 
     return validateState({
       yamlString: yamlString,
@@ -158,8 +160,8 @@ const build = (state = null, action) => {
 
       return {
         ...state,
-        instanceMatrix: instanceMatrix,
-        instanceMap: instanceMap
+        instanceMatrix,
+        instanceMap
       };
     case "CHOOSE_INSTANCES":
       const chosenInstances = action.chosenInstances.filter(Boolean);
@@ -178,7 +180,9 @@ const build = (state = null, action) => {
         hoveredInstances,
         infoInstances: getInfoInstances(
           state,
-          state.chosenInstances.length ? state.chosenInstances : hoveredInstances
+          state.chosenInstances.length
+            ? state.chosenInstances
+            : hoveredInstances
         ) || state.infoInstances
       };
     default:
