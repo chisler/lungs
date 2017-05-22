@@ -109,6 +109,7 @@ class Chord extends Component {
 
                 onMouseOver={edge => this.hoverInstances([edge.source.index, edge.target.index])}
                 onMouseOut={() => this.hoverInstances([])}
+                onClickEdge={edge => this.chooseInstances([edge.source.index, edge.target.index])}
                 chosenInstancesIndices={this.instanceIndicesByPaths(
                   chosenInstances.filter(Boolean).length ? chosenInstances : hoveredInstances
                 )}

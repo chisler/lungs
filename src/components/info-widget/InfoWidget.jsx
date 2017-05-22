@@ -5,7 +5,7 @@ import "./info_widget.css";
 class InfoWidget extends Component {
   static propTypes = {
     header: PropTypes.string.isRequired,
-    body: PropTypes.array.isRequired,
+    body: PropTypes.object.isRequired,
   };
 
 

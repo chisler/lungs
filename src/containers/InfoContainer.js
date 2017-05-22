@@ -18,7 +18,12 @@ const InfoContainer = props => {
         </div>
       );
     case 2:
-      return <MutualInfoWidget infoInstances={infoInstances} />;
+      return (
+        <div>
+          <CloseInfo onCloseInfo={onCloseInfo} />
+          <MutualInfoWidget infoInstances={infoInstances} />
+        </div>
+      );
     default:
       return <div />;
   }

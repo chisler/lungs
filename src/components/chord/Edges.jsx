@@ -9,6 +9,7 @@ class Edges extends Component {
     getStroke: PropTypes.func.isRequired,
     onMouseOver: PropTypes.func.isRequired,
     onMouseOut: PropTypes.func.isRequired,
+    onClickEdge: PropTypes.func.isRequired,
     chosenInstancesIndices: PropTypes.array
   };
 
@@ -20,7 +21,8 @@ class Edges extends Component {
       getFill,
       getStroke,
       onMouseOver,
-      onMouseOut
+      onMouseOut,
+      onClickEdge
     } = this.props;
 
     const shouldBeDisplayed = vertex => {
@@ -51,6 +53,7 @@ class Edges extends Component {
                 stroke={getStroke(edge)}
                 onMouseOver={() => onMouseOver(edge)}
                 onMouseOut={() => onMouseOut(edge)}
+                onClick={() =>  onClickEdge(edge)}
               />
             </g>
           );
