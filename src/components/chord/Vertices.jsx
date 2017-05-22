@@ -5,6 +5,7 @@ class Vertices extends Component {
   static propTypes = {
     displayData: PropTypes.array.isRequired,
     outerRadius: PropTypes.number.isRequired,
+    chosenInstancesIndices: PropTypes.array.isRequired,
 
     getArc: PropTypes.func.isRequired,
     getFill: PropTypes.func.isRequired,
@@ -20,6 +21,7 @@ class Vertices extends Component {
   render() {
     const {
       displayData,
+      chosenInstancesIndices,
       instancePathByIndex,
       getArc,
       getFill,
@@ -42,7 +44,8 @@ class Vertices extends Component {
                 <path
                   d={getArc(group)}
                   fill={getFill(i)}
-                  stroke={getStroke(i)}
+                  stroke={getStroke(i, chosenInstancesIndices)}
+                  strokeWidth={2}
                   onMouseOver={() => onMouseOverVertex(i)}
                   onMouseOut={() => onMouseOutVertex(i)}
                   onClick={() => onClickVertex(i)}

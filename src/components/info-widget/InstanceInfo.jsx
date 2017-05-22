@@ -4,10 +4,11 @@ import InfoWidget from "./InfoWidget";
 
 import "./info_widget.css";
 import {
-getIsContainerKey,
-isNestedInfoWidget,
-makeBasePretty,
-makeKeyPretty
+  getInstanceName,
+  getIsContainerKey,
+  isNestedInfoWidget,
+  makeBasePretty,
+  makeKeyPretty
 } from "./helpers";
 
 class InstanceInfo extends Component {
@@ -51,47 +52,51 @@ class InstanceInfo extends Component {
       return <div />;
     }
 
-    const header = isContainerKey ? null : makeBasePretty(data.base);
+    const base = isContainerKey ? null : makeBasePretty(data.base);
 
-    const body = Object.keys(data.value).map(key => {
-      const node = data.value[key];
-      const prettyKey = makeKeyPretty(key);
+    const body = (
+      <div>
+        {" "}{Object.keys(data.value).map(key => {
+          const node = data.value[key];
+          const prettyKey = makeKeyPretty(key);
 
-      if (!isNestedInfoWidget(node)) {
-        return (
-          <div key={key}>
-            <b>{prettyKey}</b>
-            <p>{node.value}</p>
-          </div>
-        );
-      }
-      const nestedNodes = (
-        <div className="nested_info_widget">
-          <InstanceInfo
-            data={node}
-            isContainerKey={getIsContainerKey(node, key)}
-          />
-        </div>
-      );
-      const collapsed = this.state.collapsed[key];
+          if (!isNestedInfoWidget(node)) {
+            return (
+              <div key={key}>
+                <b>{prettyKey}</b>
+                <p>{node.value}</p>
+              </div>
+            );
+          }
+          const nestedNodes = (
+            <div className="nested_info_widget">
+              <InstanceInfo
+                data={node}
+                isContainerKey={getIsContainerKey(node, key)}
+              />
+            </div>
+          );
+          const collapsed = this.state.collapsed[key];
 
-      return (
-        <div key={key}>
-          <div
-            onClick={() => this.handleClick(key)}
-            className="info_widget__key"
-          >
-            <span>
-              {collapsed ? "[+]  " : " [-]  "}
-            </span>
-            {prettyKey}
-          </div>
-          {collapsed ? null : nestedNodes}
-        </div>
-      );
-    });
+          return (
+            <div key={key}>
+              <div
+                onClick={() => this.handleClick(key)}
+                className="info_widget__key"
+              >
+                <span>
+                  {collapsed ? "[+]  " : " [-]  "}
+                </span>
+                {prettyKey}
+              </div>
+              {collapsed ? null : nestedNodes}
+            </div>
+          );
+        })}
+      </div>
+    );
 
-    return <InfoWidget header={header} body={body} />;
+    return <InfoWidget base={base} body={body} />;
   }
 }
 

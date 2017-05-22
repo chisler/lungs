@@ -9,7 +9,11 @@
     color: #c2c0bc;
 }
 
-.info_widget__highlight {
+info_widget__header__base {
+    float:right;
+}
+
+.info_widget__body {
     position: relative;
     padding: 3px 3px 10px 7px;
     border: none;
@@ -18,7 +22,8 @@
     line-height: 1.5;
     font-size: 13px;
     background: #f8f5ec;
-    font-family: 'source-code-pro', Menlo, Consolas, 'Courier New', monospace;
+    font-family: Titillium Web,sans-serif;
+    /*font-family: 'source-code-pro', Menlo, Consolas, 'Courier New', monospace;*/
 }
 
 .info_widget__key {

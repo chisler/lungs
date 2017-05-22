@@ -4,20 +4,20 @@ import "./info_widget.css";
 
 class InfoWidget extends Component {
   static propTypes = {
-    header: PropTypes.string.isRequired,
-    body: PropTypes.object.isRequired,
+    base: PropTypes.string.isRequired,
+    body: PropTypes.element.isRequired,
   };
 
 
   render() {
-    const { header, body } = this.props;
+    const { base, body } = this.props;
 
     return (
       <div className="info_widget">
         <div className="info_widget__header">
-          {header}
+          {base}
         </div>
-        <div className="info_widget__highlight">
+        <div className="info_widget__body">
           {body}
         </div>
       </div>

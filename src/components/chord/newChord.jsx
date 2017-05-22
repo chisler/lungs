@@ -59,7 +59,12 @@ class Chord extends Component {
   }
 
   render() {
-    const { instanceMatrix, instanceMap, hoveredInstances, chosenInstances } = this.props;
+    const {
+      instanceMatrix,
+      instanceMap,
+      hoveredInstances,
+      chosenInstances
+    } = this.props;
     if (!instanceMap) {
       return <div />;
     }
@@ -78,47 +83,75 @@ class Chord extends Component {
     const ribbon = d3.ribbon().radius(innerRadius);
 
     const displayData = chord(matrix);
+    const chosen = this.instanceIndicesByPaths(
+      chosenInstances.filter(Boolean).length
+        ? chosenInstances
+        : hoveredInstances
+    );
 
     return (
-    <div className="Aligner">
-      <svg width={size} height={size}>
-        <g id="circle">
-          <g transform={`translate(${size/2},${size/2})`}>
-            <g className="groups">
-              <Vertices
-                displayData={displayData}
-                outerRadius={outerRadius}
-
-                getArc={arc}
-                getFill={i => color(i)}
-                getStroke={i => d3.rgb(color(i)).darker()}
-                instancePathByIndex={(i) => this.getInstancePathByIndex(i, instanceMap)}
-
-                onMouseOverVertex={i => this.hoverInstances([i])}
-                onMouseOutVertex={() => this.hoverInstances([])}
-                onClickVertex={i => this.chooseInstances([i])}
-              />
-            </g>
-            <g className="ribbons">
-              <Edges
-                displayData={displayData}
-
-                getRibbon={ribbon}
-                getFill={edge => color(edge.target.index)}
-                getStroke={edge => d3.rgb(color(edge.target.index)).darker()}
-
-                onMouseOver={edge => this.hoverInstances([edge.source.index, edge.target.index])}
-                onMouseOut={() => this.hoverInstances([])}
-                onClickEdge={edge => this.chooseInstances([edge.source.index, edge.target.index])}
-                chosenInstancesIndices={this.instanceIndicesByPaths(
-                  chosenInstances.filter(Boolean).length ? chosenInstances : hoveredInstances
-                )}
-              />
+      <div className="Aligner">
+        <svg
+          width={"100%"}
+          height={size}
+          xmlns="http://www.w3.org/2000/svg"
+          version="1.1"
+        >
+          <g id="Aligner">
+            <g transform={`translate(${size / 2},${size / 2})`}>
+              <g className="groups">
+                <Vertices
+                  displayData={displayData}
+                  outerRadius={outerRadius}
+                  getArc={arc}
+                  getFill={i => color(i)}
+                  getStroke={(i, chosen) => {
+                    if (
+                      chosen &&
+                      !chosen.includes(i)
+                    ) {
+                      return d3.rgb(color(i)).darker()
+                    }
+                    return d3.rgb("#0159ff");
+                  }}
+                  instancePathByIndex={i =>
+                    this.getInstancePathByIndex(i, instanceMap)}
+                  onMouseOverVertex={i => this.hoverInstances([i])}
+                  onMouseOutVertex={() => this.hoverInstances([])}
+                  onClickVertex={i => this.chooseInstances([i])}
+                  chosenInstancesIndices={chosen}
+                />
+              </g>
+              <g className="ribbons">
+                <Edges
+                  displayData={displayData}
+                  getRibbon={ribbon}
+                  getFill={edge => color(edge.target.index)}
+                  getStroke={(edge, chosen) => {
+                    if (
+                      chosen &&
+                      !chosen.includes(edge.source.index) &&
+                      !chosen.includes(edge.target.index)
+                    ) {
+                      return d3.rgb(color(edge.target.index)).darker();
+                    }
+                    return d3.rgb("#0159ff");
+                  }}
+                  onMouseOver={edge =>
+                    this.hoverInstances([edge.source.index, edge.target.index])}
+                  onMouseOut={() => this.hoverInstances([])}
+                  onClickEdge={edge =>
+                    this.chooseInstances([
+                      edge.source.index,
+                      edge.target.index
+                    ])}
+                  chosenInstancesIndices={chosen}
+                />
+              </g>
             </g>
           </g>
-        </g>
-      </svg>
-    </div>
+        </svg>
+      </div>
     );
   }
 }

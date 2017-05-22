@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { extractReferencesTo, getDmNodeName } from "../../build/ast/doc-model";
 import InstanceInfo from "./InstanceInfo";
-import { makeKeyPretty } from "./helpers";
+import {getInstanceName, makeKeyPretty} from "./helpers";
 import InfoWidget from "./InfoWidget";
 
 const isObjectEmpty = obj => {
@@ -12,12 +12,12 @@ const isObjectEmpty = obj => {
 const MutualInfoTitle = props => {
   const { instance0, instance1 } = props;
 
-  const name0 = getDmNodeName(instance0) || makeKeyPretty(instance0.pathString);
-  const name1 = getDmNodeName(instance1) || makeKeyPretty(instance1.pathString);
+  const name0 = getInstanceName(instance0);
+  const name1 = getInstanceName(instance1);
 
   return (
     <h2>
-      {`${name0}'s references to ${name1}`}
+      {`${name0}'s -> ${name1}`}
     </h2>
   );
 };
@@ -65,7 +65,7 @@ class MutualInfoWidget extends Component {
       </div>
     );
 
-    return <InfoWidget header="Mutual References" body={body} />;
+    return <InfoWidget base="Mutual References" body={body} />;
   }
 }
 export default MutualInfoWidget;
