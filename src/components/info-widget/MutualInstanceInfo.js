@@ -17,7 +17,7 @@ const MutualInfoTitle = props => {
 
   return (
     <h2>
-      {`${name0}'s -> ${name1}`}
+      {`${name0} -> ${name1}`}
     </h2>
   );
 };

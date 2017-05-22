@@ -14,9 +14,7 @@ class InfoWidget extends Component {
 
     return (
       <div className="info_widget">
-        <div className="info_widget__header">
-          {base}
-        </div>
+        {base ? <div className="info_widget__header"> {base}</div> : null}
         <div className="info_widget__body">
           {body}
         </div>

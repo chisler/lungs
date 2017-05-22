@@ -9,10 +9,6 @@
     color: #c2c0bc;
 }
 
-info_widget__header__base {
-    float:right;
-}
-
 .info_widget__body {
     position: relative;
     padding: 3px 3px 10px 7px;

@@ -97,7 +97,7 @@ class Chord extends Component {
           xmlns="http://www.w3.org/2000/svg"
           version="1.1"
         >
-          <g id="Aligner">
+          <g id="circle">
             <g transform={`translate(${size / 2},${size / 2})`}>
               <g className="groups">
                 <Vertices
