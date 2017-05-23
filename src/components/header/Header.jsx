@@ -18,7 +18,7 @@ export const Header = () => {
         </a>
         <div className="nav-lists">
           <ul className="nav-site nav-site-internal">
-            <li><a href="https://github.com/chisler/lungs">Guide</a></li>
+            <li><a href="https://github.com/chisler/lungs">How to</a></li>
             <li><a href="/react/tutorial/tutorial.html">Reset</a></li>
             <li><a href="/react/community/support.html">Send Pull Request</a></li>
           </ul>

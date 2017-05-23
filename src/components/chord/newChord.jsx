@@ -68,17 +68,17 @@ class Chord extends Component {
     if (!instanceMap) {
       return <div />;
     }
-    const size = 500;
+    const size = 500 - instanceMatrix.length * 10;
 
     const width = size, height = size;
 
-    const outerRadius = Math.min(width, height) * 0.5 - 20;
+    const outerRadius = Math.min(width, height) * 0.5 - 30;
     const innerRadius = outerRadius - 20;
 
     const matrix = instanceMatrix;
 
     const chord = d3.chord().padAngle(0.05).sortSubgroups(d3.descending);
-    const color = d3.scaleOrdinal(d3.schemeCategory10);
+    const color = d3.scaleOrdinal(d3.schemeCategory20);
     const arc = d3.arc().innerRadius(innerRadius).outerRadius(outerRadius);
     const ribbon = d3.ribbon().radius(innerRadius);
 
@@ -89,6 +89,8 @@ class Chord extends Component {
         : hoveredInstances
     );
 
+    const moveToCenter = window.innerWidth / 4 - size / 2;
+
     return (
       <div className="Aligner">
         <svg
@@ -97,8 +99,8 @@ class Chord extends Component {
           xmlns="http://www.w3.org/2000/svg"
           version="1.1"
         >
-          <g id="circle">
-            <g transform={`translate(${size / 2},${size / 2})`}>
+          <g id="circle" transform={`translate(${moveToCenter},0)`}>
+            <g transform={`translate(${size / 2}, ${size / 2})`}>
               <g className="groups">
                 <Vertices
                   displayData={displayData}
@@ -106,11 +108,8 @@ class Chord extends Component {
                   getArc={arc}
                   getFill={i => color(i)}
                   getStroke={(i, chosen) => {
-                    if (
-                      chosen &&
-                      !chosen.includes(i)
-                    ) {
-                      return d3.rgb(color(i)).darker()
+                    if (chosen && !chosen.includes(i)) {
+                      return d3.rgb(color(i)).darker();
                     }
                     return d3.rgb("#0159ff");
                   }}
