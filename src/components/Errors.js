@@ -19,12 +19,10 @@ class Errors extends Component {
     }
     return (
       <div>
-        <div className="errors__header">Errors: </div>
+        <div className="errors__header">Errors</div>
         <div className="errors_container">
           {errors.map((err, index) => {
             return (
-              <div className="errors__body">
-
                 <Error
                   key={index}
                   line={err.line}
@@ -32,7 +30,6 @@ class Errors extends Component {
                   scope={err.scope}
                   onClick={this.props.onClick}
                 />
-              </div>
             );
           })}
         </div>

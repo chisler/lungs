@@ -10,6 +10,11 @@ export function pathToArray(pathString) {
     str = pathString.trim();
   }
 
+  //in case of key with space: instance["key with spaces"]
+  if (!str || str.includes('[')) {
+    return []
+  }
+
   return (
     str
       .split(".")

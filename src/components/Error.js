@@ -19,7 +19,7 @@ class Error extends Component {
     const { line, message } = this.props;
 
     return (
-      <div>
+      <div className="errors__body">
         <a
           href="#"
           onClick={e => {
