@@ -7,7 +7,7 @@ import D3container from "./containers/D3container";
 import InfoContainer from "./containers/InfoContainer";
 import editorApp from "./reducers";
 
-import { Header } from "./components/header/Header";
+import HeaderContainer from "./containers/HeaderContainer";
 import { Provider } from "react-redux";
 
 import "./index.css";
@@ -22,7 +22,7 @@ store.subscribe(throttle(() => saveState(store.getState()), 500));
 ReactDOM.render(
   <Provider store={store}>
     <div>
-      <Header />
+      <HeaderContainer />
       <div className="container">
         <div className="left">
           <EditorContainer />

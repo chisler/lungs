@@ -20,7 +20,6 @@ class Editor extends Component {
     onChange: PropTypes.func.isRequired,
     setValue: PropTypes.func.isRequired,
     getMatrix: PropTypes.func.isRequired,
-    setEditor: PropTypes.func.isRequired,
     onScroll: PropTypes.func.isRequired,
     errors: PropTypes.array,
     lineToGoTo: PropTypes.number
@@ -39,10 +38,8 @@ class Editor extends Component {
     this.setState({ value });
 
     const { setValue, onChange, getMatrix } = this.props;
-
     setValue(value);
     onChange();
-    getMatrix();
   };
 
   onLoad = editor => {
@@ -100,16 +97,6 @@ class Editor extends Component {
     }
   };
 
-  componentDidMount() {
-    this.updateErrorAnnotations(this.props);
-  }
-
-  shouldComponentUpdate(nextProps) {
-    const hasChanged = property => this.props[property] !== nextProps[property];
-
-    return hasChanged("yamlString") || hasChanged("errors");
-  }
-
   componentWillReceiveProps(nextProps) {
     const { editor } = this.state;
     const { onScroll } = this.props;
@@ -120,6 +107,17 @@ class Editor extends Component {
       editor.gotoLine(nextProps.lineToGoTo);
       onScroll();
     }
+  }
+
+  shouldComponentUpdate(nextProps) {
+    const hasChanged = property => this.props[property] !== nextProps[property];
+
+    return hasChanged("yamlString") || hasChanged("errors");
+  }
+
+  componentWillUpdate(nextProps) {
+    //Get initial matrix for building visualization
+    this.props.getMatrix();
   }
 
   render() {
@@ -151,6 +149,10 @@ class Editor extends Component {
         }}
       />
     );
+  }
+
+  componentDidMount() {
+    this.updateErrorAnnotations(this.props);
   }
 }
 

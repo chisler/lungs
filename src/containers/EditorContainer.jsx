@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import Editor from "../components/editor/Editor";
 
 import { extractReferenceMap, setValue, validate } from "../actions";
-import {setEditor, setLineToGoTo} from "../actions/index";
+import { setLineToGoTo } from "../actions";
 
 const mapStateToProps = state => {
   return {
@@ -18,8 +18,7 @@ const mapDispatchToProps = dispatch => {
     onChange: () => dispatch(validate()),
     setValue: yamlString => dispatch(setValue(yamlString)),
     getMatrix: () => dispatch(extractReferenceMap()),
-    setEditor: (editor) => dispatch(setEditor(editor)),
-    onScroll: () => dispatch(setLineToGoTo(null)),
+    onScroll: () => dispatch(setLineToGoTo(null))
   };
 };
 
