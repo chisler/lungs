@@ -48,6 +48,9 @@ class Editor extends Component {
   onLoad = editor => {
     const { setEditor, setValue, getMatrix } = this.props;
     this.setState({editor});
+
+    //Editor is not serializable
+    //That's why it's not in redux state
     window.editor = editor;
 
     let session = editor.getSession();
