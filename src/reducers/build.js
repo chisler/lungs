@@ -110,7 +110,6 @@ const getDefaultState = () => {
     infoInstances: [],
     errors: null
   });
-
 };
 
 const build = (state = null, action) => {
@@ -146,6 +145,11 @@ const build = (state = null, action) => {
       }
 
       let parsedYaml = parseYAML(state.yamlString);
+
+      if (parsedYaml.error) {
+        return state;
+      }
+
       const dM = validateSchema(parsedYaml.jsonObj, state.yamlString).docModel;
       const referenceNodes = getAllReferences(dM);
       const references = getReferencesFromNodes(
