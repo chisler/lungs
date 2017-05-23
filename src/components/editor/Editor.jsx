@@ -48,7 +48,7 @@ class Editor extends Component {
   onLoad = editor => {
     const { setEditor, setValue, getMatrix } = this.props;
     this.setState({editor});
-    setEditor(editor);
+    window.editor = editor;
 
     let session = editor.getSession();
     const value = editor.getValue();

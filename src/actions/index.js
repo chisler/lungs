@@ -37,16 +37,3 @@ export const hoverInstances = hoveredInstances => {
     hoveredInstances
   };
 };
-
-export const setEditor = editor => {
-  return {
-    type: "SET_EDITOR",
-    editor
-  };
-};
-
-export const resizeEditor = () => {
-  return {
-    type: "RESIZE_EDITOR"
-  };
-};

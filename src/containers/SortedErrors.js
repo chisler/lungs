@@ -24,7 +24,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onClick: line => dispatch(setLineToGoTo(line)),
-    onUpdate: () => dispatch(resizeEditor())
+    onUpdate: () => window.editor.resize()
   };
 };
 
