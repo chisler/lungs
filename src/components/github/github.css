@@ -1,0 +1,63 @@
+.pull_request_form h2 {
+    background: #4D4D4D;
+    text-transform: uppercase;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #797979;
+    font-size: 18px;
+    font-weight: 100;
+    padding: 20px;
+    margin: -30px -30px 30px -30px;
+}
+
+.pull_request_form input[type="text"],
+.pull_request_form input[type="date"],
+.pull_request_form input[type="datetime"],
+.pull_request_form input[type="email"],
+.pull_request_form input[type="number"],
+.pull_request_form input[type="search"],
+.pull_request_form input[type="time"],
+.pull_request_form input[type="url"],
+.pull_request_form input[type="password"],
+.pull_request_form textarea,
+.pull_request_form select {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    display: block;
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    margin-bottom: 10px;
+    font: 16px Arial, Helvetica, sans-serif;
+    height: 45px;
+}
+
+.pull_request_form textarea {
+    resize: none;
+    overflow: hidden;
+}
+
+.pull_request_form input[type="button"],
+.pull_request_form input[type="submit"] {
+    -moz-box-shadow: inset 0px 1px 0px 0px #ff7f0e;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #ff7f0e;
+    box-shadow: inset 0px 1px 0px 0px #ff7f0e;
+    background-color: #ff7f0e;
+    border: 1px solid #ff7f0e;
+    display: inline-block;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 12px;
+    padding: 8px 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.pull_request_form input[type="button"]:hover,
+.pull_request_form input[type="submit"]:hover {
+    background-color: #ff43;
+}

@@ -11,6 +11,8 @@ export function forkAndCommit(credentials, new_content, pr_options) {
 
   api.setRepo(credentials.username, 'languageWiki');
 
+  //TODO: split into two async functions
+  let commited = false;
   api.setBranch('master')
     .then(() => api.pushFiles(
       commit_msg,
@@ -20,6 +22,7 @@ export function forkAndCommit(credentials, new_content, pr_options) {
     )
     .then(function () {
       console.log('Files committed!');
+      commited = true;
     });
 
   const options = {
@@ -29,7 +32,5 @@ export function forkAndCommit(credentials, new_content, pr_options) {
     body: body
   };
 
-  base_repo.createPullRequest(options, function (err, raw, request) {
-    console.log(err);
-  });
+  return {commited, prPromise: base_repo.createPullRequest(options) };
 }

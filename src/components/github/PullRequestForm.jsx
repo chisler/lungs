@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { forkAndCommit } from "../../github/push";
 
+import "./github.css";
+
 //TODO: new styles, get rid of react-overlays, retransit to PR, show submission result
 
 import { Modal } from "react-overlays";
@@ -55,7 +57,9 @@ class PullRequestForm extends React.Component {
       password: "",
       title: "",
       commit_msg: "",
-      body: ""
+      body: "",
+      prResult: "",
+      pushResult: ""
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -77,50 +81,52 @@ class PullRequestForm extends React.Component {
     const { yamlString } = this.props;
     const { username, password, title, body, commit_msg } = this.state;
 
-    forkAndCommit({ username, password }, yamlString, {
+    const forkResult = forkAndCommit({ username, password }, yamlString, {
       title,
       body,
       commit_msg
     });
+    forkResult.prPromise
+      .then(() => this.setState({ prResult: "Successful" }))
+      .catch(() => this.setState({ prResult: "Failed" }));
+
+    this.setState({
+      pushResult: forkResult.commited ? "Successful" : "Failed"
+    });
   }
 
-  textInput(name, password) {
+  textInput(name, placeholder) {
     return (
-      <label>
-        {name}
-        <input
-          name={name}
-          type={password ? "password" : "text"}
-          value={this.state[name]}
-          onChange={this.handleInputChange}
-        />
-      </label>
+      <input
+        placeholder={placeholder}
+        name={name}
+        type={name === "password" ? "password" : "text"}
+        value={this.state[name]}
+        onChange={this.handleInputChange}
+      />
     );
   }
 
   render() {
     const { isShown, errors, onHide } = this.props;
+    const { prResult, pushResult } = this.state;
     const { textInput } = this;
-
-    // if (!isShown) {
-    //   return null;
-    // }
 
     const errorsDialog = <div>Please, resolve errors before making a PR. </div>;
 
     const prDialog = (
-      <div>
-        <h4 id="modal-label">Make a PR</h4>
+      <div className="pull_request_form">
+        <h3 id="modal-label">Create Pull Request</h3>
         <form onSubmit={this.handleSubmit}>
-          {textInput("username")}
+          {textInput("username", "username")}
           <br />
-          {textInput("password", true)}
+          {textInput("password", "password")}
           <br />
-          {textInput("commit_msg")}
+          {textInput("commit_msg", "commit message")}
           <br />
-          {textInput("title")}
+          {textInput("title", "PR title")}
           <br />
-          {textInput("body")}
+          {textInput("body", "PR body")}
           <input type="submit" value="Submit" />
         </form>
       </div>
@@ -136,7 +142,9 @@ class PullRequestForm extends React.Component {
           onHide={onHide}
         >
           <div style={dialogStyle()}>
-            {errors.length ? errorsDialog : prDialog}
+            {pushResult && <div>Push result: {pushResult}</div>}
+            {prResult && <div>New PR created: {prResult}</div>}
+            {!prResult && errors.length ? errorsDialog : prDialog}
           </div>
         </Modal>
       </div>
