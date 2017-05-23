@@ -7,11 +7,12 @@ import {
   SortedErrors,
   D3container,
   HeaderContainer,
-  InfoContainer
+  InfoContainer,
+  GitHubContainer
 } from "../containers";
 import editorApp from "../reducers";
 
-import { loadState, saveState } from "../reducers/local-storage";
+import { loadState, saveState } from "../reducers/helpers";
 import throttle from "lodash/throttle";
 
 import "./App.css";
@@ -20,24 +21,27 @@ const persistedState = loadState();
 const store = createStore(editorApp, persistedState);
 store.subscribe(throttle(() => saveState(store.getState()), 500));
 
-const App = () => {
-  return (
-    <Provider store={store}>
-      <div>
-        <HeaderContainer />
-        <div className="container">
-          <div className="left">
-            <EditorContainer />
-            <SortedErrors />
-          </div>
-          <div className="right">
-            <D3container />
-            <InfoContainer />
+class App extends React.Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <div>
+          <GitHubContainer />
+          <HeaderContainer />
+          <div className="container">
+            <div className="left">
+              <EditorContainer />
+              <SortedErrors />
+            </div>
+            <div className="right">
+              <D3container />
+              <InfoContainer />
+            </div>
           </div>
         </div>
-      </div>
-    </Provider>
-  );
-};
+      </Provider>
+    );
+  }
+}
 
 export default App;

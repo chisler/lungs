@@ -43,3 +43,10 @@ export const resetToDefault = () => {
     type: "RESET_TO_DEFAULT"
   };
 };
+
+export const setPopupIsShown = isShown => {
+  return {
+    type: "SET_POPUP_IS_SHOWN",
+    isShown
+  };
+};

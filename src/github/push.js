@@ -1,13 +1,13 @@
 import { GitHubAPI } from "./github-api"
 
 //pr_options = {title: ..., body:..., commit_msg:...}
-function forkAndCommit(credentials, new_content, pr_options) {
+export function forkAndCommit(credentials, new_content, pr_options) {
   //TODO: make async
   const api = new GitHubAPI(credentials);
   const {title, body, commit_msg} = pr_options;
 
   const base_repo = api.gh.getRepo('languagesWiki', 'languageWiki');
-  base_repo.fork();
+  base_repo.fork(() => {});
 
   api.setRepo(credentials.username, 'languageWiki');
 

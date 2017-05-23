@@ -4,7 +4,7 @@ import logo from "../../logo.svg";
 import "./header.css";
 
 const Header = props => {
-  const { reset, fork } = props;
+  const { reset, onClickSendPR } = props;
 
   return (
     <div className="nav-main">
@@ -18,7 +18,7 @@ const Header = props => {
             <li><a href="https://github.com/chisler/lungs">Guide</a></li>
             <li><a href="#" onClick={reset}>Reset</a></li>
             <li>
-              <a href="#" onClick={fork}>
+              <a href="#" onClick={onClickSendPR}>
                 Send Pull Request
               </a>
             </li>

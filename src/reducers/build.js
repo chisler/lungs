@@ -43,7 +43,6 @@ pascal:
 
 //Gets the editor value => returns new state
 const validateState = state => {
-  // console.log(state)
   let parsedYaml = parseYAML(state.yamlString);
   if (parsedYaml.error) {
     return {

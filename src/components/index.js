@@ -10,3 +10,5 @@ export {default as Header} from './header/Header';
 export {default as InstanceInfo} from './info/InstanceInfo';
 export {default as CloseInfo} from './info/CloseInfo';
 export {default as MutualInstanceInfo} from './info/MutualInstanceInfo';
+
+export {default as PullRequestForm} from './github/PullRequestForm';
