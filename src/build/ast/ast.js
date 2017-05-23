@@ -15,8 +15,12 @@ export function getLineForPath(yamlString, pathArray) {
 }
 
 export function getAstNodeForPath(yamlString, pathArray) {
-  let ast = cachedCompose(yamlString);
-
+  let ast;
+  try {
+    ast = cachedCompose(yamlString);
+  } catch (err) {
+    return null;
+  }
   return find(ast, pathArray, 0);
 
   //Recursively walks through ast cutting the start of pathArray, until it's null
