@@ -37,3 +37,9 @@ export const hoverInstances = hoveredInstances => {
     hoveredInstances
   };
 };
+
+export const resetToDefault = () => {
+  return {
+    type: "RESET_TO_DEFAULT"
+  };
+};

@@ -9,9 +9,18 @@ import editorApp from "./reducers";
 import { Provider } from "react-redux";
 
 import "./index.css";
+import { loadState, saveState } from "./reducers/local-storage";
+import throttle from "lodash/throttle";
+
+const persistedState = loadState();
+const store = createStore(editorApp, persistedState);
+
+store.subscribe(throttle(() =>
+  saveState(store.getState()),
+  500));
 
 ReactDOM.render(
-  <Provider store={createStore(editorApp)}>
+  <Provider store={store}>
     <div className="container">
       <div className="left">
         <EditorContainer />

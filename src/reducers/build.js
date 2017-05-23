@@ -86,38 +86,44 @@ const getInfoInstances = (state, paths) => {
   return infoInstances;
 };
 
+const getDefaultState = () => {
+  const link =
+    "https://api.github.com/repos/languagesWiki/languageWiki/contents/languages.yml";
+  let yamlString = mockYAML;
+
+  //TODO: make async
+  //FIXME: state is initialized 3 times
+  // let request = new XMLHttpRequest();
+  // request.open("GET", link, false); // `false` makes the request synchronous
+  // request.setRequestHeader("accept", "application/vnd.github.VERSION.raw");
+  // request.send(null);
+  //
+  // //DEFAULT VALUE
+  // if (request.status == 200) {
+  //   yamlString = request.responseText;
+  // }
+
+  return validateState({
+    yamlString: yamlString,
+    instanceMatrix: null,
+    instanceMap: null,
+    chosenInstances: [],
+    hoveredInstances: [],
+    infoInstances: [],
+    errors: null
+  });
+
+};
+
 const build = (state = null, action) => {
   //default case
   if (state === null) {
-    //TODO: move to consts
-    const link =
-      "https://api.github.com/repos/languagesWiki/languageWiki/contents/languages.yml";
-    let yamlString = mockYAML;
-
-    //TODO: make async
-    //FIXME: state is initialized 3 times
-    // let request = new XMLHttpRequest();
-    // request.open("GET", link, false); // `false` makes the request synchronous
-    // request.setRequestHeader("accept", "application/vnd.github.VERSION.raw");
-    // request.send(null);
-    //
-    // //DEFAULT VALUE
-    // if (request.status == 200) {
-    //   yamlString = request.responseText;
-    // }
-
-    return validateState({
-      yamlString: yamlString,
-      instanceMatrix: null,
-      instanceMap: null,
-      chosenInstances: [],
-      hoveredInstances: [],
-      infoInstances: [],
-      errors: null
-    });
+    return getDefaultState();
   }
 
   switch (action.type) {
+    case "RESET_TO_DEFAULT":
+      return getDefaultState();
     case "SET_VALUE":
       return {
         ...state,

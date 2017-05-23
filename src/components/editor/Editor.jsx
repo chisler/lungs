@@ -46,7 +46,7 @@ class Editor extends Component {
   };
 
   onLoad = editor => {
-    const { setEditor, setValue, getMatrix } = this.props;
+    const { setValue, getMatrix } = this.props;
     this.setState({editor});
 
     //Editor is not serializable
@@ -76,13 +76,18 @@ class Editor extends Component {
     editor.on("mousemove", onCtrl);
     editor.$blockScrolling = Infinity
     editorPluginsHook(editor, null, null || ["autosuggestApis"]);
+    console.log('onLoad')
+    this.updateErrorAnnotations(this.props, editor);
+
   };
 
-  updateErrorAnnotations = nextProps => {
-    const { editor } = this.state;
+  updateErrorAnnotations = (nextProps, editor) => {
+    if (!editor) {
+       editor = this.state.editor;
+    }
 
     if (editor && nextProps.errors) {
-      let editorAnnotations = nextProps.errors.map(err => {
+      const editorAnnotations = nextProps.errors.map(err => {
         // Create annotation objects that ACE can use
         return {
           row: err.line - 1,
