@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { extractReferencesTo, getDmNodeName } from "../../build/ast/doc-model";
+
 import InstanceInfo from "./InstanceInfo";
-import {getInstanceName, makeKeyPretty} from "./helpers";
 import InfoWidget from "./InfoWidget";
+
+import { extractReferencesTo } from "../../build/ast/doc-model";
+import { getInstanceName } from "./helpers";
 
 const isObjectEmpty = obj => {
   return Object.keys(obj).length === 0;
@@ -57,7 +59,7 @@ class MutualInstanceInfo extends Component {
           instance1={infoInstances[1]}
           referenceData={forward}
         />
-        <hr/>
+        <hr />
         <OneDirectionInfo
           instance0={infoInstances[1]}
           instance1={infoInstances[0]}

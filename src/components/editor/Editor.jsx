@@ -37,7 +37,7 @@ class Editor extends Component {
   onChange = value => {
     this.setState({ value });
 
-    const { setValue, onChange, getMatrix } = this.props;
+    const { setValue, onChange } = this.props;
     setValue(value);
     onChange();
   };

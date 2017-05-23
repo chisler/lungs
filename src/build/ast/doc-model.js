@@ -130,8 +130,10 @@ export function getReferencesFromNodes(
           line: getLineForPath(editorValue, fullPathArray)
         };
       }
+
+      return null;
     })
-    .filter(item => item);
+    .filter(Boolean);
 
   return references;
 }

@@ -3,8 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="df2bc385-f543-4b06-8348-6371d6e0fd06" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/App.css" afterPath="$PROJECT_DIR$/src/components/App.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/App.jsx" afterPath="$PROJECT_DIR$/src/components/App.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/build/ast/ast.js" afterPath="$PROJECT_DIR$/src/build/ast/ast.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/build/ast/doc-model.js" afterPath="$PROJECT_DIR$/src/build/ast/doc-model.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/build/editor-plugins/completers/references.js" afterPath="$PROJECT_DIR$/src/build/editor-plugins/completers/references.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/editor/Editor.jsx" afterPath="$PROJECT_DIR$/src/components/editor/Editor.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/header/Header.jsx" afterPath="$PROJECT_DIR$/src/components/header/Header.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/info/InstanceInfo.jsx" afterPath="$PROJECT_DIR$/src/components/info/InstanceInfo.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/info/MutualInstanceInfo.js" afterPath="$PROJECT_DIR$/src/components/info/MutualInstanceInfo.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github/github-api.js" afterPath="$PROJECT_DIR$/src/github/github-api.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/reducers/build.js" afterPath="$PROJECT_DIR$/src/reducers/build.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/reducers/helpers.js" afterPath="$PROJECT_DIR$/src/reducers/helpers.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,33 +31,33 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="App.jsx" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/App.jsx">
+      <file leaf-file-name="github-api.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/github/github-api.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="31" column="16" lean-forward="true" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="App.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/App.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+            <state relative-caret-position="177">
+              <caret line="65" column="41" lean-forward="false" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/index.js">
+      <file leaf-file-name="MutualInstanceInfo.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/info/MutualInstanceInfo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="43" lean-forward="true" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
+            <state relative-caret-position="240">
+              <caret line="16" column="43" lean-forward="false" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="43" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InstanceInfo.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/info/InstanceInfo.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="18" lean-forward="false" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -58,8 +66,8 @@
       <file leaf-file-name="Header.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/header/Header.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="34" column="22" lean-forward="false" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
+            <state relative-caret-position="172">
+              <caret line="12" column="46" lean-forward="false" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -67,31 +75,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HeaderContainer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/HeaderContainer.js">
+      <file leaf-file-name="helpers.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/reducers/helpers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="17" lean-forward="true" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-              <folding />
+            <state relative-caret-position="-117">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SortedErrors.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/SortedErrors.js">
+      <file leaf-file-name="doc-model.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/build/ast/doc-model.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="18" lean-forward="false" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InfoContainer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/InfoContainer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="61">
-              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state relative-caret-position="276">
+              <caret line="130" column="10" lean-forward="true" selection-start-line="130" selection-start-column="10" selection-end-line="130" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -109,8 +109,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>.</find>
-      <find>.id</find>
       <find>edge</find>
       <find>path</find>
       <find>pathto</find>
@@ -137,8 +135,10 @@
       <find>info</find>
       <find>info-wid</find>
       <find>}</find>
+      <find>getMatrix</find>
       <find>default as</find>
       <find>build</find>
+      <find>throw</find>
     </findStrings>
     <replaceStrings>
       <replace>Error</replace>
@@ -174,8 +174,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/components/chord/Chord.jsx" />
-        <option value="$PROJECT_DIR$/src/components/InfoWidget.jsx" />
         <option value="$PROJECT_DIR$/src/components/info_widget.css" />
         <option value="$PROJECT_DIR$/src/containers/VisibleInfo.js" />
         <option value="$PROJECT_DIR$/src/components/chord/chord.css" />
@@ -203,28 +201,30 @@
         <option value="$PROJECT_DIR$/src/logo.svg" />
         <option value="$PROJECT_DIR$/src/components/header/header.css" />
         <option value="$PROJECT_DIR$/src/components/info-widget/close_info.css" />
-        <option value="$PROJECT_DIR$/src/build/ast/ast.js" />
-        <option value="$PROJECT_DIR$/src/github/github-api.js" />
         <option value="$PROJECT_DIR$/src/github/push.js" />
-        <option value="$PROJECT_DIR$/src/reducers/build.js" />
-        <option value="$PROJECT_DIR$/src/build/editor-plugins/completers/references.js" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/components/info/InfoWidget.jsx" />
-        <option value="$PROJECT_DIR$/src/build/ast/doc-model.js" />
-        <option value="$PROJECT_DIR$/src/components/editor/Editor.jsx" />
         <option value="$PROJECT_DIR$/src/containers/index.js" />
         <option value="$PROJECT_DIR$/src/containers/D3container.js" />
         <option value="$PROJECT_DIR$/src/containers/EditorContainer.jsx" />
-        <option value="$PROJECT_DIR$/src/components/info/MutualInstanceInfo.js" />
         <option value="$PROJECT_DIR$/src/containers/InfoContainer.js" />
         <option value="$PROJECT_DIR$/src/containers/HeaderContainer.js" />
         <option value="$PROJECT_DIR$/src/components/index.js" />
         <option value="$PROJECT_DIR$/src/components/chord/newChord.jsx" />
-        <option value="$PROJECT_DIR$/src/components/header/Header.jsx" />
         <option value="$PROJECT_DIR$/src/containers/SortedErrors.js" />
         <option value="$PROJECT_DIR$/src/components/App.css" />
         <option value="$PROJECT_DIR$/src/components/App.jsx" />
+        <option value="$PROJECT_DIR$/src/reducers/build.js" />
+        <option value="$PROJECT_DIR$/src/components/editor/Editor.jsx" />
+        <option value="$PROJECT_DIR$/src/build/editor-plugins/completers/references.js" />
+        <option value="$PROJECT_DIR$/src/build/ast/ast.js" />
+        <option value="$PROJECT_DIR$/src/github/github-api.js" />
+        <option value="$PROJECT_DIR$/src/components/info/MutualInstanceInfo.js" />
+        <option value="$PROJECT_DIR$/src/components/info/InstanceInfo.jsx" />
+        <option value="$PROJECT_DIR$/src/components/header/Header.jsx" />
+        <option value="$PROJECT_DIR$/src/reducers/helpers.js" />
+        <option value="$PROJECT_DIR$/src/build/ast/doc-model.js" />
       </list>
     </option>
   </component>
@@ -424,7 +424,7 @@
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
-    <property name="SearchEverywhereHistoryKey" value="hea&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/components/header/Header.jsx&#10;editor&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/components/editor/Editor.jsx&#10;schema&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/build/validators/structure/schema.js&#10;clos&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/components/info-widget/close_info.css&#10;info&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/components/info-widget/InstanceInfo.jsx&#10;inde&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/reducers/index.js&#10;path&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/build/helpers/path-to-array.js&#10;bui&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/reducers/build.js&#10;chor&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/components/chord/newChord.jsx&#10;index&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/actions/index.js&#10;doc&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/build/ast/doc-model.js&#10;chord&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/components/Chord.jsx&#10;sche&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/build/validators/structure/schema.js&#10;edi&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/components/Editor.jsx&#10;editor.css&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/components/Editor.jsx&#10;click&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/build/editor-plugins/commands/ctrl-click.js&#10;edito&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/components/Editor.jsx&#10;cho&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/components/Chord.jsx&#10;refe&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/build/validators/semantic/references.js&#10;error&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/components/Error.js&#10;errors&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/components/Errors.js&#10;hel&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/reducers/helpers.js&#10;d3&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/containers/D3container.js&#10;refere&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/build/validators/semantic/references.js&#10;doc-model&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/build/ast/doc-model.js" />
+    <property name="SearchEverywhereHistoryKey" value="doc&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/build/ast/doc-model.js&#10;help&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/reducers/helpers.js&#10;header&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/components/header/Header.jsx&#10;Insta&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/components/info/InstanceInfo.jsx&#10;Mutu&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/components/info/MutualInstanceInfo.js&#10;ap&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/github/github-api.js&#10;ast&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/build/ast/ast.js&#10;referen&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/build/editor-plugins/completers/references.js&#10;edito&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/components/editor/Editor.jsx&#10;build&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/reducers/build.js&#10;hea&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/components/header/Header.jsx&#10;editor&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/components/editor/Editor.jsx&#10;schema&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/build/validators/structure/schema.js&#10;clos&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/components/info-widget/close_info.css&#10;info&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/components/info-widget/InstanceInfo.jsx&#10;inde&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/reducers/index.js&#10;path&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/build/helpers/path-to-array.js&#10;bui&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/reducers/build.js&#10;chor&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/components/chord/newChord.jsx&#10;index&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/actions/index.js&#10;chord&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/components/Chord.jsx&#10;sche&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/build/validators/structure/schema.js&#10;edi&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/components/Editor.jsx&#10;editor.css&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/components/Editor.jsx&#10;click&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/build/editor-plugins/commands/ctrl-click.js&#10;cho&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/components/Chord.jsx&#10;refe&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/build/validators/semantic/references.js&#10;error&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/components/Error.js&#10;errors&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/components/Errors.js&#10;hel&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/reducers/helpers.js&#10;d3&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/containers/D3container.js&#10;refere&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/build/validators/semantic/references.js&#10;doc-model&#9;FILE&#9;file:///Users/chisler/WebstormProjects/react-editor/src/build/ast/doc-model.js" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/Languages" value="JSX Harmony" />
   </component>
   <component name="RecentsManager">
@@ -615,13 +615,6 @@
       <workItem from="1495193161416" duration="9410000" />
       <workItem from="1495271749441" duration="17873000" />
       <workItem from="1495375345758" duration="28202000" />
-    </task>
-    <task id="LOCAL-00016" summary="code rearranged">
-      <created>1493461975989</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1493461975989</updated>
     </task>
     <task id="LOCAL-00017" summary="language matrix can be created, needs refactoring">
       <created>1493478850981</created>
@@ -959,11 +952,18 @@
       <option name="project" value="LOCAL" />
       <updated>1495551385628</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="css build -&gt; renamed to &quot;right&quot;.">
+      <created>1495551462254</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1495551462254</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="231398000" />
+    <option name="totallyTimeSpent" value="231933000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1051,7 +1051,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="delete old Chord" />
     <MESSAGE value="new info-widget" />
     <MESSAGE value="fix nested InfoWidgets" />
     <MESSAGE value="two scrollable panels" />
@@ -1076,7 +1075,8 @@
     <MESSAGE value="new favicon and code rearrangements" />
     <MESSAGE value="Component and container exporst are moved to index.js" />
     <MESSAGE value="css build -&gt; renamed to &quot;right&quot;." />
-    <option name="LAST_COMMIT_MESSAGE" value="css build -&gt; renamed to &quot;right&quot;." />
+    <MESSAGE value="Warnings resolving and refactoring." />
+    <option name="LAST_COMMIT_MESSAGE" value="Warnings resolving and refactoring." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1086,7 +1086,7 @@
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="6" />
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1096,13 +1096,6 @@
         <state relative-caret-position="90">
           <caret line="6" column="8" lean-forward="false" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="8" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/reducers/helpers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="20" column="1" lean-forward="false" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -1159,6 +1152,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="6" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1230,28 +1224,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/github/github-api.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11">
-          <caret line="64" column="48" lean-forward="true" selection-start-line="64" selection-start-column="48" selection-end-line="64" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/build/editor-plugins/completers/references.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1149">
-          <caret line="94" column="16" lean-forward="false" selection-start-line="94" selection-start-column="16" selection-end-line="94" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/build/ast/ast.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="16" column="25" lean-forward="false" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Downloads/logo.ico">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1295,16 +1267,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/info/InstanceInfo.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="99" column="18" lean-forward="true" selection-start-line="99" selection-start-column="18" selection-end-line="99" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/info/InfoWidget.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -1341,22 +1303,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-103">
           <caret line="6" column="30" lean-forward="false" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/reducers/build.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="192" column="8" lean-forward="false" selection-start-line="192" selection-start-column="8" selection-end-line="192" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/build/ast/doc-model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="174" column="6" lean-forward="false" selection-start-line="174" selection-start-column="6" selection-end-line="174" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -1403,24 +1349,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/editor/Editor.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="76" column="52" lean-forward="false" selection-start-line="76" selection-start-column="52" selection-end-line="76" selection-end-column="52" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/info/MutualInstanceInfo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-478">
-          <caret line="18" column="8" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/errors/Errors.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
@@ -1431,36 +1359,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/index.js">
+    <entry file="file://$PROJECT_DIR$/src/build/ast/ast.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="43" lean-forward="true" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
+        <state relative-caret-position="231">
+          <caret line="93" column="56" lean-forward="true" selection-start-line="93" selection-start-column="56" selection-end-line="93" selection-end-column="56" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/header/Header.jsx">
+    <entry file="file://$PROJECT_DIR$/src/build/editor-plugins/completers/references.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="22" lean-forward="false" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
+        <state relative-caret-position="291">
+          <caret line="103" column="0" lean-forward="false" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/editor/Editor.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="39" column="31" lean-forward="false" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reducers/build.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="91" column="39" lean-forward="false" selection-start-line="91" selection-start-column="39" selection-end-line="91" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/HeaderContainer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="17" lean-forward="true" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-          <folding />
+        <state relative-caret-position="255">
+          <caret line="17" column="21" lean-forward="true" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/SortedErrors.js">
+    <entry file="file://$PROJECT_DIR$/src/components/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="18" lean-forward="false" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+        <state relative-caret-position="105">
+          <caret line="7" column="43" lean-forward="true" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
           <folding />
         </state>
       </provider>
@@ -1480,6 +1426,68 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/SortedErrors.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="18" lean-forward="false" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/github/github-api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="65" column="41" lean-forward="false" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/info/MutualInstanceInfo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="43" lean-forward="false" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/info/InstanceInfo.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="18" lean-forward="false" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/header/Header.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="12" column="46" lean-forward="false" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reducers/helpers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-117">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/build/ast/doc-model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="130" column="10" lean-forward="true" selection-start-line="130" selection-start-column="10" selection-end-line="130" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>

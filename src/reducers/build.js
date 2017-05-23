@@ -87,12 +87,11 @@ const getInfoInstances = (state, paths) => {
 };
 
 const getDefaultState = () => {
-  const link =
-    "https://api.github.com/repos/languagesWiki/languageWiki/contents/languages.yml";
   let yamlString = mockYAML;
-
   //TODO: make async
   //FIXME: state is initialized 3 times
+  // const link =
+  //   "https://api.github.com/repos/languagesWiki/languageWiki/contents/languages.yml";
   // let request = new XMLHttpRequest();
   // request.open("GET", link, false); // `false` makes the request synchronous
   // request.setRequestHeader("accept", "application/vnd.github.VERSION.raw");
@@ -139,8 +138,8 @@ const build = (state = null, action) => {
       //5. each(links, link => {return ...{referral: instance.name, referenced: instance.name} })
       //6. links => Fill linkedMatrix
       const linkedBase = "/#/definitions/language";
-      const linkBase = "/#/definitions/feature";
-      const linkType = "inspired_by";
+      // const linkBase = "/#/definitions/feature";
+      // const linkType = "inspired_by";
 
       if (state.errors.length) {
         //Do not update map if errors

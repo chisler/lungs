@@ -1,15 +1,5 @@
-//Input: [1, 2]
-//Output: [[0], [0]]
-const getEMatrix = dimensions => {
-  let matrix = getZeroMatrix(dimensions);
-
-  for (let i in matrix) {
-    matrix[i][i] = 1;
-  }
-
-  return matrix;
-};
-
+// Input: [1, 2]
+// Output: [[0], [0]]
 const getZeroMatrix = dimensions => {
   let array = [];
   for (let i = 0; i < dimensions[0]; ++i) {

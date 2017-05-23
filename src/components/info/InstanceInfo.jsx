@@ -4,7 +4,6 @@ import InfoWidget from "./InfoWidget";
 
 import "./info_widget.css";
 import {
-  getInstanceName,
   getIsContainerKey,
   isNestedInfoWidget,
   makeBasePretty,

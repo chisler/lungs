@@ -10,7 +10,7 @@ const Header = props => {
     <div className="nav-main">
       <div className="wrap">
         <a className="nav-home" href="/">
-          <img className="nav-logo" src={logo} width="36" height="36" />
+          <img className="nav-logo" alt="Lungs" src={logo} width="36" height="36" />
           Lungs
         </a>
         <div className="nav-lists">

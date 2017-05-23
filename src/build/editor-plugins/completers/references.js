@@ -100,7 +100,7 @@ export function getReferenceDestinationForPosition(
   if (endIndex === -1) {
     endIndex = referenceString.length;
   }
-  endIndex = endIndex + prefixLength;
+  endIndex += prefixLength;
 
   return {
     referenceString: referenceString.slice(0, endIndex),

@@ -32,7 +32,7 @@ export function GitHubAPI(auth) {
    */
   this.setBranch = function (branchName) {
     if (!repo) {
-      throw 'Repository is not initialized';
+      console.error('Repository is not initialized');
     }
 
     return repo.listBranches().then((branches) => {
@@ -60,10 +60,10 @@ export function GitHubAPI(auth) {
    */
   this.pushFiles = function (message, files) {
     if (!repo) {
-      throw 'Repository is not initialized';
+      console.error('Repository is not initialized');
     }
     if (!currentBranch.hasOwnProperty('name')) {
-      throw 'Branch is not set';
+      console.error('Branch is not set');
     }
 
     return getCurrentCommitSHA()

@@ -91,7 +91,7 @@ export function pathForPosition(yaml, position) {
     typeof position.column !== "number"
   ) {
     throw new TypeError(
-      "position should be an object with line and column" + " properties"
+      "position should be an object with line and column properties"
     );
   }
 
