@@ -30,7 +30,7 @@ const App = () => {
             <EditorContainer />
             <SortedErrors />
           </div>
-          <div className="build">
+          <div className="right">
             <D3container />
             <InfoContainer />
           </div>

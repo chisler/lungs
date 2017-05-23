@@ -22,11 +22,11 @@ body {
     flex: 1;
 }
 
-.build {
+.right {
     overflow-y: scroll;
 }
 
-.left, .build {
+.left, .right {
     height: calc(100vh - 50px);
     flex: 1;
     flex-basis: 50%;
