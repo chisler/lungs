@@ -2,11 +2,13 @@ import { connect } from "react-redux";
 
 import { resetToDefault } from "../actions";
 
-import { Header } from "../components/header/Header"
+import { Header } from "../components/header/Header";
+import { fork } from "../github/push";
 
 const mapDispatchToProps = dispatch => {
   return {
     reset: () => dispatch(resetToDefault()),
+    fork: fork
   };
 };
 

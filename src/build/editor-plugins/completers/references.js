@@ -49,7 +49,12 @@ export function getReferenceCompletionsForPosition(
   }
 
   let referenceString = node.value;
-  let astNode = getAstNodeForPath(editorValue, pathArray);
+  const astNode = getAstNodeForPath(editorValue, pathArray);
+
+  if (!astNode) {
+    return []
+  }
+
   let prefixLength = astNode.end_mark.column - originalPos.column;
 
   if (prefixLength >= 0) {
@@ -84,7 +89,10 @@ export function getReferenceDestinationForPosition(
   }
 
   let referenceString = node.value;
-  let astNode = getAstNodeForPath(editorValue, pathArray);
+  const astNode = getAstNodeForPath(editorValue, pathArray);
+
+  if (!astNode)
+    return null;
 
   let prefixLength = originalPos.column - astNode.start_mark.column;
 

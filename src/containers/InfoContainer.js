@@ -1,9 +1,9 @@
 import { connect } from "react-redux";
 import React from "react";
 
-import InstanceInfo from "../components/info-widget/InstanceInfo";
-import MutualInfoWidget from "../components/info-widget/MutualInstanceInfo";
-import CloseInfo from "../components/info-widget/CloseInfo";
+import InstanceInfo from "../components/info/InstanceInfo";
+import MutualInfoWidget from "../components/info/MutualInstanceInfo";
+import CloseInfo from "../components/info/CloseInfo";
 import { chooseInstances } from "../actions";
 
 const InfoContainer = props => {

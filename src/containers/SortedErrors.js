@@ -1,8 +1,7 @@
 import { connect } from "react-redux";
 
-import Errors from "../components/Errors";
+import Errors from "../components/errors/Errors";
 import { setLineToGoTo } from "../actions";
-import {resizeEditor} from "../actions/index";
 
 const sortedByLine = errors => {
   const comparator = (e1, e2) => {
@@ -32,6 +31,6 @@ const mapDispatchToProps = dispatch => {
 const SortedErrors = connect(
     mapStateToProps,
     mapDispatchToProps
-)(Errors)
+)(Errors);
 
 export default SortedErrors;
