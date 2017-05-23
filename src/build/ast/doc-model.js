@@ -154,9 +154,8 @@ export function getNodeByBaseInPath(docModel, base, pathString) {
 
 const isParentOfReferenceTo = (instance, destination) => {
   return (
-    getAllReferences(instance)
-      .filter(i => i.nodeValue === destination)
-      .length > 0
+    getAllReferences(instance).filter(i => i.nodeValue === destination).length >
+    0
   );
 };
 
@@ -167,12 +166,21 @@ export const extractReferencesTo = (instance, destination) => {
   for (let i in keys) {
     let subInstance = instance.value[keys[i]];
     if (isParentOfReferenceTo(subInstance, destination)) {
-      newInstanceValue[keys[i]] = Object.assign({}, subInstance);
+      if (typeof subInstance.value !== "object") {
+        newInstanceValue[keys[i]] = Object.assign({}, subInstance);
+      } else {
+        newInstanceValue[keys[i]] = extractReferencesTo(
+          Object.assign({}, subInstance),
+          destination
+        );
+      }
     }
   }
 
-  return {base: instance.base, value: newInstanceValue}
+  return { base: instance.base, value: newInstanceValue };
 };
 
 export const getDmNodeName = instance =>
-  instance.value ? (instance.value.name ? instance.value.name.value : null) : null;
+  instance.value
+    ? instance.value.name ? instance.value.name.value : null
+    : null;

@@ -73,9 +73,8 @@ class Editor extends Component {
     editor.on("mousemove", onCtrl);
     editor.$blockScrolling = Infinity
     editorPluginsHook(editor, null, null || ["autosuggestApis"]);
-    console.log('onLoad')
-    this.updateErrorAnnotations(this.props, editor);
 
+    this.updateErrorAnnotations(this.props, editor);
   };
 
   updateErrorAnnotations = (nextProps, editor) => {
@@ -143,8 +142,8 @@ class Editor extends Component {
           $useWorker: false
         }}
         setOptions={{
+          fontFamily: "Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif",
           cursorStyle: "smooth",
-          // wrapBehavioursEnabled: true,
           enableMultiselect: false
         }}
       />

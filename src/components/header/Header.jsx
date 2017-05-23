@@ -15,8 +15,8 @@ export const Header = props => {
         </a>
         <div className="nav-lists">
           <ul className="nav-site nav-site-internal">
-            <li><a href="https://github.com/chisler/lungs">How to</a></li>
-            <li><a href="#">Reset</a></li>
+            <li><a href="https://github.com/chisler/lungs">Guide</a></li>
+            <li><a href="#" onClick={reset}>Reset</a></li>
             <li>
               <a href="#" onClick={fork}>
                 Send Pull Request
