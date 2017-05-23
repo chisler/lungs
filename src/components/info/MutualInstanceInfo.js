@@ -34,7 +34,7 @@ const OneDirectionInfo = props => {
   );
 };
 
-class MutualInfoWidget extends Component {
+class MutualInstanceInfo extends Component {
   static propTypes = {
     infoInstances: PropTypes.array.isRequired
   };
@@ -69,4 +69,4 @@ class MutualInfoWidget extends Component {
     return <InfoWidget base="Mutual References" body={body} />;
   }
 }
-export default MutualInfoWidget;
+export default MutualInstanceInfo;

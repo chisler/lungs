@@ -1,9 +1,12 @@
 import { connect } from "react-redux";
 import React from "react";
 
-import InstanceInfo from "../components/info/InstanceInfo";
-import MutualInfoWidget from "../components/info/MutualInstanceInfo";
-import CloseInfo from "../components/info/CloseInfo";
+import {
+  InstanceInfo,
+  MutualInstanceInfo,
+  CloseInfo
+} from "../components";
+
 import { chooseInstances } from "../actions";
 
 const InfoContainer = props => {
@@ -21,7 +24,7 @@ const InfoContainer = props => {
       return (
         <div>
           <CloseInfo onCloseInfo={onCloseInfo} />
-          <MutualInfoWidget infoInstances={infoInstances} />
+          <MutualInstanceInfo infoInstances={infoInstances} />
         </div>
       );
     default:

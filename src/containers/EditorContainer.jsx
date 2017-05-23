@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import Editor from "../components/editor/Editor";
+import { Editor } from "../components";
 
 import { extractReferenceMap, setValue, validate } from "../actions";
 import { setLineToGoTo } from "../actions";

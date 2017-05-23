@@ -5,7 +5,7 @@ import Edges from "./Edges";
 import Vertices from "./Vertices";
 import "./chord.css";
 
-class Chord extends Component {
+class newChord extends Component {
   static propTypes = {
     instanceMatrix: PropTypes.array,
     instanceMap: PropTypes.object,
@@ -155,4 +155,4 @@ class Chord extends Component {
   }
 }
 
-export default Chord;
+export default newChord;

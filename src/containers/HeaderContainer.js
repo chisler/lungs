@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 
 import { resetToDefault } from "../actions";
 
-import { Header } from "../components/header/Header";
+import { Header } from "../components";
 import { fork } from "../github/push";
 
 const mapDispatchToProps = dispatch => {

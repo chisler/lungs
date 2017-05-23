@@ -3,7 +3,7 @@ import logo from "../../logo.svg";
 
 import "./header.css";
 
-export const Header = props => {
+const Header = props => {
   const { reset, fork } = props;
 
   return (
@@ -31,3 +31,5 @@ export const Header = props => {
     </div>
   );
 };
+
+export default Header;

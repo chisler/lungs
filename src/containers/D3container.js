@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import newChord from "../components/chord/newChord";
+import { newChord } from "../components";
 import { chooseInstances, hoverInstances } from "../actions";
 
 const mapStateToProps = state => {

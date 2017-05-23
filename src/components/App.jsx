@@ -2,13 +2,14 @@ import React from "react";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 
-import EditorContainer from "../containers/EditorContainer";
-import SortedErrors from "../containers/SortedErrors";
-import D3container from "../containers/D3container";
-import InfoContainer from "../containers/InfoContainer";
+import {
+  EditorContainer,
+  SortedErrors,
+  D3container,
+  HeaderContainer,
+  InfoContainer
+} from "../containers";
 import editorApp from "../reducers";
-
-import HeaderContainer from "../containers/HeaderContainer";
 
 import { loadState, saveState } from "../reducers/local-storage";
 import throttle from "lodash/throttle";

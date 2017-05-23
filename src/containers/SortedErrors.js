@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import Errors from "../components/errors/Errors";
+import { Errors } from "../components";
 import { setLineToGoTo } from "../actions";
 
 const sortedByLine = errors => {
