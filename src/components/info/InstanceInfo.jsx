@@ -63,8 +63,8 @@ class InstanceInfo extends Component {
           if (!isNestedInfoWidget(node)) {
             return (
               <div key={key}>
-                <b>{prettyKey}</b>
-                <p>{node.value}</p>
+                <div className="info_widget__key">{prettyKey}</div>
+                <span className="info_widget__value">{node.value}</span>
               </div>
             );
           }
@@ -82,7 +82,7 @@ class InstanceInfo extends Component {
             <div key={key}>
               <div
                 onClick={() => this.handleClick(key)}
-                className="info_widget__key"
+                className="info_widget__key info_widget__toggable_key"
               >
                 <span>
                   {collapsed ? "[+]  " : " [-]  "}

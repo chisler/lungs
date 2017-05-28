@@ -24,6 +24,26 @@
 
 .info_widget__key {
     font-weight: bold;
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+.info_widget__toggable_key:hover {
+    color: #005999;
+    background-color: rgba(0,119,204,0.1);
+    border-color: transparent;
+    box-shadow: none;
+    -webkit-transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    -ms-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease;
+    border-radius: 5px;
+}
+
+.info_widget__value {
+    margin: 5px 0;
+    font-size: 16px;
 }
 
 .nested_info_widget {
