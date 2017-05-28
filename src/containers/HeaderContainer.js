@@ -1,22 +1,33 @@
 import { connect } from "react-redux";
 
-import { resetToDefault } from "../actions";
+import {
+  setDisplayMode,
+  setEditorMode,
+  resetToDefault,
+  setPopupIsShown
+} from "../actions";
 
 import { Header } from "../components";
-import { fork } from "../github/push";
-import {setPopupIsShown} from "../actions/index";
+
+const mapStateToProps = state => {
+  return {
+    mode: state.mode.mode
+  };
+};
 
 const mapDispatchToProps = dispatch => {
   return {
     reset: () => dispatch(resetToDefault()),
-    onClickSendPR: () => dispatch(setPopupIsShown(true))
+    onClickSendPR: () => dispatch(setPopupIsShown(true)),
+    setDisplayMode: () => dispatch(setDisplayMode()),
+    setEditorMode: () => dispatch(setEditorMode())
   };
 };
 
 //prettier-ignore
 const HeaderContainer = connect(
-  null,
-  mapDispatchToProps)
-(Header);
+  mapStateToProps,
+  mapDispatchToProps
+)(Header);
 
 export default HeaderContainer;

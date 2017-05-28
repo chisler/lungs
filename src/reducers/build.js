@@ -108,7 +108,7 @@ const getDefaultState = () => {
     chosenInstances: [],
     hoveredInstances: [],
     infoInstances: [],
-    errors: null
+    errors: null,
   });
 };
 

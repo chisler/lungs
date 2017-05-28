@@ -1,3 +1,5 @@
+import { EDITOR_MODE, DISPLAY_MODE } from "../reducers/constants"
+
 export const validate = () => {
   return {
     type: "VALIDATE"
@@ -48,5 +50,19 @@ export const setPopupIsShown = isShown => {
   return {
     type: "SET_POPUP_IS_SHOWN",
     isShown
+  };
+};
+
+export const setDisplayMode = () => {
+  return {
+    type: "SET_MODE",
+    mode: DISPLAY_MODE
+  };
+};
+
+export const setEditorMode = () => {
+  return {
+    type: "SET_MODE",
+    mode: EDITOR_MODE
   };
 };

@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df2bc385-f543-4b06-8348-6371d6e0fd06" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/github/github.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/github/PullRequestForm.jsx" afterPath="$PROJECT_DIR$/src/components/github/PullRequestForm.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github/push.js" afterPath="$PROJECT_DIR$/src/github/push.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -39,8 +36,8 @@
       <file leaf-file-name="push.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/github/push.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="13" column="40" lean-forward="false" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
+            <state relative-caret-position="289">
+              <caret line="22" column="23" lean-forward="true" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -635,13 +632,6 @@
       <workItem from="1495271749441" duration="17873000" />
       <workItem from="1495375345758" duration="28202000" />
     </task>
-    <task id="LOCAL-00020" summary="prettier try">
-      <created>1493815530803</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1493815530803</updated>
-    </task>
     <task id="LOCAL-00021" summary="complete prettyfication">
       <created>1493816494582</created>
       <option name="number" value="00021" />
@@ -978,11 +968,18 @@
       <option name="project" value="LOCAL" />
       <updated>1495563397643</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="new styles for pullrequestform">
+      <created>1495577614212</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1495577614212</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="240787000" />
+    <option name="totallyTimeSpent" value="241038000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1000,7 +997,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299337" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3211196" sideWeight="0.50216097" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2706645" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2706645" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3517018" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15806195" sideWeight="0.50835323" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32090762" sideWeight="0.497839" order="10" side_tool="false" content_ui="tabs" />
@@ -1070,7 +1067,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="fix new info" />
     <MESSAGE value="Descriptional info is working" />
     <MESSAGE value="not pretty mutual widget" />
     <MESSAGE value="Mutual references" />
@@ -1095,7 +1091,8 @@
     <MESSAGE value="github pull requests handled" />
     <MESSAGE value="no after-selection highlight" />
     <MESSAGE value="Error handling for instanceMap/Matrix added. Workflow needs to be reviewed." />
-    <option name="LAST_COMMIT_MESSAGE" value="Error handling for instanceMap/Matrix added. Workflow needs to be reviewed." />
+    <MESSAGE value="new styles for pullrequestform" />
+    <option name="LAST_COMMIT_MESSAGE" value="new styles for pullrequestform" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1505,8 +1502,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/github/push.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="13" column="40" lean-forward="false" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
+        <state relative-caret-position="289">
+          <caret line="22" column="23" lean-forward="true" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
           <folding />
         </state>
       </provider>

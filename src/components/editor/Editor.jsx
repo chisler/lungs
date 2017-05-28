@@ -4,7 +4,9 @@ import PropTypes from "prop-types";
 import AceEditor from "react-ace";
 import editorPluginsHook
   from "../../build/editor-plugins/completers/completers-helpers/hook";
-import { onCtrlMouseDown } from "../../build/editor-plugins/commands/ctrl-click";
+import {
+  onCtrlMouseDown
+} from "../../build/editor-plugins/commands/ctrl-click";
 import { onCtrl } from "../../build/editor-plugins/commands/ctrl";
 
 import "brace/mode/yaml";
@@ -44,7 +46,7 @@ class Editor extends Component {
 
   onLoad = editor => {
     const { setValue, getMatrix } = this.props;
-    this.setState({editor});
+    this.setState({ editor });
 
     //Editor is not serializable
     //That's why it's not in redux state
@@ -71,7 +73,7 @@ class Editor extends Component {
     editor.on("mousedown", onCtrlMouseDown);
     //Highlight references on ctrl
     editor.on("mousemove", onCtrl);
-    editor.$blockScrolling = Infinity
+    editor.$blockScrolling = Infinity;
     editorPluginsHook(editor, null, null || ["autosuggestApis"]);
 
     this.updateErrorAnnotations(this.props, editor);
@@ -79,7 +81,7 @@ class Editor extends Component {
 
   updateErrorAnnotations = (nextProps, editor) => {
     if (!editor) {
-       editor = this.state.editor;
+      editor = this.state.editor;
     }
 
     if (editor && nextProps.errors) {

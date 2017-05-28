@@ -25,7 +25,7 @@ const mapDispatchToProps = dispatch => {
 //prettier-ignore
 const EditorContainer = connect(
     mapStateToProps,
-    mapDispatchToProps)
-(Editor);
+    mapDispatchToProps
+)(Editor);
 
 export default EditorContainer;

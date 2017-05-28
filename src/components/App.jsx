@@ -1,47 +1,25 @@
-import React from "react";
-import { createStore } from "redux";
-import { Provider } from "react-redux";
+import React, { Component } from "react";
 
-import {
-  EditorContainer,
-  SortedErrors,
-  D3container,
-  HeaderContainer,
-  InfoContainer,
-  GitHubContainer
-} from "../containers";
-import editorApp from "../reducers";
+import PropTypes from "prop-types";
+import { EditorMode, DisplayMode } from "./index";
 
-import { loadState, saveState } from "../reducers/helpers";
-import throttle from "lodash/throttle";
+import { isEditorMode } from "../reducers/constants";
 
-import "./App.css";
-
-const persistedState = loadState();
-const store = createStore(editorApp, persistedState);
-store.subscribe(throttle(() => saveState(store.getState()), 500));
-
-class App extends React.Component {
+class App extends Component {
   render() {
     return (
-      <Provider store={store}>
-        <div>
-          <GitHubContainer />
-          <HeaderContainer />
-          <div className="container">
-            <div className="left">
-              <EditorContainer />
-              <SortedErrors />
-            </div>
-            <div className="right">
-              <D3container />
-              <InfoContainer />
-            </div>
-          </div>
-        </div>
-      </Provider>
+      <div>
+        {isEditorMode(this.props.mode) ? <EditorMode /> : <DisplayMode />}
+      </div>
     );
   }
+  componentDidMount() {
+    this.props.initialBuild();
+  }
 }
+
+App.propTypes = {
+  mode: PropTypes.number.isRequired
+};
 
 export default App;

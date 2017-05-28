@@ -15,7 +15,7 @@ export default {
         features: { $ref: "/#/definitions/features" }
         // "ancestor": {"$ref": "/#/definitions/references/languageReference"},
       },
-      required: ["name", /*"creator", "people",*/ "features"]
+      required: ["name", "features"]
     },
     features: {
       type: "object",

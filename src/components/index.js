@@ -12,3 +12,8 @@ export {default as CloseInfo} from './info/CloseInfo';
 export {default as MutualInstanceInfo} from './info/MutualInstanceInfo';
 
 export {default as PullRequestForm} from './github/PullRequestForm';
+
+export {default as EditorMode} from './EditorMode';
+export {default as DisplayMode} from './DisplayMode';
+
+export {default as App} from './App';
