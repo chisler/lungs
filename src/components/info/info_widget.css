@@ -46,6 +46,10 @@
     font-size: 16px;
 }
 
+.info_widget_list {
+    margin: 0;
+}
+
 .nested_info_widget {
     padding-left: 30px;
 }

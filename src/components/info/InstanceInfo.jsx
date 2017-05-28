@@ -7,7 +7,8 @@ import {
   getIsContainerKey,
   isNestedInfoWidget,
   makeBasePretty,
-  makeKeyPretty
+  makeKeyPretty,
+  isArrayNode
 } from "./helpers";
 
 class InstanceInfo extends Component {
@@ -59,8 +60,21 @@ class InstanceInfo extends Component {
         {" "}{Object.keys(data.value).map(key => {
           const node = data.value[key];
           const prettyKey = makeKeyPretty(key);
-
+          console.log(node);
           if (!isNestedInfoWidget(node)) {
+            if (isArrayNode(node)) {
+              return (
+                <div key={key}>
+                  <div className="info_widget__key">{prettyKey}</div>
+                  <div className="info_widget__value">
+                    <ul className="info_widget_list">
+                      {node.value.map((item, i) => <li key={i}>{item.value}</li>)}
+                    </ul>
+                  </div>
+                </div>
+              );
+            }
+
             return (
               <div key={key}>
                 <div className="info_widget__key">{prettyKey}</div>

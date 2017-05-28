@@ -12,17 +12,32 @@ import { pathToArray } from "../build/helpers/path-to-array";
 
 const mockYAML = `kotlin:
   name: Kotlin
+  creator: JetBrains
+  people: 
+    - Me
+    - You
+    - I
+  description: Best for building Android apps.
   features:
     val_var:
-        inspired_by: scala
+        description: Val_var description.
     lambda:
+        description: Even before Java 8.
         inspired_by: scala
 scala:
   name: Scala
+  creator: JetBrains
+  people: 
+    - Me
+    - You
+    - I
+  description: Best for building Android apps.
   features: 
     implicits:
-      inspired_by: js
+      description: No idea.
+      inspired_by: kotlin
     akka:
+      description: Name is kinda cool.
       inspired_by: kotlin
 js:
   name: Javascript
@@ -38,7 +53,6 @@ pascal:
       inspired_by: scala
     f2:
       inspired_by: scala
-
 `;
 
 //Gets the editor value => returns new state
@@ -89,17 +103,17 @@ const getDefaultState = () => {
   let yamlString = mockYAML;
   //TODO: make async
   //FIXME: state is initialized 3 times
-  // const link =
-  //   "https://api.github.com/repos/languagesWiki/languageWiki/contents/languages.yml";
-  // let request = new XMLHttpRequest();
-  // request.open("GET", link, false); // `false` makes the request synchronous
-  // request.setRequestHeader("accept", "application/vnd.github.VERSION.raw");
-  // request.send(null);
-  //
-  // //DEFAULT VALUE
-  // if (request.status == 200) {
-  //   yamlString = request.responseText;
-  // }
+  const link =
+    "https://api.github.com/repos/languagesWiki/languageWiki/contents/languages.yml";
+  let request = new XMLHttpRequest();
+  request.open("GET", link, false); // `false` makes the request synchronous
+  request.setRequestHeader("accept", "application/vnd.github.VERSION.raw");
+  request.send(null);
+  
+  //DEFAULT VALUE
+  if (request.status == 200) {
+    yamlString = request.responseText;
+  }
 
   return validateState({
     yamlString: yamlString,
