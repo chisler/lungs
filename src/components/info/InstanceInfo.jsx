@@ -60,7 +60,6 @@ class InstanceInfo extends Component {
         {" "}{Object.keys(data.value).map(key => {
           const node = data.value[key];
           const prettyKey = makeKeyPretty(key);
-          console.log(node);
           if (!isNestedInfoWidget(node)) {
             if (isArrayNode(node)) {
               return (
