@@ -4,7 +4,8 @@
     stroke-width: .25px;
 }
 
-.Aligner {
+.aligner {
+    margin-top: 40px;
     display: flex;
     align-items: center;
     justify-content: center;

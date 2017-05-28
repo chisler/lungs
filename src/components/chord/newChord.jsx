@@ -92,7 +92,7 @@ class newChord extends Component {
     const moveToCenter = window.innerWidth / 4 - size / 2;
 
     return (
-      <div className="Aligner">
+      <div className="aligner">
         <svg
           width={"100%"}
           height={size}
