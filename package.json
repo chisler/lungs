@@ -8,7 +8,6 @@
     "prop-types": "latest",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "react-faux-dom": "^3.1.0",
     "react-overlays": "^0.7.0",
     "react-redux": "^5.0.4",
     "redux": "^3.6.0"
