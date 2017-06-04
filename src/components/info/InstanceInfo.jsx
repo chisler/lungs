@@ -67,17 +67,22 @@ class InstanceInfo extends Component {
                   <div className="info_widget__key">{prettyKey}</div>
                   <div className="info_widget__value">
                     <ul className="info_widget_list">
-                      {node.value.map((item, i) => <li key={i}>{item.value}</li>)}
+                      {node.value.map((item, i) => (
+                        <li key={i}>{item.value}</li>
+                      ))}
                     </ul>
                   </div>
                 </div>
               );
             }
 
+            let value = typeof node === "object" ? node.value : node;
+            value = value.toString() || "No info yet."
+            
             return (
               <div key={key}>
                 <div className="info_widget__key">{prettyKey}</div>
-                <span className="info_widget__value">{node.value}</span>
+                <span className="info_widget__value">{value}</span>
               </div>
             );
           }

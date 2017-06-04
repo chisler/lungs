@@ -4,6 +4,12 @@ export function pathToArray(pathString) {
   }
 
   let str;
+  //Strange errors may exists
+  if (!pathString) {
+    console.warn("Strange pathString behaviour.")
+    return [];
+  } 
+
   if (pathString.slice(0, 9) === "instance.") {
     str = pathString.slice(9).trim();
   } else {

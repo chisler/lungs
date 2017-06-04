@@ -32,10 +32,14 @@ export default {
       description: "Feature on one programming language",
       properties: {
         "description": {"type": "string"},
+        "invented": {"type": "boolean"},
         inspired_by: {
           $ref: "/#/definitions/references/anyReference"
         },
         predated_by: {
+          $ref: "/#/definitions/references/anyReference"
+        },
+        justified_by: {
           $ref: "/#/definitions/references/anyReference"
         }
       },

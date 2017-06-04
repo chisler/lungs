@@ -39,9 +39,11 @@ class Editor extends Component {
   onChange = value => {
     this.setState({ value });
 
-    const { setValue, onChange } = this.props;
+    const { setValue, onChange, getMatrix } = this.props;
     setValue(value);
     onChange();
+    console.log('change');
+    getMatrix();
   };
 
   onLoad = editor => {
@@ -117,6 +119,7 @@ class Editor extends Component {
   }
 
   componentWillUpdate(nextProps) {
+    console.log('CWU')
     //Get initial matrix for building visualization
     this.props.getMatrix();
   }

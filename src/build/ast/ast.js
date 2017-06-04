@@ -194,7 +194,7 @@ export function pathForPosition(yaml, position) {
 
       // if position is in the same line as end_mark
       if (position.line === node.end_mark.line) {
-        return position.column < node.end_mark.column;
+        return position.column <= node.end_mark.column;
       }
 
       // if position is between start and end lines return true, otherwise

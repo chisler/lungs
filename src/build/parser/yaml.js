@@ -13,8 +13,6 @@ export function parseYAML(yamlString) {
   try {
     res.jsonObj = YAML.safeLoad(yamlString);
   } catch (error) {
-    console.warn(error.stack);
-
     res.error = {
       line: error.mark.line,
       message: error.message,

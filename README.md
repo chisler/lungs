@@ -6,4 +6,4 @@ Visit the app here: https://chisler.github.io/lungs
 
 The structure of YAML-file is defined with schema file (built on top of JSONSchema).  
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).`
