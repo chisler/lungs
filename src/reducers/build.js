@@ -36,24 +36,6 @@ const validateState = state => {
   };
 };
 
-const getInfoInstances = (state, paths) => {
-  if (state.errors.length || !paths) {
-    return [];
-  }
-
-  let infoInstances = [];
-  let parsedYaml = parseYAML(state.yamlString);
-  const dM = validateSchema(parsedYaml.jsonObj, state.yamlString).docModel;
-
-  paths.filter(Boolean).forEach(pathString => {
-    infoInstances.push({
-      ...getDmNodeByPath(dM, pathToArray(pathString)),
-      pathString
-    });
-  });
-  return infoInstances;
-};
-
 const getDefaultState = () => {
   // TODO: make async
   let yamlString = "";
@@ -145,22 +127,14 @@ const build = (state = null, action) => {
 
       return {
         ...state,
-        chosenInstances,
-        infoInstances: getInfoInstances(state, chosenInstances) ||
-          state.infoInstances
+        chosenInstances
       };
     case "HOVER_INSTANCES":
       const hoveredInstances = action.hoveredInstances.filter(Boolean);
 
       return {
         ...state,
-        hoveredInstances,
-        infoInstances: getInfoInstances(
-          state,
-          state.chosenInstances.length
-            ? state.chosenInstances
-            : hoveredInstances
-        ) || state.infoInstances
+        hoveredInstances
       };
     default:
       return state;
