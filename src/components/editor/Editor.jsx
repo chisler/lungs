@@ -23,6 +23,7 @@ class Editor extends Component {
     setValue: PropTypes.func.isRequired,
     getMatrix: PropTypes.func.isRequired,
     onScroll: PropTypes.func.isRequired,
+    fetchYaml: PropTypes.func.isRequired,
     errors: PropTypes.array,
     lineToGoTo: PropTypes.number
   };
@@ -42,7 +43,6 @@ class Editor extends Component {
     const { setValue, onChange, getMatrix } = this.props;
     setValue(value);
     onChange();
-    console.log('change');
     getMatrix();
   };
 
@@ -119,7 +119,6 @@ class Editor extends Component {
   }
 
   componentWillUpdate(nextProps) {
-    console.log('CWU')
     //Get initial matrix for building visualization
     this.props.getMatrix();
   }
@@ -157,6 +156,7 @@ class Editor extends Component {
 
   componentDidMount() {
     this.updateErrorAnnotations(this.props);
+    this.props.fetchYaml()
   }
 }
 

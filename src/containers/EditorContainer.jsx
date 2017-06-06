@@ -2,8 +2,9 @@ import { connect } from "react-redux";
 
 import { Editor } from "../components";
 
-import { extractReferenceMap, setValue, validate } from "../actions";
-import { setLineToGoTo } from "../actions";
+import { extractInstanceMap, setValue, validate } from "../actions";
+import { setLineToGoTo, fetchYamlSync } from "../actions";
+
 
 const mapStateToProps = state => {
   return {
@@ -17,8 +18,9 @@ const mapDispatchToProps = dispatch => {
   return {
     onChange: () => dispatch(validate()),
     setValue: yamlString => dispatch(setValue(yamlString)),
-    getMatrix: () => dispatch(extractReferenceMap()),
-    onScroll: () => dispatch(setLineToGoTo(null))
+    getMatrix: () => dispatch(extractInstanceMap()),
+    onScroll: () => dispatch(setLineToGoTo(null)),
+    fetchYaml: () => dispatch(fetchYamlSync())
   };
 };
 

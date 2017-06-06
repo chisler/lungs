@@ -1,70 +1,18 @@
-import {
-  getAllReferences,
-  getDmNodeByPath,
-  getInstanceMap,
-  getReferencesFromNodes
-} from "../build/ast/doc-model";
-import { validateReferences } from "../build/validators/semantic/references";
-import { parseYAML } from "../build/parser/yaml";
-import { validateSchema } from "../build/validators/structure/validator";
-import { getInstanceMatrix } from "./helpers";
-import { pathToArray } from "../build/helpers/path-to-array";
-
-//Gets the editor value => returns new state
-const validateState = state => {
-  let parsedYaml = parseYAML(state.yamlString);
-  if (parsedYaml.error) {
-    return {
-      ...state,
-      errors: [parsedYaml.error]
-    };
-  }
-  let jsonObj = parsedYaml.jsonObj;
-
-  // Structural validation
-  let validatedSchema = validateSchema(jsonObj, state.yamlString);
-  let dM = validatedSchema.docModel;
-
-  // Semantic validation
-  const referenceNodes = getAllReferences(dM);
-
-  const v = validateReferences(dM, state.yamlString, referenceNodes);
-
-  return {
-    ...state,
-    errors: [...v.errors, ...validatedSchema.errors]
-  };
-};
+import { validateYamlString } from "../build/helpers/validate-yaml-string";
+import {extractInstanceMap} from "../build/helpers/extract-instance-map";
 
 const getDefaultState = () => {
-  // TODO: make async
-  let yamlString = "";
-
-  const link =
-    "https://api.github.com/repos/languagesWiki/languageWiki/contents/languages.yml";
-  let request = new XMLHttpRequest();
-  request.open("GET", link, false); // `false` makes the request synchronous
-  request.setRequestHeader("accept", "application/vnd.github.VERSION.raw");
-  request.send(null);
-
-  //DEFAULT VALUE
-  if (request.status === 200) {
-    yamlString = request.responseText;
-  }
-
-  return validateState({
-    yamlString: yamlString,
+  return {
+    yamlString: "",
     instanceMatrix: null,
     instanceMap: null,
     chosenInstances: [],
     hoveredInstances: [],
-    infoInstances: [],
-    errors: null
-  });
+    errors: []
+  };
 };
 
 const build = (state = null, action) => {
-  //default case
   if (state === null) {
     return getDefaultState();
   }
@@ -78,50 +26,18 @@ const build = (state = null, action) => {
         yamlString: action.yamlString
       };
     case "VALIDATE":
-      return validateState(state);
-    case "EXTRACT_REFERENCE_MAP":
-      //1 Input: linkedBase, linkBase, linkType
-      //2. linkedInstances = getAllByBase(linkedBase)
-      //3. linkedMap = getMap(linkedInstances)
-      //4. links = getAllByBase(linkBase)
-      //5. each(links, link => {return ...{referral: instance.name, referenced: instance.name} })
-      //6. links => Fill linkedMatrix
+      return {
+        ...state,
+        errors: validateYamlString(state.yamlString).errors
+      };
+    case "EXTRACT_INSTANCE_MAP":
       const linkedBase = "/#/definitions/language";
-      // const linkBase = "/#/definitions/feature";
-      // const linkType = "inspired_by";
-
-      if (state.errors.length) {
-        //Do not update map if errors
-        return state;
-      }
-
-      let parsedYaml = parseYAML(state.yamlString);
-
-      if (parsedYaml.error) {
-        return state;
-      }
-
-      const dM = validateSchema(parsedYaml.jsonObj, state.yamlString).docModel;
-      const referenceNodes = getAllReferences(dM);
-      const references = getReferencesFromNodes(
-        dM,
-        state.yamlString,
-        referenceNodes,
-        linkedBase
-      );
-
-      if (!references.length > 0) {
-        return state;
-      }
-
-      const instanceMap = getInstanceMap(dM, linkedBase);
-      const instanceMatrix = getInstanceMatrix(instanceMap, references);
 
       return {
         ...state,
-        instanceMatrix,
-        instanceMap
+        ...extractInstanceMap(state.yamlString, linkedBase, state.errors)
       };
+
     case "CHOOSE_INSTANCES":
       const chosenInstances = action.chosenInstances.filter(Boolean);
 

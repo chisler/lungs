@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import { extractReferenceMap } from "../actions";
+import { extractInstanceMap } from "../actions";
 import { App } from "../components";
 
 const mapStateToProps = state => {
@@ -11,7 +11,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    initialBuild: () => dispatch(extractReferenceMap())
+    initialBuild: () => dispatch(extractInstanceMap())
   };
 };
 

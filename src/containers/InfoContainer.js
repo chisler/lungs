@@ -12,7 +12,6 @@ const InfoContainer = props => {
     yamlString,
     chosenInstances.length ? chosenInstances : hoveredInstances
   );
-  console.log(infoInstances)
 
   switch (infoInstances.length) {
     case 1:

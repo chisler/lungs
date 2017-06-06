@@ -1,4 +1,7 @@
-import { EDITOR_MODE, DISPLAY_MODE } from "../reducers/constants"
+import fetch from "isomorphic-fetch";
+
+import { EDITOR_MODE, DISPLAY_MODE } from "../reducers/constants";
+import { fetchYaml } from "../build/helpers/fetch-yaml-sync";
 
 export const validate = () => {
   return {
@@ -20,9 +23,9 @@ export const setLineToGoTo = line => {
   };
 };
 
-export const extractReferenceMap = () => {
+export const extractInstanceMap = () => {
   return {
-    type: "EXTRACT_REFERENCE_MAP"
+    type: "EXTRACT_INSTANCE_MAP"
   };
 };
 
@@ -64,5 +67,12 @@ export const setEditorMode = () => {
   return {
     type: "SET_MODE",
     mode: EDITOR_MODE
+  };
+};
+
+export const fetchYamlSync = () => {
+  return {
+    type: "SET_VALUE",
+    yamlString: fetchYaml()
   };
 };

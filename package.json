@@ -10,7 +10,8 @@
     "react-dom": "^15.5.4",
     "react-overlays": "^0.7.0",
     "react-redux": "^5.0.4",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "isomorphic-fetch": "latest"
   },
   "devDependencies": {
     "brace": "^0.10.0",
