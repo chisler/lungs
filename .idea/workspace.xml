@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="df2bc385-f543-4b06-8348-6371d6e0fd06" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/build/helpers/extract-instance-map.js" afterPath="$PROJECT_DIR$/src/build/helpers/extract-instance-map.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/build/helpers/path-to-array.js" afterPath="$PROJECT_DIR$/src/build/helpers/path-to-array.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/editor/Editor.jsx" afterPath="$PROJECT_DIR$/src/components/editor/Editor.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/header/Header.jsx" afterPath="$PROJECT_DIR$/src/components/header/Header.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/HeaderContainer.js" afterPath="$PROJECT_DIR$/src/containers/HeaderContainer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/reducers/build.js" afterPath="$PROJECT_DIR$/src/reducers/build.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -48,59 +45,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="extract-instance-map.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/build/helpers/extract-instance-map.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#98#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="build.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/reducers/build.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="696">
-              <caret line="30" column="26" lean-forward="false" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
+            <state relative-caret-position="348">
+              <caret line="12" column="35" lean-forward="false" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
               <folding>
                 <element signature="e#0#75#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ast.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/build/ast/ast.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-421">
-              <caret line="8" column="55" lean-forward="false" selection-start-line="8" selection-start-column="55" selection-end-line="8" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/actions/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="449">
-              <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-              <folding>
-                <element signature="e#0#37#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EditorContainer.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/EditorContainer.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="580">
-              <caret line="20" column="45" lean-forward="false" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -109,8 +60,8 @@
       <file leaf-file-name="Editor.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/editor/Editor.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="678">
-              <caret line="105" column="44" lean-forward="true" selection-start-line="105" selection-start-column="44" selection-end-line="105" selection-end-column="44" />
+            <state relative-caret-position="740">
+              <caret line="147" column="83" lean-forward="true" selection-start-line="147" selection-start-column="83" selection-end-line="147" selection-end-column="83" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -238,7 +189,6 @@
         <option value="$PROJECT_DIR$/src/reducers/helpers.js" />
         <option value="$PROJECT_DIR$/src/containers/InfoContainer.js" />
         <option value="$PROJECT_DIR$/src/actions/index.js" />
-        <option value="$PROJECT_DIR$/src/reducers/build.js" />
         <option value="$PROJECT_DIR$/src/containers/HeaderContainer.js" />
         <option value="$PROJECT_DIR$/src/components/header/Header.jsx" />
         <option value="$PROJECT_DIR$/src/build/helpers/path-to-array.js" />
@@ -246,6 +196,7 @@
         <option value="$PROJECT_DIR$/src/build/parser/yaml.js" />
         <option value="$PROJECT_DIR$/src/build/helpers/validate-yaml-string.js" />
         <option value="$PROJECT_DIR$/src/build/helpers/extract-instance-map.js" />
+        <option value="$PROJECT_DIR$/src/reducers/build.js" />
         <option value="$PROJECT_DIR$/src/components/editor/Editor.jsx" />
       </list>
     </option>
@@ -699,14 +650,7 @@
       <workItem from="1495193161416" duration="9410000" />
       <workItem from="1495271749441" duration="17873000" />
       <workItem from="1495375345758" duration="28202000" />
-      <workItem from="1496742432271" duration="11849000" />
-    </task>
-    <task id="LOCAL-00022" summary="minor code styling">
-      <created>1493816788704</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1493816788704</updated>
+      <workItem from="1496742432271" duration="12276000" />
     </task>
     <task id="LOCAL-00023" summary="code style and more distinctive color map">
       <created>1493818712960</created>
@@ -1044,11 +988,18 @@
       <option name="project" value="LOCAL" />
       <updated>1496752159232</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="fixed state management">
+      <created>1496756805927</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1496756805927</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="252887000" />
+    <option name="totallyTimeSpent" value="253314000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1125,7 +1076,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="not pretty mutual widget" />
     <MESSAGE value="Mutual references" />
     <MESSAGE value="Clickable Mutual information" />
     <MESSAGE value="highlighted chord" />
@@ -1150,7 +1100,8 @@
     <MESSAGE value="Error handling for instanceMap/Matrix added. Workflow needs to be reviewed." />
     <MESSAGE value="new styles for pullrequestform" />
     <MESSAGE value="logic moved from reducers to functions" />
-    <option name="LAST_COMMIT_MESSAGE" value="logic moved from reducers to functions" />
+    <MESSAGE value="fixed state management" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed state management" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1471,24 +1422,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/build/parser/yaml.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="12" column="7" lean-forward="false" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/build/helpers/extract-instance-map.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#98#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/build/helpers/path-to-array.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
@@ -1515,10 +1448,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/build/helpers/extract-instance-map.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#98#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/build/parser/yaml.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="12" column="7" lean-forward="false" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/reducers/build.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="696">
-          <caret line="30" column="26" lean-forward="false" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
+        <state relative-caret-position="348">
+          <caret line="12" column="35" lean-forward="false" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
           <folding>
             <element signature="e#0#75#0" expanded="true" />
           </folding>
@@ -1527,8 +1478,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/editor/Editor.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="678">
-          <caret line="105" column="44" lean-forward="true" selection-start-line="105" selection-start-column="44" selection-end-line="105" selection-end-column="44" />
+        <state relative-caret-position="740">
+          <caret line="147" column="83" lean-forward="true" selection-start-line="147" selection-start-column="83" selection-end-line="147" selection-end-column="83" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>

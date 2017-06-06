@@ -1,25 +1,19 @@
 import { validateYamlString } from "../build/helpers/validate-yaml-string";
-import {extractInstanceMap} from "../build/helpers/extract-instance-map";
+import { extractInstanceMap } from "../build/helpers/extract-instance-map";
 
-const getDefaultState = () => {
-  return {
-    yamlString: "",
-    instanceMatrix: null,
-    instanceMap: null,
-    chosenInstances: [],
-    hoveredInstances: [],
-    errors: []
-  };
+const defaultState = {
+  yamlString: "",
+  instanceMatrix: null,
+  instanceMap: null,
+  chosenInstances: [],
+  hoveredInstances: [],
+  errors: []
 };
 
-const build = (state = null, action) => {
-  if (state === null) {
-    return getDefaultState();
-  }
-
+const build = (state = defaultState, action) => {
   switch (action.type) {
     case "RESET_TO_DEFAULT":
-      return getDefaultState();
+      return defaultState;
     case "SET_VALUE":
       return {
         ...state,

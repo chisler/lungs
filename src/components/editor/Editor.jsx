@@ -34,18 +34,18 @@ class Editor extends Component {
     editor: null
   };
 
-  rebuild () {
+  rebuild() {
     const { onChange, getMatrix } = this.props;
 
     onChange();
     getMatrix();
   }
 
-  onChange (value)  {
+  onChange(value) {
     this.props.setValue(value);
-  };
+  }
 
-  onLoad (editor) {
+  onLoad(editor) {
     this.setState({ editor });
 
     //Editor is not serializable
@@ -75,7 +75,7 @@ class Editor extends Component {
     editorPluginsHook(editor, null, null || ["autosuggestApis"]);
 
     this.updateErrorAnnotations(this.props, editor);
-  };
+  }
 
   updateErrorAnnotations = (nextProps, editor) => {
     if (!editor) {
@@ -155,7 +155,12 @@ class Editor extends Component {
 
   componentDidMount() {
     this.updateErrorAnnotations(this.props);
-    this.props.fetchYaml();
+
+    const { yamlString, fetchYaml } = this.props;
+
+    if (!yamlString) {
+      fetchYaml();
+    }
   }
 }
 
