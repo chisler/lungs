@@ -3,7 +3,7 @@ import { validateReferences } from "../validators/semantic/references";
 import { parseYAML } from "../parser/yaml";
 import { validateSchema } from "../validators/structure/validator";
 
-export const validateYamlString = (yamlString ) => {
+const validateYamlString = (yamlString ) => {
   let parsedYaml = parseYAML(yamlString);
   if (parsedYaml.error) {
     return {
@@ -24,3 +24,5 @@ export const validateYamlString = (yamlString ) => {
     errors: [...v.errors, ...validatedSchema.errors]
   };
 };
+
+export default validateYamlString;

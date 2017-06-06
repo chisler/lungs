@@ -82,7 +82,12 @@ export function getAllByBase(docModel, isBaseNeeded) {
 }
 
 export function getAllReferences(docModel) {
-  return getAllByBase(docModel, isBaseReference);
+  //Filter out array nodes because
+  //children will be found anyway
+
+  return getAllByBase(docModel, isBaseReference).filter(
+    ({ nodeValue }) => !Array.isArray(nodeValue)
+  );
 }
 
 export function isBaseReference(base) {
@@ -111,8 +116,9 @@ export function getReferencesFromNodes(
   referenceNodes,
   linkedBase
 ) {
-  let references = referenceNodes
-    .map(({ path, nodeValue }) => {
+  let references = [];
+  referenceNodes
+    .forEach(({ path, nodeValue }) => {
       const fullPathArray = pathToArray(path);
 
       const value = pathToArray(
@@ -123,19 +129,16 @@ export function getReferencesFromNodes(
       );
 
       if (value.length > 0 && referral.length > 0) {
-        return {
+        references.push({
           referral,
           referenceKey: fullPathArray.slice(-1),
           value,
           line: getLineForPath(editorValue, fullPathArray)
-        };
+        });
       }
+    });
 
-      return null;
-    })
-    .filter(Boolean);
-
-  return references;
+  return references.filter(Boolean);
 }
 
 //gets pathString e.g. kotlin.features.f1.inspired_by and gets the pathString of Base===base

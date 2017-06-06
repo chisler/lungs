@@ -1,5 +1,5 @@
-import { validateYamlString } from "../build/helpers/validate-yaml-string";
-import { extractInstanceMap } from "../build/helpers/extract-instance-map";
+import validateYamlString from "../build/helpers/validate-yaml-string";
+import extractInstanceMap from "../build/helpers/extract-instance-map";
 
 const defaultState = {
   yamlString: "",

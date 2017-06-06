@@ -5,18 +5,14 @@ import schema from "../structure/schema";
 
 export function validateReferences(docModel, editorValue, references) {
   let errors = [];
-  let error;
 
-  references.forEach(reference => {
-    error = validateReference(docModel, editorValue, reference);
-    if (error) {
-      errors.push(error);
-    }
-  });
+  errors = references
+    .map(reference => {
+      return validateReference(docModel, editorValue, reference);
+    }).filter(Boolean);
 
   return {
-    references: references,
-    errors: errors
+    errors
   };
 }
 

@@ -113,7 +113,6 @@ class Editor extends Component {
       !isEqual(this.props[property], nextProps[property]);
 
     const y = hasChanged("yamlString"), e = hasChanged("errors");
-
     return y || e;
   }
 

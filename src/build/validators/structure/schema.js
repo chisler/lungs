@@ -9,9 +9,9 @@ export default {
       type: "object",
       properties: {
         name: { type: "string" },
-        creator: {"type": "string"},
-        description: {"type": "string"},
-        people: {"type": "array", "items": {"type": "string"}},
+        creator: { type: "string" },
+        description: { type: "string" },
+        people: { type: "array", items: { type: "string" } },
         features: { $ref: "/#/definitions/features" }
         // "ancestor": {"$ref": "/#/definitions/references/languageReference"},
       },
@@ -31,8 +31,8 @@ export default {
       type: "object",
       description: "Feature on one programming language",
       properties: {
-        "description": {"type": "string"},
-        "invented": {"type": "boolean"},
+        description: { type: "string" },
+        invented: { type: "boolean" },
         inspired_by: {
           $ref: "/#/definitions/references/anyReference"
         },
@@ -47,6 +47,18 @@ export default {
     },
     references: {
       anyReference: {
+        anyOf: [
+          { $ref: "/#/definitions/references/singleAnyReference" },
+          { $ref: "/#/definitions/references/arrayAnyReference" }
+        ],
+        validDestinations: ["/#/definitions/feature", "/#/definitions/language"]
+      },
+      arrayAnyReference: {
+        type: "array",
+        items: { $ref: "/#/definitions/references/singleAnyReference" },
+        validDestinations: ["/#/definitions/feature", "/#/definitions/language"]
+      },
+      singleAnyReference: {
         anyOf: [
           { $ref: "/#/definitions/references/languageReference" },
           { $ref: "/#/definitions/references/featureReference" }
