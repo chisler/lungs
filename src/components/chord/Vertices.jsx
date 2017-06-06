@@ -35,8 +35,8 @@ class Vertices extends Component {
     return (
       <g>
         {displayData.groups.map((group, i) => {
-          const isRotationNeeded = group.endAngle > Math.PI;
           const angle = (group.startAngle + group.endAngle) / 2;
+          const isRotationNeeded = angle > Math.PI;
 
           return (
             <g key={i}>
@@ -63,6 +63,7 @@ class Vertices extends Component {
                 }
                 dy=".35em"
                 textAnchor={isRotationNeeded ? "end" : ""}
+                fontSize="12px"
               >
                 {instancePathByIndex(i)}
               </text>
