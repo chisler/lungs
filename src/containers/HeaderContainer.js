@@ -3,11 +3,14 @@ import { connect } from "react-redux";
 import {
   setDisplayMode,
   setEditorMode,
+  setPopupIsShown,
+
   resetToDefault,
-  setPopupIsShown
+  fetchYamlSync
 } from "../actions";
 
 import { Header } from "../components";
+import {} from "../actions/index";
 
 const mapStateToProps = state => {
   return {
@@ -18,6 +21,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     reset: () => dispatch(resetToDefault()),
+    fetchYaml: () => dispatch(fetchYamlSync()),
     onClickSendPR: () => dispatch(setPopupIsShown(true)),
     setDisplayMode: () => dispatch(setDisplayMode()),
     setEditorMode: () => dispatch(setEditorMode())

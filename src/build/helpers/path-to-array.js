@@ -10,8 +10,9 @@ export function pathToArray(pathString) {
     return [];
   } 
 
-  if (pathString.slice(0, 9) === "instance.") {
-    str = pathString.slice(9).trim();
+  if (pathString.slice(0, 8) === "instance") {
+    str = pathString.slice(8).trim();
+    str = str.startsWith('.') ? str.slice(1) : str
   } else {
     str = pathString.trim();
   }

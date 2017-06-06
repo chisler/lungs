@@ -14,7 +14,7 @@ export const extractInstanceMap = (yamlString, linkedBase, errors) => {
   //5. each(links, link => {return ...{referral: instance.name, referenced: instance.name} })
   //6. links => Fill linkedMatrix
 
-  if (errors) {
+  if (errors.length) {
     return {}
   }
 

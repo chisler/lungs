@@ -14,6 +14,8 @@ import "brace/theme/tomorrow_night_eighties";
 import "brace/ext/language_tools";
 import "brace/ext/searchbox";
 
+import isEqual from "lodash/isEqual";
+
 import "./editor.css";
 
 class Editor extends Component {
@@ -28,26 +30,22 @@ class Editor extends Component {
     lineToGoTo: PropTypes.number
   };
 
-  constructor(props, context) {
-    super(props, context);
-
-    this.state = {
-      editor: null,
-      value: null
-    };
-  }
-
-  onChange = value => {
-    this.setState({ value });
-
-    const { setValue, onChange, getMatrix } = this.props;
-    setValue(value);
-    onChange();
-    getMatrix();
+  state = {
+    editor: null
   };
 
-  onLoad = editor => {
-    const { setValue, getMatrix } = this.props;
+  rebuild () {
+    const { onChange, getMatrix } = this.props;
+
+    onChange();
+    getMatrix();
+  }
+
+  onChange (value)  {
+    this.props.setValue(value);
+  };
+
+  onLoad (editor) {
     this.setState({ editor });
 
     //Editor is not serializable
@@ -57,10 +55,8 @@ class Editor extends Component {
     let session = editor.getSession();
     const value = editor.getValue();
 
-    setValue(value);
-
-    //Get initial matrix for building visualization
-    getMatrix();
+    this.props.setValue(value);
+    this.rebuild();
 
     //Disable automatic error-marker correction by ace
     session.off("change", editor.renderer.$gutterLayer.$updateAnnotations);
@@ -105,7 +101,7 @@ class Editor extends Component {
     const { onScroll } = this.props;
 
     this.updateErrorAnnotations(nextProps);
-    //TODO: handle repetitive going to one line
+
     if (editor && nextProps.lineToGoTo) {
       editor.gotoLine(nextProps.lineToGoTo);
       onScroll();
@@ -113,14 +109,17 @@ class Editor extends Component {
   }
 
   shouldComponentUpdate(nextProps) {
-    const hasChanged = property => this.props[property] !== nextProps[property];
+    const hasChanged = property =>
+      !isEqual(this.props[property], nextProps[property]);
 
-    return hasChanged("yamlString") || hasChanged("errors");
+    const y = hasChanged("yamlString"), e = hasChanged("errors");
+
+    return y || e;
   }
 
   componentWillUpdate(nextProps) {
     //Get initial matrix for building visualization
-    this.props.getMatrix();
+    this.rebuild(nextProps.yamlString);
   }
 
   render() {
@@ -133,8 +132,8 @@ class Editor extends Component {
         value={yamlString}
         mode="yaml"
         theme="tomorrow_night_eighties"
-        onLoad={this.onLoad}
-        onChange={this.onChange}
+        onLoad={this.onLoad.bind(this)}
+        onChange={this.onChange.bind(this)}
         name="ace-editor"
         tabSize={2}
         fontSize={14}
@@ -156,7 +155,7 @@ class Editor extends Component {
 
   componentDidMount() {
     this.updateErrorAnnotations(this.props);
-    this.props.fetchYaml()
+    this.props.fetchYaml();
   }
 }
 

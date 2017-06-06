@@ -23,7 +23,20 @@ const Links = props => {
 };
 
 const Header = props => {
-  const { mode, reset, onClickSendPR, setDisplayMode, setEditorMode } = props;
+  const {
+    mode,
+    onClickSendPR,
+    setDisplayMode,
+    setEditorMode,
+
+    reset,
+    fetchYaml
+  } = props;
+
+  const resetAndFetch = () => {
+    reset();
+    fetchYaml();
+  };
 
   const displayLinks = {
     links: [
@@ -37,10 +50,10 @@ const Header = props => {
     )
   };
 
-  const editorLinks =  {
+  const editorLinks = {
     links: [
       <a href="https://github.com/chisler/lungs">GitHub</a>,
-      <a href="#" onClick={reset}>Reset</a>,
+      <a href="#" onClick={resetAndFetch}>Reset</a>,
       <a href="#" onClick={onClickSendPR}>
         Create Pull Request
       </a>
