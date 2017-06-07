@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df2bc385-f543-4b06-8348-6371d6e0fd06" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/build/validators/structure/validator.test.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/build/editor-plugins/completers/keywords.js" afterPath="$PROJECT_DIR$/src/build/editor-plugins/completers/keywords.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/build/editor-plugins/completers/references.js" afterPath="$PROJECT_DIR$/src/build/editor-plugins/completers/references.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/build/helpers/extract-instance-map.js" afterPath="$PROJECT_DIR$/src/build/helpers/extract-instance-map.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/build/helpers/get-info-instances.js" afterPath="$PROJECT_DIR$/src/build/helpers/get-info-instances.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/build/helpers/validate-yaml-string.js" afterPath="$PROJECT_DIR$/src/build/helpers/validate-yaml-string.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/build/parser/yaml.js" afterPath="$PROJECT_DIR$/src/build/parser/yaml.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/build/validators/structure/validator.js" afterPath="$PROJECT_DIR$/src/build/validators/structure/validator.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -28,14 +23,34 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="validator.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="validator.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/build/validators/structure/validator.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
-              <caret line="22" column="34" lean-forward="true" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
+            <state relative-caret-position="991">
+              <caret line="37" column="6" lean-forward="false" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="validator.test.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/build/validators/structure/validator.test.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="899">
+              <caret line="31" column="35" lean-forward="true" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -63,8 +78,8 @@
       <file leaf-file-name="extract-instance-map.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/build/helpers/extract-instance-map.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="5" column="16" lean-forward="false" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+            <state relative-caret-position="174">
+              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="63" />
               <folding />
             </state>
           </provider>
@@ -181,8 +196,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/components/info-widget/InstanceInfo.jsx" />
-        <option value="$PROJECT_DIR$/src/components/error.css" />
         <option value="$PROJECT_DIR$/src/components/Error.js" />
         <option value="$PROJECT_DIR$/src/components/Errors.js" />
         <option value="$PROJECT_DIR$/src/index.css" />
@@ -232,6 +245,8 @@
         <option value="$PROJECT_DIR$/src/build/helpers/validate-yaml-string.js" />
         <option value="$PROJECT_DIR$/src/build/helpers/extract-instance-map.js" />
         <option value="$PROJECT_DIR$/src/build/validators/structure/validator.js" />
+        <option value="$PROJECT_DIR$/src/build/validators/structure/validator.test.js" />
+        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
@@ -471,10 +486,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.deploy">
-    <configuration default="false" name="build.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="build.js" working-dir="$PROJECT_DIR$/src/reducers">
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Node.js.validator.test.js">
     <configuration default="false" name="index.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="index.js" working-dir="$PROJECT_DIR$/src">
       <method />
     </configuration>
@@ -485,6 +497,9 @@
       <method />
     </configuration>
     <configuration default="false" name="InstanceInfo.jsx" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="$PROJECT_DIR$/src/components/info/InstanceInfo.jsx" working-dir="$PROJECT_DIR$/src/components/info">
+      <method />
+    </configuration>
+    <configuration default="false" name="validator.test.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="validator.test.js" working-dir="$PROJECT_DIR$/src/build/validators/structure">
       <method />
     </configuration>
     <configuration default="true" type="ApexTest" factoryName="Apex Test">
@@ -569,19 +584,19 @@
     <list size="7">
       <item index="0" class="java.lang.String" itemvalue="npm.Start" />
       <item index="1" class="java.lang.String" itemvalue="npm.deploy" />
-      <item index="2" class="java.lang.String" itemvalue="Node.js.build.js" />
-      <item index="3" class="java.lang.String" itemvalue="Node.js.index.js" />
-      <item index="4" class="java.lang.String" itemvalue="Node.js.Errors.js" />
-      <item index="5" class="java.lang.String" itemvalue="Node.js.Info.jsx" />
-      <item index="6" class="java.lang.String" itemvalue="Node.js.InstanceInfo.jsx" />
+      <item index="2" class="java.lang.String" itemvalue="Node.js.index.js" />
+      <item index="3" class="java.lang.String" itemvalue="Node.js.Errors.js" />
+      <item index="4" class="java.lang.String" itemvalue="Node.js.Info.jsx" />
+      <item index="5" class="java.lang.String" itemvalue="Node.js.InstanceInfo.jsx" />
+      <item index="6" class="java.lang.String" itemvalue="Node.js.validator.test.js" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Node.js.InstanceInfo.jsx" />
-        <item index="1" class="java.lang.String" itemvalue="Node.js.Info.jsx" />
-        <item index="2" class="java.lang.String" itemvalue="Node.js.Errors.js" />
-        <item index="3" class="java.lang.String" itemvalue="Node.js.index.js" />
-        <item index="4" class="java.lang.String" itemvalue="Node.js.build.js" />
+        <item index="0" class="java.lang.String" itemvalue="Node.js.validator.test.js" />
+        <item index="1" class="java.lang.String" itemvalue="Node.js.InstanceInfo.jsx" />
+        <item index="2" class="java.lang.String" itemvalue="Node.js.Info.jsx" />
+        <item index="3" class="java.lang.String" itemvalue="Node.js.Errors.js" />
+        <item index="4" class="java.lang.String" itemvalue="Node.js.index.js" />
       </list>
     </recent_temporary>
   </component>
@@ -616,14 +631,7 @@
       <workItem from="1495193161416" duration="9410000" />
       <workItem from="1495271749441" duration="17873000" />
       <workItem from="1495375345758" duration="28202000" />
-      <workItem from="1496742432271" duration="16580000" />
-    </task>
-    <task id="LOCAL-00026" summary="one language info displayed correctly">
-      <created>1493835117754</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1493835117754</updated>
+      <workItem from="1496742432271" duration="18086000" />
     </task>
     <task id="LOCAL-00027" summary="refactoring for one/two chosen languages">
       <created>1493838461533</created>
@@ -961,11 +969,18 @@
       <option name="project" value="LOCAL" />
       <updated>1496827849164</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="validation module refactored">
+      <created>1496828401131</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1496828401131</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="257618000" />
+    <option name="totallyTimeSpent" value="259124000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -978,17 +993,17 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="138" y="51" width="3702" height="2109" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299337" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug Logs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3211196" sideWeight="0.50216097" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3517018" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27049607" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27049607" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3211488" sideWeight="0.497839" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15782276" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3211488" sideWeight="0.497839" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15782276" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3273906" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -1042,7 +1057,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="new style needed" />
     <MESSAGE value="errors invoke resizing of editor" />
     <MESSAGE value="error container" />
     <MESSAGE value="errors keys fix + path-to-array error handling" />
@@ -1067,7 +1081,8 @@
     <MESSAGE value="fix fetchYaml for local storage" />
     <MESSAGE value="splitting build reducer" />
     <MESSAGE value="get rid of old formats" />
-    <option name="LAST_COMMIT_MESSAGE" value="get rid of old formats" />
+    <MESSAGE value="validation module refactored" />
+    <option name="LAST_COMMIT_MESSAGE" value="validation module refactored" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1082,17 +1097,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/components/chord/Vertices.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-823">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/errors/Errors.js" />
     <entry file="file://$PROJECT_DIR$/src/containers/SortedErrors.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -1367,7 +1371,7 @@
         <state relative-caret-position="464">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
-            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#0#40#0" expanded="false" />
             <marker date="1496827012007" expanded="true" signature="241:298" ph="{&quot;build&quot;: build...}" />
           </folding>
         </state>
@@ -1386,7 +1390,7 @@
         <state relative-caret-position="-87">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#66#0" expanded="true" />
+            <element signature="e#0#66#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1450,6 +1454,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/build/helpers/extract-instance-map.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/build/parser/yaml.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
@@ -1466,21 +1478,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/build/helpers/extract-instance-map.js">
+    <entry file="file://$PROJECT_DIR$/src/build/validators/structure/validator.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="5" column="16" lean-forward="false" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+        <state relative-caret-position="991">
+          <caret line="37" column="6" lean-forward="false" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="899">
+          <caret line="31" column="35" lean-forward="true" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/build/validators/structure/validator.js">
+    <entry file="file://$PROJECT_DIR$/src/build/validators/structure/validator.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="22" column="34" lean-forward="true" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
