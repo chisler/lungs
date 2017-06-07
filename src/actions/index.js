@@ -1,5 +1,3 @@
-import fetch from "isomorphic-fetch";
-
 import { EDITOR_MODE, DISPLAY_MODE } from "../reducers/constants";
 import { fetchYaml } from "../build/helpers/fetch-yaml-sync";
 

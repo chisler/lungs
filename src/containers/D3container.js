@@ -8,9 +8,8 @@ const mapStateToProps = state => {
     instanceMatrix: state.build.instanceMatrix,
     instanceMap: state.build.instanceMap,
 
-    chosenInstances: state.build.chosenInstances,
-
-    hoveredInstances: state.build.hoveredInstances
+    chosenInstances: state.interaction.chosenInstances,
+    hoveredInstances: state.interaction.hoveredInstances
   };
 };
 

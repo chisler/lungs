@@ -6,6 +6,16 @@ import {
 import { parseYAML } from "../parser/yaml";
 import { validateSchema } from "../validators/structure/validator";
 
+const getZeroMatrix = dimensions => {
+  let array = [];
+  for (let i = 0; i < dimensions[0]; ++i) {
+    array.push(
+      dimensions.length === 1 ? 0 : getZeroMatrix(dimensions.slice(1))
+    );
+  }
+  return array;
+};
+
 const getInstanceMatrix = (instanceMap, references) => {
   const numberOfInstances = Object.keys(instanceMap).length;
   let instanceMatrix = getZeroMatrix([numberOfInstances, numberOfInstances]);
@@ -76,16 +86,6 @@ const extractInstanceMap = (yamlString, linkedBase, errors) => {
     instanceMatrix,
     instanceMap
   };
-};
-
-const getZeroMatrix = dimensions => {
-  let array = [];
-  for (let i = 0; i < dimensions[0]; ++i) {
-    array.push(
-      dimensions.length === 1 ? 0 : getZeroMatrix(dimensions.slice(1))
-    );
-  }
-  return array;
 };
 
 export default extractInstanceMap;

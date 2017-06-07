@@ -36,8 +36,8 @@ const InfoContainer = props => {
 const mapStateToProps = state => {
   return {
     yamlString: state.build.yamlString,
-    chosenInstances: state.build.chosenInstances,
-    hoveredInstances: state.build.hoveredInstances
+    chosenInstances: state.interaction.chosenInstances,
+    hoveredInstances: state.interaction.hoveredInstances
   };
 };
 

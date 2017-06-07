@@ -3,7 +3,9 @@ import { validateReferences } from "../validators/semantic/references";
 import { parseYAML } from "../parser/yaml";
 import { validateSchema } from "../validators/structure/validator";
 
-const validateYamlString = (yamlString ) => {
+import memoize from "lodash/memoize";
+
+const validateYamlString = yamlString => {
   let parsedYaml = parseYAML(yamlString);
   if (parsedYaml.error) {
     return {
@@ -25,4 +27,6 @@ const validateYamlString = (yamlString ) => {
   };
 };
 
-export default validateYamlString;
+let cachedValidateYamlString = memoize(validateYamlString);
+
+export default cachedValidateYamlString;

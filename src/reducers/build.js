@@ -5,8 +5,6 @@ const defaultState = {
   yamlString: "",
   instanceMatrix: null,
   instanceMap: null,
-  chosenInstances: [],
-  hoveredInstances: [],
   errors: []
 };
 
@@ -30,21 +28,6 @@ const build = (state = defaultState, action) => {
       return {
         ...state,
         ...extractInstanceMap(state.yamlString, linkedBase, state.errors)
-      };
-
-    case "CHOOSE_INSTANCES":
-      const chosenInstances = action.chosenInstances.filter(Boolean);
-
-      return {
-        ...state,
-        chosenInstances
-      };
-    case "HOVER_INSTANCES":
-      const hoveredInstances = action.hoveredInstances.filter(Boolean);
-
-      return {
-        ...state,
-        hoveredInstances
       };
     default:
       return state;
