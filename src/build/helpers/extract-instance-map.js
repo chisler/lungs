@@ -3,8 +3,8 @@ import {
   getInstanceMap,
   getReferencesFromNodes
 } from "../ast/doc-model";
-import { parseYAML } from "../parser/yaml";
-import { validateSchema } from "../validators/structure/validator";
+import parseYAML from "../parser/yaml";
+import validateSchema from "../validators/structure/validator";
 
 const getZeroMatrix = dimensions => {
   let array = [];

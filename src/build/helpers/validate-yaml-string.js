@@ -1,7 +1,7 @@
 import { getAllReferences } from "../ast/doc-model";
 import { validateReferences } from "../validators/semantic/references";
-import { parseYAML } from "../parser/yaml";
-import { validateSchema } from "../validators/structure/validator";
+import parseYAML from "../parser/yaml";
+import validateSchema from "../validators/structure/validator";
 
 import memoize from "lodash/memoize";
 

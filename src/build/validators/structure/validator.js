@@ -1,12 +1,12 @@
 import { Validator } from "jsonschema";
 import { getLineForPath } from "../../ast/ast";
 import { pathToArray } from "../../helpers/path-to-array";
-import schema from "./schema";
+import projectSchema from "./schema";
 
 let schemaValidator = new Validator();
 
-export function validateSchema(jsonObj, yamlString) {
-  function rewrite(instance, schema, options, ctx) {
+const validateCustomSchema = (jsonObj, yamlString, schema) => {
+  const rewrite = (instance, schema, options, ctx) => {
     if (!instance) {
       return instance;
     }
@@ -14,7 +14,7 @@ export function validateSchema(jsonObj, yamlString) {
       value: instance,
       base: ctx.base
     };
-  }
+  };
 
   let options = { rewrite: rewrite };
 
@@ -30,4 +30,11 @@ export function validateSchema(jsonObj, yamlString) {
       };
     })
   };
-}
+};
+
+const validateClosure = schema => (jsonObj, yamlString) =>
+  validateCustomSchema(jsonObj, yamlString, schema);
+
+const validateProjectSchema = validateClosure(projectSchema);
+
+export default validateProjectSchema;

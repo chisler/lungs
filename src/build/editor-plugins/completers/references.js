@@ -1,7 +1,7 @@
-import { validateSchema } from "../../validators/structure/validator";
+import validateSchema from "../../validators/structure/validator";
 import { pathToArray } from "../../helpers/path-to-array";
 import { getDmNodeByPath, isBaseReference } from "../../ast/doc-model";
-import { parseYAML } from "../../parser/yaml";
+import parseYAML from "../../parser/yaml";
 import { getAstNodeForPath, getPathForPosition } from "../../ast/ast";
 
 export function getReferenceCompletions(docModel, referenceString) {

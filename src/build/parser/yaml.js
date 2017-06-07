@@ -4,7 +4,7 @@ import YAML from "js-yaml";
 //TODO: tolerating errors
 
 //Returns jsonObj and errors
-export function parseYAML(yamlString) {
+export default function parseYAML(yamlString) {
   let res = {
     jsonObj: null,
     error: null
