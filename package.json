@@ -5,13 +5,16 @@
   "dependencies": {
     "d3": "^4.8.0",
     "github-api": "^3.0.0",
-    "prop-types": "latest",
+    "isomorphic-fetch": "^2.2.1",
+    "js-yaml": "^3.8.3",
+    "jsonschema": "^1.1.1",
+    "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-overlays": "^0.7.0",
     "react-redux": "^5.0.4",
     "redux": "^3.6.0",
-    "isomorphic-fetch": "latest"
+    "yaml-js":"https://github.com/chisler/yaml-js.git"
   },
   "devDependencies": {
     "brace": "^0.10.0",
@@ -26,7 +29,7 @@
     "react-ace": "^4.2.1",
     "react-scripts": "1.0.7",
     "style-loader": "^0.16.1",
-    "yaml-js": "^0.1.4"
+    "yaml-js":"https://github.com/chisler/yaml-js.git"
   },
   "scripts": {
     "start": "react-scripts start",
