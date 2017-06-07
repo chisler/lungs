@@ -1,7 +1,8 @@
 import ace from "brace";
-const { Range } = ace.acequire("ace/range");
 import { getReferenceDestinationForPosition } from "../completers/references";
 import { isMac } from "../../helpers/useragent";
+
+const { Range } = ace.acequire("ace/range");
 
 let currentMarker;
 

@@ -1,11 +1,11 @@
 import { getAllReferences } from "../ast/doc-model";
 import { validateReferences } from "../validators/semantic/references";
 import parseYAML from "../parser/yaml";
-import validateSchema from "../validators/structure/validator";
+import validateProjectSchema from "../validators/structure/validator";
 
 import memoize from "lodash/memoize";
 
-const validateYamlString = yamlString => {
+export const validateYamlString = (yamlString, validateSchema) => {
   let parsedYaml = parseYAML(yamlString);
   if (parsedYaml.error) {
     return {
@@ -27,6 +27,8 @@ const validateYamlString = yamlString => {
   };
 };
 
-let cachedValidateYamlString = memoize(validateYamlString);
+let cachedValidateYamlString = memoize(yamlString =>
+  validateYamlString(yamlString, validateProjectSchema)
+);
 
 export default cachedValidateYamlString;

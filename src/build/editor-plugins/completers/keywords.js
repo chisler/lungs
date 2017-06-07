@@ -1,4 +1,4 @@
-import { recoverEditorValue } from "../../helpers/recover-editor-value";
+import recoverEditorValue from "../../helpers/recover-editor-value";
 import parseYAML from "../../parser/yaml";
 import { getPathForPosition } from "../../ast/ast";
 import validateSchema from "../../validators/structure/validator";

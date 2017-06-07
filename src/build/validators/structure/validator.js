@@ -5,7 +5,7 @@ import projectSchema from "./schema";
 
 let schemaValidator = new Validator();
 
-export function validateCustomSchema (jsonObj, yamlString, schema) {
+const validateCustomSchema = (jsonObj, yamlString, schema) => {
   const rewrite = (instance, schema, options, ctx) => {
     if (!instance) {
       return instance;
@@ -32,9 +32,9 @@ export function validateCustomSchema (jsonObj, yamlString, schema) {
   };
 };
 
-const validateClosure = schema => (jsonObj, yamlString) =>
+export const validateCustomSchemaClosure = schema => (jsonObj, yamlString) =>
   validateCustomSchema(jsonObj, yamlString, schema);
 
-const validateProjectSchema = validateClosure(projectSchema);
+const validateProjectSchema = validateCustomSchemaClosure(projectSchema);
 
 export default validateProjectSchema;

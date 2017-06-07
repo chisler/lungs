@@ -1,4 +1,4 @@
-import validateProjectSchema, { validateCustomSchema } from "./validator";
+import { validateCustomSchemaClosure } from "./validator";
 import parseYaml from "../../parser/yaml";
 
 const testSchema = {
@@ -18,6 +18,14 @@ const testSchema = {
     }
   }
 };
+
+const validateTestSchema = validateCustomSchemaClosure(testSchema);
+
+/*
+*
+* Tests for structural validation
+*
+*/
 
 // No errors
 
@@ -45,7 +53,7 @@ const expectedObj1 = {
 };
 
 test("Checks no errors case", () => {
-  expect(validateCustomSchema(testJsonObj1, testYaml1, testSchema)).toEqual(
+  expect(validateTestSchema(testJsonObj1, testYaml1)).toEqual(
     expectedObj1
   );
 });
@@ -60,7 +68,7 @@ const testJsonObj2 = parseYaml(testYaml2).jsonObj;
 
 test("Validates required fields existance", () => {
   expect(
-    validateCustomSchema(testJsonObj2, testYaml2, testSchema).errors
+    validateTestSchema(testJsonObj2, testYaml2).errors
   ).toEqual([
     { line: 1, message: 'kotlin requires property "name"', scope: "schema" }
   ]);
@@ -77,7 +85,7 @@ const testJsonObj3 = parseYaml(testYaml3).jsonObj;
 
 test("Validates field type", () => {
   expect(
-    validateCustomSchema(testJsonObj3, testYaml3, testSchema).errors
+    validateTestSchema(testJsonObj3, testYaml3).errors
   ).toEqual([
     {
       line: 3,

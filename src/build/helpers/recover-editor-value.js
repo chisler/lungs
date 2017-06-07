@@ -1,4 +1,4 @@
-export function recoverEditorValue(originalPos, prefix, editorValue) {
+export default function recoverEditorValue(originalPos, prefix, editorValue) {
   let pos = Object.assign({}, originalPos);
   let lines = editorValue.split("\n");
   let previousLine = lines[pos.row - 1] || "";
