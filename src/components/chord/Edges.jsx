@@ -50,7 +50,7 @@ class Edges extends Component {
               <path
                 d={getRibbon(edge)}
                 fill={getFill(edge)}
-                strokeWidth="2"
+                strokeWidth="1"
                 stroke={getStroke(edge, chosenInstancesIndices)}
                 onMouseOver={() => onMouseOver(edge)}
                 onMouseOut={() => onMouseOut(edge)}

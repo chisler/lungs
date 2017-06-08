@@ -59,6 +59,8 @@ class newChord extends Component {
   }
 
   render() {
+    // return null
+
     const {
       instanceMatrix,
       instanceMap,
@@ -68,11 +70,12 @@ class newChord extends Component {
     if (!instanceMap) {
       return <div />;
     }
-    const size = 500 - instanceMatrix.length * 10;
+
+    const size = 500;
 
     const width = size, height = size;
 
-    const outerRadius = Math.min(width, height) * 0.5 - 30;
+    const outerRadius = Math.min(width, height) * 0.5 - 40;
     const innerRadius = outerRadius - 20;
 
     const matrix = instanceMatrix;

@@ -6,10 +6,9 @@ export function getBaseForPath(docModel, pathArray) {
 
   for (let i = 0; i < pathArray.length; i++) {
     node = node.value[pathArray[i]];
-  }
-
-  if (!node) {
-    return "/";
+    if (!node){
+      return "/"
+    }
   }
 
   //default case for not scheme-valid nodes

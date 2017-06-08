@@ -12,8 +12,13 @@ export default {
         creator: { type: "string" },
         description: { type: "string" },
         people: { type: "array", items: { type: "string" } },
-        features: { $ref: "/#/definitions/features" }
-        // "ancestor": {"$ref": "/#/definitions/references/languageReference"},
+        features: { $ref: "/#/definitions/features" },
+        influenced_by: {
+          $ref: "/#/definitions/references/anyReference"
+        },
+        influenced: {
+          $ref: "/#/definitions/references/anyReference"
+        },
       },
       required: ["name"]
     },

@@ -63,7 +63,10 @@ class Vertices extends Component {
                 }
                 dy=".35em"
                 textAnchor={isRotationNeeded ? "end" : ""}
-                fontSize="12px"
+                fontSize="10px"
+                onMouseOver={() => onMouseOverVertex(i)}
+                onMouseOut={() => onMouseOutVertex(i)}
+                onClick={() => onClickVertex(i)}
               >
                 {instancePathByIndex(i)}
               </text>
