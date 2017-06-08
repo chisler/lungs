@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import { extractInstanceMap } from "../actions";
+import { extractInstanceMap, fetchYamlSync } from "../actions";
 import { App } from "../components";
 
 const mapStateToProps = state => {
@@ -11,7 +11,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    initialBuild: () => dispatch(extractInstanceMap())
+    initialBuild: () => {
+      dispatch(fetchYamlSync());
+      dispatch(extractInstanceMap());
+    }
   };
 };
 

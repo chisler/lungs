@@ -67,8 +67,9 @@ class newChord extends Component {
       hoveredInstances,
       chosenInstances
     } = this.props;
+
     if (!instanceMap) {
-      return <div />;
+      return null;
     }
 
     const size = 500;
@@ -78,14 +79,12 @@ class newChord extends Component {
     const outerRadius = Math.min(width, height) * 0.5 - 40;
     const innerRadius = outerRadius - 20;
 
-    const matrix = instanceMatrix;
-
     const chord = d3.chord().padAngle(0.05).sortSubgroups(d3.descending);
     const color = d3.scaleOrdinal(d3.schemeCategory20);
     const arc = d3.arc().innerRadius(innerRadius).outerRadius(outerRadius);
     const ribbon = d3.ribbon().radius(innerRadius);
 
-    const displayData = chord(matrix);
+    const displayData = chord(instanceMatrix);
     const chosen = this.instanceIndicesByPaths(
       chosenInstances.filter(Boolean).length
         ? chosenInstances
