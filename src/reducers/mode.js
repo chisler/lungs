@@ -1,6 +1,6 @@
-import { DISPLAY_MODE } from "./constants";
+import { EDITOR_MODE } from "./constants";
 
-const mode = (state = { mode: DISPLAY_MODE }, action) => {
+const mode = (state = { mode: EDITOR_MODE }, action) => {
   switch (action.type) {
     case "SET_MODE":
       return {
